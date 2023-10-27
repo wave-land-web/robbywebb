@@ -1,0 +1,28 @@
+<ul class="nav-items">
+  <li>
+    <a href="/discography">Discography</a>
+  </li>
+  <li>
+    <a href="/about">About</a>
+  </li>
+  <li>
+    <a href="/contact">Contact</a>
+  </li>
+</ul>
+
+<style>
+  .nav-items {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .nav-items {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      list-style-type: none;
+      gap: clamp(2rem, 5vw, 4rem);
+    }
+  }
+</style>

@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets'
+import logo from '../assets/logo.svg'
+
+const { pathname } = Astro.url
+---
+
+<a href="/">
+  <Image
+    class={pathname === '/' ? 'logo' : 'responsive-logo'}
+    src={logo}
+    alt="Robby Webb site logo"
+    loading="eager"
+  />
+</a>
+
+<style>
+  .logo {
+    width: 260px;
+  }
+
+  .responsive-logo {
+    width: clamp(200px, 20vw, 260px);
+  }
+</style>

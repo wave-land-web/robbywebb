@@ -1,0 +1,1000 @@
+[
+  {
+    "id": 0,
+    "artist": "SNACKTIME",
+    "record": "Sounds From The Street: Live",
+    "type": "LP",
+    "credits": "Engineer, Editing",
+    "label": "Independent",
+    "year": "2022",
+    "slug": "sounds-from-the-street",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/sounds-from-the-street-live/1623564256"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/7pV9eJkOmSHIeUp2531JCk?si=zwkXdnRNRdCHCquowK4ewA"
+      }
+    ],
+    "image": "/images/st_sounds-from-the-street.webp"
+  },
+  {
+    "id": 1,
+    "artist": "AJ Luca",
+    "record": "The Table",
+    "type": "LP",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2022",
+    "slug": "the-table",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/vu/album/the-table/1647102528"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/5wAfmAwXmruUXfu0B1oV1v?si=9dzqufSCSc2sH3kr3FjxXg"
+      }
+    ],
+    "image": "/images/al_the-table.webp"
+  },
+  {
+    "id": 2,
+    "artist": "Anson Jones",
+    "record": "A Way With Words",
+    "type": "EP",
+    "credits": "Engineer",
+    "label": "Ropeadope Records",
+    "year": "2022",
+    "slug": "a-way-with-words",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/a-way-with-words-ep/1650382596"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/2h3Y6msIG2ukGzPlshELLc?si=yEVLnl2-SomhPClUTVcABA"
+      }
+    ],
+    "image": "/images/aj_a-way-with-words.webp"
+  },
+  {
+    "id": 3,
+    "artist": "Taylor Kelly",
+    "record": "All I Need",
+    "type": "EP",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2022",
+    "slug": "all-i-need",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/all-i-need-ep/1609521357"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/0Ncwcr5awEBN7R9vdzZNOk?si=MnUqNWZoSVunh1HR8agH-g"
+      }
+    ],
+    "image": "/images/tk_all-i-need.webp"
+  },
+
+  {
+    "id": 4,
+    "artist": "Dylan Jane",
+    "record": "Year Of The Tiger",
+    "type": "single",
+    "credits": "Drums",
+    "label": "Independent",
+    "year": "2022",
+    "slug": "year-of-the-tiger",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/year-of-the-tiger-single/1611833732"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/track/2Qbhb9U0wNRbl3RSSkZhkS?si=eecb6a78633c47bb"
+      }
+    ],
+    "image": "/images/dj_year-of-the-tiger.webp"
+  },
+  {
+    "id": 5,
+    "artist": "Taylor Kelly",
+    "record": "Sabotage",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2021",
+    "slug": "sabotage",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/sabotage-feat-zeek-burse-single/1603080230"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/0LYjySMTbbjB8KJTZOBv1H?si=GW22KTWsSaqb9LlpfFJ-xA"
+      }
+    ],
+    "image": "/images/tk_sabotage.webp"
+  },
+  {
+    "id": 6,
+    "artist": "Keely Sibilia",
+    "record": "Death of a Romantic",
+    "type": "Album",
+    "credits": "Producer, Engineer, Mixer, Co-Writer",
+    "label": "Independent",
+    "year": "2021",
+    "slug": "death-of-a-romantic-album",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/death-of-a-romantic/1587756204"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/450KP3lupN4uOmOrHKZdSy?si=IiLmW0eUScy5v9JvpnzsBA&dl_branch=1"
+      }
+    ],
+    "image": "/images/ks_death-of-a-romantic_album.jpg"
+  },
+  {
+    "id": 7,
+    "artist": "Keely Sibilia",
+    "record": "Tell Me",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer, Co-Writer",
+    "label": "Independent",
+    "year": "2021",
+    "slug": "tell-me",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/tell-me-feat-max-swan/1586343040?i=1586343041"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/2rHMMEaL0c96bAQMJHFbJ3?si=Az8IU3exSdeSKbsPBW2CWA"
+      }
+    ],
+    "image": "/images/ks_tell-me.jpg"
+  },
+  {
+    "id": 8,
+    "artist": "Keely Sibilia",
+    "record": "Underground",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer, Co-Writer",
+    "label": "Independent",
+    "year": "2021",
+    "slug": "underground",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/underground/1585097435?i=1585097526"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/7jhgDSL5iDuhU1CEBRXjdr?si=GQHwmvLXSC63a6myePjNgw"
+      }
+    ],
+    "image": "/images/ks_underground.jpg"
+  },
+  {
+    "id": 9,
+    "artist": "Keely Sibilia",
+    "record": "Death of a Romantic",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer, Co-Writer",
+    "label": "Independent",
+    "year": "2021",
+    "slug": "death-of-a-romantic-single",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/death-of-a-romantic-feat-m%E1%BB%B9-t%C3%A2m/1584570513?i=1584570514"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/5QXuO60MuPaKDUNMb2bsIq?si=6Ig7yaklS2G7k6l3mZ5KKw"
+      }
+    ],
+    "image": "/images/ks_death-of-a-romantic_single.jpg"
+  },
+  {
+    "id": 10,
+    "artist": "Taylor Kelly",
+    "record": "Maybe",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2021",
+    "slug": "maybe",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/maybe/1582875131?i=1582875132"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/track/2fKHQPbMX8GHuOT6a8HiJW?si=ByH03SnWSdaI_KFunGXgng"
+      }
+    ],
+    "image": "/images/tk_maybe.jpg"
+  },
+  {
+    "id": 11,
+    "artist": "Shoot the Messenger",
+    "record": "Stay",
+    "type": "Single",
+    "credits": "Vocal Engineer, Mixer",
+    "label": "Independent",
+    "year": "2021",
+    "slug": "stay",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/stay/1561719497?i=1561719501"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/450KP3lupN4uOmOrHKZdSy?si=IiLmW0eUScy5v9JvpnzsBA&dl_branch=1"
+      }
+    ],
+    "image": "/images/stm_stay.jpg"
+  },
+  {
+    "id": 12,
+    "artist": "Gracie Martin",
+    "record": "Dreams Die",
+    "type": "Single",
+    "credits": "Co-Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2021",
+    "slug": "dreams-die",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/dreams-die-single/1547540817"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/track/1429pWwEkQPkJSHW7c7xII?si=0f91ea9dbb40447f"
+      }
+    ],
+    "image": "/images/gm_dreams-die.jpg"
+  },
+  {
+    "id": 13,
+    "artist": "Maggie Mae",
+    "record": "Hometown",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2020",
+    "slug": "hometown",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/hometown/1533070746?i=1533070750"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/track/1o6ZFkhiMO5EdLoGBOxwW2?si=71ab6346494349d3"
+      }
+    ],
+    "image": "/images/mm_hometown.jpg"
+  },
+  {
+    "id": 14,
+    "artist": "Keely Sibilia",
+    "record": "Wild",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2020",
+    "slug": "wild",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/wild-single/1519272038"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/track/56rFlGOAAoYHRsp7Faowpe?si=64f40e5bc32441a9"
+      }
+    ],
+    "image": "/images/ks_wild.jpg"
+  },
+  {
+    "id": 15,
+    "artist": "Rover Rover",
+    "record": "Peace Drink",
+    "type": "LP",
+    "credits": "Engineer, Mixer",
+    "label": "Independent",
+    "year": "2020",
+    "slug": "peace-drink",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/peace-drink/1512649439"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/34VEC7Z5u44qZpSmKdd1Zf?si=oyMH7eqdSHqsW6XOFCksHQ&dl_branch=1"
+      }
+    ],
+    "image": "/images/rr_peace-drink.jpg"
+  },
+  {
+    "id": 16,
+    "artist": "Rover Rover",
+    "record": "Nowhere to Go",
+    "type": "Single",
+    "credits": "Engineer, Mixer",
+    "label": "Independent",
+    "year": "2020",
+    "slug": "nowhere-to-go",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/nowhere-to-go/1506738001?i=1506738002"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/16vV3EXVdRvIshACPl20wW?si=8WowBu4qQQKf92mogTGGSQ&dl_branch=1"
+      }
+    ],
+    "image": "/images/rr_nowhere-to-go.jpg"
+  },
+  {
+    "id": 17,
+    "artist": "Taylor Kelly",
+    "record": "I Am",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2020",
+    "slug": "i-am",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/i-am/1532778336?i=1532778337"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/2nfhDWuSdCTPFpQpCiNXfT?si=kbuS-DeHQUOUiVYqF8vcfA&dl_branch=1"
+      }
+    ],
+    "image": "/images/tk_iam.jpg"
+  },
+  {
+    "id": 18,
+    "artist": "Taylor Kelly",
+    "record": "The Fire",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer, Drums, Synths",
+    "label": "Independent",
+    "year": "2020",
+    "slug": "the-fire",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/the-fire/1497991882?i=1497991883"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/5jWVteuuK60r4O5aYaCnoJ?si=A-wez_sCS3WsOhiVaA7i_g&dl_branch=1"
+      }
+    ],
+    "image": "/images/tk_fire.jpg"
+  },
+  {
+    "id": 19,
+    "artist": "John Udinsky, Jr.",
+    "record": "Movin' Along",
+    "type": "LP",
+    "credits": "Engineer, Mixer",
+    "label": "Independent",
+    "year": "2019",
+    "slug": "movin-along",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/movin-along/1490608832"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/2vFhYat1EAwE3ux0868LqM?si=Hg1M1E-PTDCblEUJ2mFOmQ&dl_branch=1&nd=1"
+      }
+    ],
+    "image": "/images/ju_movin-along.jpg"
+  },
+  {
+    "id": 20,
+    "artist": "Gracie Martin",
+    "record": "10%",
+    "type": "Single",
+    "credits": "Co-Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2019",
+    "slug": "ten-percent",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/10-single/1484411609"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/track/75EUqKRAQpScXs2QwZZrNX?si=4d8a4b00a97146a9"
+      }
+    ],
+    "image": "/images/gm_ten.jpg"
+  },
+  {
+    "id": 21,
+    "artist": "Gracie Martin",
+    "record": "Like Falling Asleep",
+    "type": "Single",
+    "credits": "Co-Producer, Engineer, Mixer, Organ",
+    "label": "Independent",
+    "year": "2019",
+    "slug": "like-falling-asleep",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/like-falling-asleep-single/1482645280"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/track/2ulVrPl29cgnOUCqrr7Cdb?si=7f44a3f5f74b4fba"
+      }
+    ],
+    "image": "/images/gm_like-falling-asleep.jpg"
+  },
+  {
+    "id": 22,
+    "artist": "Weekend Athlete",
+    "record": "Sussing",
+    "type": "EP",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2019",
+    "slug": "sussing",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/sussing-ep/1475755368"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/4M7Wy6EQ4LyhI9cYjtuwRz?si=mfZJ5URYQ42OlaqkRttqXg&dl_branch=1"
+      }
+    ],
+    "image": "/images/wa_sussing.jpg"
+  },
+  {
+    "id": 23,
+    "artist": "Míssy Belgré",
+    "record": "Love Spell",
+    "type": "Single",
+    "credits": "Engineer, Mixer",
+    "label": "Independent",
+    "year": "2019",
+    "slug": "love-spell",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/love-spell/1475370170?i=1475370171"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/track/2sMoXWwQJhwn8E4T9FtQXV?si=c5626512ce664186"
+      }
+    ],
+    "image": "/images/mb_love-spell.jpg"
+  },
+  {
+    "id": 24,
+    "artist": "Taylor Kelly",
+    "record": "Up Up and Away",
+    "type": "LP",
+    "credits": "Producer, Engineer, Mixer, Drums, Percussion, Synths, Horn Arrangements",
+    "label": "Independent",
+    "year": "2019",
+    "slug": "up-up-and-away",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/up-up-and-away/1473533689"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/2VFZ9TRuj0CDRmP9mbDZPP?si=IRrHA1IhSgyJa4V0UPYrZQ&dl_branch=1"
+      }
+    ],
+    "image": "/images/tk_up-up.jpg"
+  },
+  {
+    "id": 25,
+    "artist": "Taylor Kelly",
+    "record": "California",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer, Synths",
+    "label": "Independent",
+    "year": "2019",
+    "slug": "california",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/california/1473533689?i=1473533728"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/4QOsU0xMbmoOFMAeT9wdP8?si=WaV8P5QZS-CV0sMxXH3PcQ&dl_branch=1"
+      }
+    ],
+    "image": "/images/tk_california.jpg"
+  },
+  {
+    "id": 26,
+    "artist": "Punk Hands",
+    "record": "Enough",
+    "type": "Single",
+    "credits": "Co-Producer, Engineer, Mixer, Drums",
+    "label": "Independent",
+    "year": "2019",
+    "slug": "enough",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/enough/1466313221?i=1466313222"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/track/3nRwlROmEcvMv5OXqlIBIu?si=f20bf9cc8c884098"
+      }
+    ],
+    "image": "/images/ph_enough.jpg"
+  },
+  {
+    "id": 27,
+    "artist": "Taylor Kelly",
+    "record": "Taco Night",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer, Synths",
+    "label": "Independent",
+    "year": "2019",
+    "slug": "taco-night",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/taco-night-feat-mic-stewart/1462910827?i=1462910829"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/5QyQMryQIYbyTWuAWTLVCh?si=dORp4pebS9qcctRuCJR4Tw&dl_branch=1"
+      }
+    ],
+    "image": "/images/tk_taco-night.jpg"
+  },
+  {
+    "id": 28,
+    "artist": "Taylor Kelly",
+    "record": "Jwytk",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer, Horn Arrangements",
+    "label": "Independent",
+    "year": "2019",
+    "slug": "jwytk",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/jwytk/1458552593?i=1458552595"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/41XaSlpEwDqos6R8nLWkqz?si=ho8hEG1ZRBOqWu_2daXnoQ&dl_branch=1"
+      }
+    ],
+    "image": "/images/tk_jwytk.jpg"
+  },
+  {
+    "id": 29,
+    "artist": "Nathan Allebach",
+    "record": "Tension",
+    "type": "LP",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2018",
+    "slug": "tension",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/tension/1442711788"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/4YxbDazy3VWmwpGylkci74?si=hFvSSXigQwCWDzCH77PQ7Q&dl_branch=1"
+      }
+    ],
+    "image": "/images/na_tension.jpg"
+  },
+  {
+    "id": 30,
+    "artist": "Keely Sibilia",
+    "record": "Title 1",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2018",
+    "slug": "title-1",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/title-one-single/1440798007"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/37da2WduvWer2woUMam9d0?si=bYpnVc5NS42-W0kd6fOtiA&dl_branch=1"
+      }
+    ],
+    "image": "/images/ks_title-one.jpg"
+  },
+  {
+    "id": 31,
+    "artist": "Keely Sibilia",
+    "record": "Make It Pour",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2018",
+    "slug": "make-it-pour",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/make-it-pour-single/1437974381"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/3qA8wAnWqddibc64u7GE4b?si=rG3Uj0UHQouoU2TszPxdNA&dl_branch=1"
+      }
+    ],
+    "image": "/images/ks_make-it-pour.jpg"
+  },
+  {
+    "id": 32,
+    "artist": "Keely Sibilia",
+    "record": "Happy",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2018",
+    "slug": "happy",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/happy-single/1402828230"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/track/4Sb9YZ85gthLVBxUkNNfHj?si=bb34b8e58489499d"
+      }
+    ],
+    "image": "/images/ks_happy.jpg"
+  },
+  {
+    "id": 33,
+    "artist": "Sonnder",
+    "record": "Never Want You Back",
+    "type": "Single",
+    "credits": "Engineer, Mixer",
+    "label": "Independent",
+    "year": "2018",
+    "slug": "never-want-you-back",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/never-want-you-back/1408484029?i=1408484031"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/4pLxuPEdxtGILOBzyOAZEI?si=Rk_rxmPTRFigldj9RpoCJw&dl_branch=1"
+      }
+    ],
+    "image": "/images/sr_never-want-you-back.jpg"
+  },
+  {
+    "id": 34,
+    "artist": "Keely Sibilia",
+    "record": "Heartbeat",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2018",
+    "slug": "heartbeat",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/heart-beat-single/1450872751"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/0efKpBJMdLUj7pMuWHznEQ?si=ipd36aVsQaGYaiBmc-gWsw&dl_branch=1"
+      }
+    ],
+    "image": "/images/ks_heartbeat.jpg"
+  },
+  {
+    "id": 35,
+    "artist": "Ode To Omni",
+    "record": "Superstition",
+    "type": "Single",
+    "credits": "Mixer",
+    "label": "Independent",
+    "year": "2018",
+    "slug": "superstition",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/superstition-feat-lee-mo-single/1347510156"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/6opsUtGGGW3rAHUWQtz0Xp?si=gXNRieQzRdCQh1SH3UsNnw&dl_branch=1"
+      }
+    ],
+    "image": "/images/mm-oto_superstition.jpg"
+  },
+  {
+    "id": 36,
+    "artist": "Ode To Omni",
+    "record": "Perception",
+    "type": "LP",
+    "credits": "Mixer",
+    "label": "Independent",
+    "year": "2018",
+    "slug": "perception",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/perception/1345149538"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/4N4g4mL40YmgtQZooli0Cg?si=7ecNwrOeRGWqka6BcYoY7A&dl_branch=1"
+      }
+    ],
+    "image": "/images/mm-oto_perception.jpg"
+  },
+  {
+    "id": 37,
+    "artist": "Rover Rover",
+    "record": "Patch of Dirt",
+    "type": "Single",
+    "credits": "Engineer, Mixer",
+    "label": "Independent",
+    "year": "2017",
+    "slug": "patch-of-dirt",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/patch-of-dirt/1318800100?i=1318800196"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/1gUtW1G6LrxpKXcCRwgxTS?si=73Ktrc3kSsagaSSDo5wN1w&dl_branch=1"
+      }
+    ],
+    "image": "/images/rr_patch-of-dirt.jpg"
+  },
+  {
+    "id": 38,
+    "artist": "Joshua Bation",
+    "record": "Lurking",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2017",
+    "slug": "lurking",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Amazon",
+        "link": "https://music.amazon.in/albums/B0757C1WFC"
+      }
+    ],
+    "image": "/images/jb_lurking.jpg"
+  },
+  {
+    "id": 39,
+    "artist": "Joshua Bation",
+    "record": "I'm Leaving",
+    "type": "Single",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2017",
+    "slug": "im-leaving",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Bandcamp",
+        "link": "https://joshuabationmusic.bandcamp.com/releases"
+      }
+    ],
+    "image": "/images/jb_im-leaving.jpg"
+  },
+  {
+    "id": 40,
+    "artist": "Nathan Allebach",
+    "record": "Waste",
+    "type": "LP",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2016",
+    "slug": "waste",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/waste/1136370976"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/1XcKu41KAVrLAaM9Z29FLg?si=kP_vcPCqQWuhoaa9U4ycuw&dl_branch=1"
+      }
+    ],
+    "image": "/images/na_waste.jpg"
+  },
+  {
+    "id": 41,
+    "artist": "Josh Nussbaum",
+    "record": "What Already Is",
+    "type": "EP",
+    "credits": "Producer, Engineer, Mixer",
+    "label": "Independent",
+    "year": "2016",
+    "slug": "what-already-is",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/what-already-is-ep/1072185363"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/5E9pJK5NUzW8pL4wTjggfz?si=7qX_k6tZQV6xnNbR67c_3Q&dl_branch=1"
+      }
+    ],
+    "image": "/images/jn_what-already-is.jpg"
+  },
+  {
+    "id": 42,
+    "artist": "Ode To Omni",
+    "record": "Anchors",
+    "type": "LP",
+    "credits": "Mixer",
+    "label": "Independent",
+    "year": "2015",
+    "slug": "anchors",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "Apple Music",
+        "link": "https://music.apple.com/us/album/anchors/966398285"
+      },
+      {
+        "id": 1,
+        "type": "Spotify",
+        "link": "https://open.spotify.com/album/6UWY8gyrl4CvFzkZkAj0BU?si=fr4obBmLShW8lKBwMxjLng&dl_branch=1"
+      }
+    ],
+    "image": "/images/oto_anchors.jpg"
+  },
+  {
+    "id": 43,
+    "artist": "Feedlab Music",
+    "record": "Make Me Lovely",
+    "type": "Cover",
+    "credits": "Engineer, Mixer",
+    "label": "Independent",
+    "year": "2014",
+    "slug": "make-me-lovely",
+    "musicLinks": [
+      {
+        "id": 0,
+        "type": "YouTube",
+        "link": "https://www.youtube.com/watch?v=VOgMdtFLso8"
+      }
+    ],
+    "image": "/images/fm_make-me-lovely.jpg"
+  }
+]

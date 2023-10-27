@@ -1,0 +1,108 @@
+:root {
+  /* Colors */
+  --color-black: #0f0f0f;
+  --color-white: #f5f5f5;
+  --color-grey: #bababa;
+  --color-yellow: #c3ae69;
+  --color-pink: #f49ac2;
+  --color-pinkFaded: #f49ac381;
+
+  /* Fonts */
+  --font-nunito-sans: 'Nunito Sans', sans-serif;
+
+  /* Font sizes */
+  --size-xxs: 0.75rem;
+  --size-xs: 1rem;
+  --size-sm: 1.25rem;
+  --size-md: 1.563rem;
+  --size-lg: 2.441rem;
+  --size-xl: 3.052rem;
+  --size-xxl: 3.815rem;
+  --size-xxxl: 4.5rem;
+
+  /* Transitions */
+  --transition-normal: 0.25s ease-in-out;
+}
+
+body {
+  color: var(--color-white);
+  background: var(--color-black);
+  font-family: var(--font-nunito-sans);
+  font-size: var(--size-xs);
+  letter-spacing: 0.01rem;
+}
+
+body[data-overlay-displayed='true'] {
+  overflow: hidden;
+}
+
+main.main-content {
+  padding: 4rem 1rem;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  main.main-content {
+    padding: 4rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-weight: 900;
+}
+
+h1 {
+  font-size: clamp(var(--size-xl), 5vw, var(--size-xxl));
+  text-align: center;
+  margin-bottom: 4rem;
+}
+h2 {
+  font-size: clamp(var(--size-lg), 5vw, var(--size-xl));
+}
+h3 {
+  font-size: clamp(var(--size-md), 5vw, var(--size-lg));
+}
+h4 {
+  font-size: clamp(var(--size-sm), 5vw, var(--size-md));
+}
+h5 {
+  font-size: clamp(var(--size-xs), 5vw, var(--size-sm));
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+  transition: all var(--transition-normal);
+}
+
+a:hover {
+  color: var(--color-pink);
+}
+
+svg {
+  fill: var(--color-white);
+  transition: fill var(--transition-normal);
+}
+
+svg:hover {
+  fill: var(--color-pink);
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
