@@ -1,6 +1,9 @@
 ---
 import { Picture } from 'astro:assets'
+import PageHeader from '../components/text/PageHeader.astro'
 import Layout from '../layouts/Layout.astro'
+
+// Images
 import soundsFromTheStreetImage from '../assets/images/st_sounds-from-the-street.webp'
 import theTableImage from '../assets/images/al_the-table.webp'
 import aWayWithWordsImage from '../assets/images/aj_a-way-with-words.webp'
@@ -63,7 +66,7 @@ interface AlbumProps {
   image: ImageMetadata
 }
 
-const albumData: AlbumProps[] = [
+export const albumData: AlbumProps[] = [
   {
     id: 0,
     artist: 'SNACKTIME',
@@ -1067,7 +1070,7 @@ const albumData: AlbumProps[] = [
 
 <Layout title="Robby Webb | Discography">
   <main class="main-content">
-    <h1>Discography</h1>
+    <PageHeader text="Discography" />
     <section id="discography" class="discography">
       {
         albumData.map((album) => (
@@ -1078,7 +1081,7 @@ const albumData: AlbumProps[] = [
                 formats={['avif', 'webp']}
                 alt={`${album.artist}, ${album.record}`}
               />
-              <div class="discography-album-info">
+              <div class="discography-album_title">
                 <h2>{`${album.artist} "${album.record}"`}</h2>
               </div>
             </a>
@@ -1094,7 +1097,6 @@ const albumData: AlbumProps[] = [
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 2rem;
-    margin: 6rem auto;
     text-align: center;
   }
 
@@ -1108,7 +1110,7 @@ const albumData: AlbumProps[] = [
     position: relative;
   }
 
-  .discography-album-info {
+  .discography-album_title {
     position: absolute;
     display: flex;
     align-items: center;
@@ -1123,11 +1125,11 @@ const albumData: AlbumProps[] = [
     color: var(--color-black);
   }
 
-  .discography-album a:hover .discography-album-info {
+  .discography-album a:hover .discography-album_title {
     opacity: 1;
   }
 
-  .discography-album-info h2 {
+  .discography-album_title h2 {
     font-size: clamp(var(--size-sm), 5vw, var(--size-md));
     padding: 1rem;
   }

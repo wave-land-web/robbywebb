@@ -1,0 +1,64 @@
+---
+import { Picture } from 'astro:assets'
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/text/PageHeader.astro'
+import { albumData } from '../discography.astro'
+
+export async function getStaticPaths() {
+  const paths = albumData.map((album) => {
+    return { params: { slug: album.slug } }
+  })
+
+  return paths
+}
+
+const { slug } = Astro.params
+
+// Find album by slug
+const album = albumData.find((album) => album.slug === slug)
+
+// Destructure album data
+const { record, image, artist, type, credits, label, musicLinks } = album || {}
+---
+
+<Layout title="Robby Webb | Discography">
+  <main class="main-content">
+    <PageHeader text={`${record}`} />
+    <div class="album">
+      <Picture src={image!} title={`${artist}: ${record}`} alt={`${artist}: ${record}`} />
+      <div class="album-container">
+        <h2>{artist} "{record}"</h2>
+        <p>{type}</p>
+        <p>{credits}</p>
+        <p>{label || 'Independent'}</p>
+        <div class="album-container_links">
+          {
+            musicLinks?.map((link) => (
+              <a class="site-cta" href={link.link} target="_blank" rel="noopener noreferrer">
+                {link.type}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .album {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center;
+    gap: 4rem;
+  }
+
+  .album-container h2 {
+    margin-bottom: 2rem;
+  }
+
+  .album-container_links {
+    display: flex;
+    gap: 0.5rem;
+  }
+</style>

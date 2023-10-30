@@ -1,0 +1,17 @@
+---
+export interface Props {
+  text: string
+  class?: string
+}
+
+const { text, class: className } = Astro.props
+---
+
+<h1 class={className}>{text}</h1>
+
+<style>
+  h1 {
+    margin-bottom: clamp(4rem, 10vw, 6rem);
+    text-align: center;
+  }
+</style>

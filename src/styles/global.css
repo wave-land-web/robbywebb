@@ -59,8 +59,6 @@ h5 {
 
 h1 {
   font-size: clamp(var(--size-xl), 5vw, var(--size-xxl));
-  text-align: center;
-  margin-bottom: 4rem;
 }
 h2 {
   font-size: clamp(var(--size-lg), 5vw, var(--size-xl));
@@ -105,4 +103,18 @@ img {
   max-width: 100%;
   display: block;
   height: auto;
+}
+
+.site-cta {
+  display: inline-block;
+  padding: 0.3rem;
+  background: var(--color-black);
+  border: 1px solid var(--color-white);
+  border-radius: 4px;
+}
+
+.site-cta:hover {
+  color: var(--color-black);
+  background: var(--color-pink);
+  border: 1px solid var(--color-pink);
 }
