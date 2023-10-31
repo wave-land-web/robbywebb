@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro'
+import PageHeader from '../components/text/PageHeader.astro'
+---
+
+<Layout title="Robby Webb | Contact">
+  <main class="main-content">
+    <PageHeader text="Thank you for your message" />
+    <section id="success" class="success">
+      <p>I will get back to you as soon as I can!</p>
+      <a class="site-cta button" href="/">Back to home</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .success {
+    height: 80vh;
+  }
+
+  .success p {
+    margin-bottom: clamp(2rem, 4vw, 4rem);
+    text-align: center;
+  }
+</style>

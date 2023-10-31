@@ -125,16 +125,37 @@ p {
 
 .site-cta {
   display: inline-block;
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
   background: var(--color-black);
   border: 1px solid var(--color-white);
   border-radius: 4px;
   font-weight: 400;
   letter-spacing: 0.05rem;
+  transition: all var(--transition-normal);
 }
 
 .site-cta:hover {
   color: var(--color-black);
   background: var(--color-pink);
   border: 1px solid var(--color-pink);
+}
+
+.site-cta.button {
+  display: block;
+  margin: 0 auto;
+  max-width: fit-content;
+  padding: 0.5rem 1rem;
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.site-cta.button:hover {
+  color: var(--color-black);
+}
+
+@media (min-width: 768px) {
+  .site-cta.button {
+    font-size: var(--size-sm);
+    padding: 0.75rem 1.5rem;
+  }
 }
