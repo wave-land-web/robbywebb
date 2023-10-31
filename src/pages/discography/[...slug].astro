@@ -7,7 +7,11 @@ import { albumData } from '../discography.astro'
 
 export async function getStaticPaths() {
   const paths = albumData.map((album) => {
-    return { params: { slug: album.slug } }
+    return {
+      params: {
+        slug: album.slug,
+      },
+    }
   })
 
   return paths
@@ -22,7 +26,7 @@ const album = albumData.find((album) => album.slug === slug)
 const { record, image, artist, type, credits, label, musicLinks } = album || {}
 ---
 
-<Layout title="Robby Webb | Discography">
+<Layout title={`Robby Webb | ${record}`}>
   <MainContent>
     <PageHeader text={`${record}`} />
     <div class="album">
