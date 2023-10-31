@@ -1,12 +1,13 @@
 ---
 import { Picture } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
+import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
 import robbyHeadshot from '../assets/images/headshot.jpg'
 ---
 
 <Layout title="Robby Webb | About">
-  <main class="main-content">
+  <MainContent>
     <PageHeader text="About" />
     <section id="about" class="about">
       <Picture
@@ -21,7 +22,7 @@ import robbyHeadshot from '../assets/images/headshot.jpg'
         with numerous artists performing and making records all over the country.
       </p>
     </section>
-  </main>
+  </MainContent>
 </Layout>
 
 <style>

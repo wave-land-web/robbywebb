@@ -2,6 +2,7 @@
 import { Picture } from 'astro:assets'
 import PageHeader from '../components/text/PageHeader.astro'
 import Layout from '../layouts/Layout.astro'
+import MainContent from '../components/MainContent.astro'
 
 // Images
 import soundsFromTheStreetImage from '../assets/images/st_sounds-from-the-street.webp'
@@ -1069,7 +1070,7 @@ export const albumData: AlbumProps[] = [
 ---
 
 <Layout title="Robby Webb | Discography">
-  <main class="main-content">
+  <MainContent>
     <PageHeader text="Discography" />
     <section id="discography" class="discography">
       {
@@ -1081,7 +1082,7 @@ export const albumData: AlbumProps[] = [
                 formats={['avif', 'webp']}
                 alt={`${album.artist}, ${album.record}`}
               />
-              <div class="discography-album_title">
+              <div class="discography-album_scrim">
                 <h2>{`${album.artist} "${album.record}"`}</h2>
               </div>
             </a>
@@ -1089,7 +1090,7 @@ export const albumData: AlbumProps[] = [
         ))
       }
     </section>
-  </main>
+  </MainContent>
 </Layout>
 
 <style>
@@ -1110,7 +1111,7 @@ export const albumData: AlbumProps[] = [
     position: relative;
   }
 
-  .discography-album_title {
+  .discography-album_scrim {
     position: absolute;
     display: flex;
     align-items: center;
@@ -1120,16 +1121,17 @@ export const albumData: AlbumProps[] = [
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity var(--transition-normal);
-    background-color: var(--color-pink-faded);
     color: var(--color-black);
+    background-color: var(--color-pink-faded);
+    border-radius: var(--border-radius);
+    transition: opacity var(--transition-normal);
   }
 
-  .discography-album a:hover .discography-album_title {
+  .discography-album a:hover .discography-album_scrim {
     opacity: 1;
   }
 
-  .discography-album_title h2 {
+  .discography-album_scrim h2 {
     font-size: clamp(var(--size-sm), 5vw, var(--size-md));
     padding: 1rem;
   }

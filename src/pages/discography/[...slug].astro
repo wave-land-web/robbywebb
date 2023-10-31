@@ -1,6 +1,7 @@
 ---
 import { Picture } from 'astro:assets'
 import Layout from '../../layouts/Layout.astro'
+import MainContent from '../../components/MainContent.astro'
 import PageHeader from '../../components/text/PageHeader.astro'
 import { albumData } from '../discography.astro'
 
@@ -22,7 +23,7 @@ const { record, image, artist, type, credits, label, musicLinks } = album || {}
 ---
 
 <Layout title="Robby Webb | Discography">
-  <main class="main-content">
+  <MainContent>
     <PageHeader text={`${record}`} />
     <div class="album">
       <Picture src={image!} title={`${artist}: ${record}`} alt={`${artist}: ${record}`} />
@@ -42,7 +43,7 @@ const { record, image, artist, type, credits, label, musicLinks } = album || {}
         </div>
       </div>
     </div>
-  </main>
+  </MainContent>
 </Layout>
 
 <style>

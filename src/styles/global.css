@@ -29,6 +29,9 @@
 
   /* Transitions */
   --transition-normal: 0.25s ease-in-out;
+
+  /* Borders */
+  --border-radius: 4px;
 }
 
 body {
@@ -46,18 +49,6 @@ body {
 
 body[data-overlay-displayed='true'] {
   overflow: hidden;
-}
-
-main.main-content {
-  padding: var(--spacing-section) 1rem;
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  main.main-content {
-    padding: var(--spacing-section);
-  }
 }
 
 h1,

@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
 ---
 
 <Layout title="Robby Webb | Contact">
-  <main class="main-content">
+  <MainContent>
     <PageHeader text="Contact" />
     <form method="POST" class="form" name="contactForm" action="/success" data-netlify="true">
       <div class="form-field">
@@ -22,7 +23,7 @@ import PageHeader from '../components/text/PageHeader.astro'
       </div>
       <button class="site-cta button" type="submit">Send Message</button>
     </form>
-  </main>
+  </MainContent>
 </Layout>
 
 <style>
@@ -78,8 +79,8 @@ import PageHeader from '../components/text/PageHeader.astro'
 
   .form-field label {
     position: absolute;
-    top: 50%;
-    left: 0.5rem;
+    top: 48%;
+    left: 0.4rem;
     transform: translateY(-50%);
     font-size: var(--size-sm);
     color: var(--color-grey);
