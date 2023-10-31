@@ -15,12 +15,14 @@ import Logo from '../Logo.astro'
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
     padding: 0.5rem 1rem 0;
   }
 
   @media (min-width: 768px) {
     .navigation {
-      padding: 3rem 4rem 0;
+      padding: 3rem var(--spacing-section) 0;
     }
   }
 </style>
