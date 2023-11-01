@@ -30,7 +30,12 @@ const { record, image, artist, type, credits, label, musicLinks } = album || {}
   <MainContent>
     <PageHeader text={`${record}`} />
     <div class="album">
-      <Picture src={image!} title={`${artist}: ${record}`} alt={`${artist}: ${record}`} />
+      <Picture
+        src={image!}
+        formats={['avif', 'webp']}
+        title={`${artist}: ${record}`}
+        alt={`${artist}: ${record}`}
+      />
       <div class="album-info">
         <h2>{artist}</h2>
         <p>"{record}" {type}</p>

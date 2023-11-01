@@ -5,6 +5,8 @@ import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 
 // Images
+import letItGoImage from '../assets/images/tk_let-you-go.webp'
+import versesImage from '../assets/images/jhis_verses.webp'
 import soundsFromTheStreetImage from '../assets/images/st_sounds-from-the-street.webp'
 import theTableImage from '../assets/images/al_the-table.webp'
 import aWayWithWordsImage from '../assets/images/aj_a-way-with-words.webp'
@@ -70,6 +72,53 @@ interface AlbumProps {
 export const albumData: AlbumProps[] = [
   {
     id: 0,
+    artist: 'Taylor Kelly',
+    record: 'Let You Go',
+    type: 'Single',
+    credits: 'Produced, Engineered, Mixed',
+    label: 'Independent',
+    year: '2023',
+    slug: 'let-you-go',
+    musicLinks: [
+      {
+        id: 0,
+        type: 'Apple Music',
+        link: 'https://music.apple.com/us/album/let-you-go-single/1701284015',
+      },
+      {
+        id: 1,
+        type: 'Spotify',
+        link: 'https://open.spotify.com/track/0telVv0vEW0diSw0y6n3qW?si=c5aa82efeca24e77&nd=1',
+      },
+    ],
+    image: letItGoImage,
+  },
+  {
+    id: 1,
+    artist: 'James Haro In Storage',
+    record: 'Verses',
+    type: 'Single',
+    credits: 'Produced, Engineered, Mixed',
+    label: 'Independent',
+    year: '2023',
+    slug: 'verses',
+    musicLinks: [
+      {
+        id: 0,
+        type: 'Apple Music',
+        link: 'https://music.apple.com/us/album/verses/1707970743?i=1707970744',
+      },
+      {
+        id: 1,
+        type: 'Spotify',
+        link: 'https://open.spotify.com/track/3XJ5Xn2ZzwZAuGeEn1RyTt?si=e58cb5e023584a68',
+      },
+    ],
+    image: versesImage,
+  },
+
+  {
+    id: 2,
     artist: 'SNACKTIME',
     record: 'Sounds From The Street: Live',
     type: 'LP',
@@ -92,7 +141,7 @@ export const albumData: AlbumProps[] = [
     image: soundsFromTheStreetImage,
   },
   {
-    id: 1,
+    id: 3,
     artist: 'AJ Luca',
     record: 'The Table',
     type: 'LP',
@@ -115,7 +164,7 @@ export const albumData: AlbumProps[] = [
     image: theTableImage,
   },
   {
-    id: 2,
+    id: 4,
     artist: 'Anson Jones',
     record: 'A Way With Words',
     type: 'EP',
@@ -138,7 +187,7 @@ export const albumData: AlbumProps[] = [
     image: aWayWithWordsImage,
   },
   {
-    id: 3,
+    id: 5,
     artist: 'Taylor Kelly',
     record: 'All I Need',
     type: 'EP',
@@ -160,12 +209,11 @@ export const albumData: AlbumProps[] = [
     ],
     image: allINeedImage,
   },
-
   {
-    id: 4,
+    id: 6,
     artist: 'Dylan Jane',
     record: 'Year Of The Tiger',
-    type: 'single',
+    type: 'Single',
     credits: 'Drums',
     label: 'Independent',
     year: '2022',
@@ -185,7 +233,7 @@ export const albumData: AlbumProps[] = [
     image: yearOfTheTiger,
   },
   {
-    id: 5,
+    id: 7,
     artist: 'Taylor Kelly',
     record: 'Sabotage',
     type: 'Single',
@@ -208,7 +256,7 @@ export const albumData: AlbumProps[] = [
     image: sabotageImage,
   },
   {
-    id: 6,
+    id: 8,
     artist: 'Keely Sibilia',
     record: 'Death of a Romantic',
     type: 'Album',
@@ -231,7 +279,7 @@ export const albumData: AlbumProps[] = [
     image: deathOfARomanticAlbumImage,
   },
   {
-    id: 7,
+    id: 9,
     artist: 'Keely Sibilia',
     record: 'Tell Me',
     type: 'Single',
@@ -254,7 +302,7 @@ export const albumData: AlbumProps[] = [
     image: tellMeImage,
   },
   {
-    id: 8,
+    id: 10,
     artist: 'Keely Sibilia',
     record: 'Underground',
     type: 'Single',
@@ -277,7 +325,7 @@ export const albumData: AlbumProps[] = [
     image: undergroundImage,
   },
   {
-    id: 9,
+    id: 11,
     artist: 'Keely Sibilia',
     record: 'Death of a Romantic',
     type: 'Single',
@@ -300,7 +348,7 @@ export const albumData: AlbumProps[] = [
     image: deathOfARomanticSingleImage,
   },
   {
-    id: 10,
+    id: 12,
     artist: 'Taylor Kelly',
     record: 'Maybe',
     type: 'Single',
@@ -323,7 +371,7 @@ export const albumData: AlbumProps[] = [
     image: maybeImage,
   },
   {
-    id: 11,
+    id: 13,
     artist: 'Shoot the Messenger',
     record: 'Stay',
     type: 'Single',
@@ -346,7 +394,7 @@ export const albumData: AlbumProps[] = [
     image: stayImage,
   },
   {
-    id: 12,
+    id: 14,
     artist: 'Gracie Martin',
     record: 'Dreams Die',
     type: 'Single',
@@ -369,7 +417,7 @@ export const albumData: AlbumProps[] = [
     image: dreamsDieImage,
   },
   {
-    id: 13,
+    id: 15,
     artist: 'Maggie Mae',
     record: 'Hometown',
     type: 'Single',
@@ -392,7 +440,7 @@ export const albumData: AlbumProps[] = [
     image: hometownImage,
   },
   {
-    id: 14,
+    id: 16,
     artist: 'Keely Sibilia',
     record: 'Wild',
     type: 'Single',
@@ -415,7 +463,7 @@ export const albumData: AlbumProps[] = [
     image: wildImage,
   },
   {
-    id: 15,
+    id: 17,
     artist: 'Rover Rover',
     record: 'Peace Drink',
     type: 'LP',
@@ -438,7 +486,7 @@ export const albumData: AlbumProps[] = [
     image: peaceDrinkImage,
   },
   {
-    id: 16,
+    id: 18,
     artist: 'Rover Rover',
     record: 'Nowhere to Go',
     type: 'Single',
@@ -461,7 +509,7 @@ export const albumData: AlbumProps[] = [
     image: nowhereToGoImage,
   },
   {
-    id: 17,
+    id: 19,
     artist: 'Taylor Kelly',
     record: 'I Am',
     type: 'Single',
@@ -484,7 +532,7 @@ export const albumData: AlbumProps[] = [
     image: iAmImage,
   },
   {
-    id: 18,
+    id: 20,
     artist: 'Taylor Kelly',
     record: 'The Fire',
     type: 'Single',
@@ -507,7 +555,7 @@ export const albumData: AlbumProps[] = [
     image: theFireImage,
   },
   {
-    id: 19,
+    id: 21,
     artist: 'John Udinsky, Jr.',
     record: "Movin' Along",
     type: 'LP',
@@ -530,7 +578,7 @@ export const albumData: AlbumProps[] = [
     image: movinAlongImage,
   },
   {
-    id: 20,
+    id: 22,
     artist: 'Gracie Martin',
     record: '10%',
     type: 'Single',
@@ -553,7 +601,7 @@ export const albumData: AlbumProps[] = [
     image: tenPercentImage,
   },
   {
-    id: 21,
+    id: 23,
     artist: 'Gracie Martin',
     record: 'Like Falling Asleep',
     type: 'Single',
@@ -576,7 +624,7 @@ export const albumData: AlbumProps[] = [
     image: likeFallingAsleepImage,
   },
   {
-    id: 22,
+    id: 24,
     artist: 'Weekend Athlete',
     record: 'Sussing',
     type: 'EP',
@@ -599,7 +647,7 @@ export const albumData: AlbumProps[] = [
     image: sussingImage,
   },
   {
-    id: 23,
+    id: 25,
     artist: 'Míssy Belgré',
     record: 'Love Spell',
     type: 'Single',
@@ -622,7 +670,7 @@ export const albumData: AlbumProps[] = [
     image: loveSpellImage,
   },
   {
-    id: 24,
+    id: 26,
     artist: 'Taylor Kelly',
     record: 'Up Up and Away',
     type: 'LP',
@@ -645,7 +693,7 @@ export const albumData: AlbumProps[] = [
     image: upUpAndAwayImage,
   },
   {
-    id: 25,
+    id: 27,
     artist: 'Taylor Kelly',
     record: 'California',
     type: 'Single',
@@ -668,7 +716,7 @@ export const albumData: AlbumProps[] = [
     image: californiaImage,
   },
   {
-    id: 26,
+    id: 28,
     artist: 'Punk Hands',
     record: 'Enough',
     type: 'Single',
@@ -691,7 +739,7 @@ export const albumData: AlbumProps[] = [
     image: enoughImage,
   },
   {
-    id: 27,
+    id: 29,
     artist: 'Taylor Kelly',
     record: 'Taco Night',
     type: 'Single',
@@ -714,7 +762,7 @@ export const albumData: AlbumProps[] = [
     image: tacoNightImage,
   },
   {
-    id: 28,
+    id: 30,
     artist: 'Taylor Kelly',
     record: 'Jwytk',
     type: 'Single',
@@ -737,7 +785,7 @@ export const albumData: AlbumProps[] = [
     image: jwytkImage,
   },
   {
-    id: 29,
+    id: 31,
     artist: 'Nathan Allebach',
     record: 'Tension',
     type: 'LP',
@@ -760,7 +808,7 @@ export const albumData: AlbumProps[] = [
     image: tensionImage,
   },
   {
-    id: 30,
+    id: 32,
     artist: 'Keely Sibilia',
     record: 'Title 1',
     type: 'Single',
@@ -783,7 +831,7 @@ export const albumData: AlbumProps[] = [
     image: titleOneImage,
   },
   {
-    id: 31,
+    id: 33,
     artist: 'Keely Sibilia',
     record: 'Make It Pour',
     type: 'Single',
@@ -806,7 +854,7 @@ export const albumData: AlbumProps[] = [
     image: makeItPourImage,
   },
   {
-    id: 32,
+    id: 34,
     artist: 'Keely Sibilia',
     record: 'Happy',
     type: 'Single',
@@ -829,7 +877,7 @@ export const albumData: AlbumProps[] = [
     image: happyImage,
   },
   {
-    id: 33,
+    id: 35,
     artist: 'Sonnder',
     record: 'Never Want You Back',
     type: 'Single',
@@ -852,7 +900,7 @@ export const albumData: AlbumProps[] = [
     image: neverWantYouBackImage,
   },
   {
-    id: 34,
+    id: 36,
     artist: 'Keely Sibilia',
     record: 'Heartbeat',
     type: 'Single',
@@ -875,7 +923,7 @@ export const albumData: AlbumProps[] = [
     image: heartbeatImage,
   },
   {
-    id: 35,
+    id: 37,
     artist: 'Ode To Omni',
     record: 'Superstition',
     type: 'Single',
@@ -898,7 +946,7 @@ export const albumData: AlbumProps[] = [
     image: superstitionImage,
   },
   {
-    id: 36,
+    id: 38,
     artist: 'Ode To Omni',
     record: 'Perception',
     type: 'LP',
@@ -921,7 +969,7 @@ export const albumData: AlbumProps[] = [
     image: perceptionImage,
   },
   {
-    id: 37,
+    id: 39,
     artist: 'Rover Rover',
     record: 'Patch of Dirt',
     type: 'Single',
@@ -944,7 +992,7 @@ export const albumData: AlbumProps[] = [
     image: patchOfDirtImage,
   },
   {
-    id: 38,
+    id: 40,
     artist: 'Joshua Bation',
     record: 'Lurking',
     type: 'Single',
@@ -962,7 +1010,7 @@ export const albumData: AlbumProps[] = [
     image: lurkingImage,
   },
   {
-    id: 39,
+    id: 41,
     artist: 'Joshua Bation',
     record: "I'm Leaving",
     type: 'Single',
@@ -980,7 +1028,7 @@ export const albumData: AlbumProps[] = [
     image: imLeavingImage,
   },
   {
-    id: 40,
+    id: 42,
     artist: 'Nathan Allebach',
     record: 'Waste',
     type: 'LP',
@@ -1003,7 +1051,7 @@ export const albumData: AlbumProps[] = [
     image: wasteImage,
   },
   {
-    id: 41,
+    id: 43,
     artist: 'Josh Nussbaum',
     record: 'What Already Is',
     type: 'EP',
@@ -1026,7 +1074,7 @@ export const albumData: AlbumProps[] = [
     image: whatAlreadyIsImage,
   },
   {
-    id: 42,
+    id: 44,
     artist: 'Ode To Omni',
     record: 'Anchors',
     type: 'LP',
@@ -1049,7 +1097,7 @@ export const albumData: AlbumProps[] = [
     image: anchorsImage,
   },
   {
-    id: 43,
+    id: 45,
     artist: 'Feedlab Music',
     record: 'Make Me Lovely',
     type: 'Cover',
@@ -1074,20 +1122,25 @@ export const albumData: AlbumProps[] = [
     <PageHeader text="Discography" />
     <section id="discography" class="discography">
       {
-        albumData.map((album) => (
-          <div class="discography-album">
-            <a href={`/discography/${album.slug}`}>
-              <Picture
-                src={album.image}
-                formats={['avif', 'webp']}
-                alt={`${album.artist}, ${album.record}`}
-              />
-              <div class="discography-album_scrim">
-                <h2>{`${album.artist} "${album.record}"`}</h2>
-              </div>
-            </a>
-          </div>
-        ))
+        albumData.map((album) => {
+          const { slug, image, artist, record } = album
+
+          return (
+            <div class="discography-album">
+              <a href={`/discography/${slug}`}>
+                <Picture
+                  src={image}
+                  formats={['avif', 'webp']}
+                  title={`${artist}, ${record}`}
+                  alt={`${artist}, ${record}`}
+                />
+                <div class="discography-album_scrim">
+                  <h2>{`${artist} "${record}"`}</h2>
+                </div>
+              </a>
+            </div>
+          )
+        })
       }
     </section>
   </MainContent>
