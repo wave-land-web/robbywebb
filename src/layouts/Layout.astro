@@ -66,6 +66,9 @@ const socialImageURL = new URL(socialImage || '/images/headshot.jpg', canonicalU
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#0f0f0f" />
     <meta name="theme-color" content="#0f0f0f" />
+
+    <!-- Named slot for injecting head content -->
+    <slot name="head" />
   </head>
 
   <body>
