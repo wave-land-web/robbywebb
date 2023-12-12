@@ -1150,19 +1150,21 @@ export const albumData: AlbumProps[] = [
           const { slug, image, artist, record } = album
 
           return (
-            <div class="discography-album">
+            <article class="discography-album">
               <a href={`/discography/${slug}`}>
-                <Picture
-                  src={image}
-                  formats={['avif', 'webp']}
-                  title={`${artist}, ${record}`}
-                  alt={`${artist}, ${record}`}
-                />
-                <div class="discography-album_scrim">
-                  <h2>{`${artist} "${record}"`}</h2>
-                </div>
+                <figure>
+                  <Picture
+                    src={image}
+                    formats={['avif', 'webp']}
+                    title={`${artist}, ${record}`}
+                    alt={`${artist}, ${record}`}
+                  />
+                  <figcaption class="discography-album_scrim">
+                    <h2>{`${artist} "${record}"`}</h2>
+                  </figcaption>
+                </figure>
               </a>
-            </div>
+            </article>
           )
         })
       }
@@ -1186,6 +1188,11 @@ export const albumData: AlbumProps[] = [
 
   .discography-album {
     position: relative;
+  }
+
+  .discography-album figure {
+    width: 100%;
+    margin: auto;
   }
 
   .discography-album_scrim {

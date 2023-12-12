@@ -103,10 +103,10 @@ ol {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
   height: auto;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 p {

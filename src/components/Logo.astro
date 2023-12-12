@@ -1,17 +1,11 @@
 ---
-import { Image } from 'astro:assets'
-import logo from '../assets/images/logo.svg'
+import { Icon } from 'astro-icon'
 
 const { pathname } = Astro.url
 ---
 
 <a href="/">
-  <Image
-    class={pathname === '/' ? 'logo' : 'responsive-logo'}
-    src={logo}
-    alt="Robby Webb site logo"
-    loading="eager"
-  />
+  <Icon name="logo" class={pathname === '/' ? 'logo' : 'responsive-logo'} />
 </a>
 
 <style>
