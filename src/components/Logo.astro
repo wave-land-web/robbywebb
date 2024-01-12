@@ -4,7 +4,7 @@ import { Icon } from 'astro-icon'
 const { pathname } = Astro.url
 ---
 
-<a href="/">
+<a href="/" title="Home" aria-label="Home">
   <Icon name="logo" class={pathname === '/' ? 'logo' : 'responsive-logo'} />
 </a>
 
