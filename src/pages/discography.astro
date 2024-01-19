@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 
 // Images
+import ajIFoundGrace from '../assets/images/aj_i-found-grace.webp'
 import dnTodayImage from '../assets/images/dn_today.webp'
 import jhFrequencyImage from '../assets/images/jh_frequency.webp'
 import letItGoImage from '../assets/images/tk_let-you-go.webp'
@@ -82,7 +83,19 @@ export const albumData: AlbumProps[] = [
     label: 'Independent',
     year: '2024',
     slug: 'i-found-grace-remix',
-    image: theTableImage,
+    musicLinks: [
+      {
+        id: 0,
+        type: 'Apple Music',
+        link: 'https://music.apple.com/be/album/i-found-grace-robby-webb-remix-single/1725203846',
+      },
+      {
+        id: 1,
+        type: 'Spotify',
+        link: 'https://open.spotify.com/album/73qweAMf1isO7WX0CLPuyH',
+      },
+    ],
+    image: ajIFoundGrace,
   },
   {
     id: 1,
