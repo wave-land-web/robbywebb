@@ -1,29 +1,20 @@
 ---
 import { Icon } from 'astro-icon'
 
-const { pathname } = Astro.url
+const { class: className } = Astro.props
 ---
 
-<a href="/" title="Home" aria-label="Home">
-  <Icon name="logo" class={pathname === '/' ? 'logo' : 'responsive-logo'} />
+<a href="/" class={className} title="Home" aria-label="Home">
+  <Icon name="logo" />
 </a>
 
 <style>
   a {
     position: relative;
     z-index: 10;
-  }
 
-  .logo,
-  .responsive-logo {
-    display: block;
-  }
-
-  .logo {
-    width: 260px;
-  }
-
-  .responsive-logo {
-    width: clamp(200px, 20vw, 260px);
+    & [astro-icon='logo'] {
+      width: clamp(200px, 20vw, 260px);
+    }
   }
 </style>

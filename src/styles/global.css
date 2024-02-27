@@ -39,9 +39,9 @@ body {
   background: var(--color-black);
   font-family: var(--font-nunito-sans);
   font-size: var(--size-xs);
-  font-weight: 200;
+  font-weight: 300;
   line-height: normal;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.04rem;
 
   /* Experimental, but fallback is default styling */
   text-wrap: balance;
@@ -82,7 +82,8 @@ a {
   transition: all var(--transition-normal);
 }
 
-a:hover {
+a:hover,
+a[aria-current='true'] {
   color: var(--color-pink);
 }
 

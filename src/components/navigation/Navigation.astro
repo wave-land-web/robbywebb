@@ -1,11 +1,11 @@
 ---
+import MobileLogo from '../Logo.astro'
 import Mobile from './Mobile.astro'
 import Desktop from './Desktop.astro'
-import Logo from '../Logo.astro'
 ---
 
 <nav class="navigation">
-  <Logo />
+  <MobileLogo class="logo-custom" />
   <Mobile />
   <Desktop />
 </nav>
@@ -13,16 +13,24 @@ import Logo from '../Logo.astro'
 <style>
   .navigation {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: clamp(2rem, 5vw, 4rem);
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0.5rem 1rem 0;
+    padding: 0.5rem 1rem;
+
+    @media (min-width: 768px) {
+      & {
+        flex-direction: column;
+        padding: 3rem var(--spacing-section);
+      }
+    }
   }
 
-  @media (min-width: 768px) {
-    .navigation {
-      padding: 3rem var(--spacing-section) 0;
+  @media (min-width: 1024px) {
+    .logo-custom {
+      display: none;
     }
   }
 </style>

@@ -1,9 +1,9 @@
 ---
-// Redesign branch test
-import 'normalize.css'
-import '../styles/global.css'
+import { ViewTransitions } from 'astro:transitions'
 import Navigation from '../components/navigation/Navigation.astro'
 import Footer from '../components/Footer.astro'
+import 'normalize.css'
+import '../styles/global.css'
 
 export interface Props {
   title: string
@@ -56,11 +56,11 @@ const socialImageURL = new URL(socialImage || '/images/headshot.jpg', canonicalU
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,400;6..12,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Favicon -->
+    <!-- TODO: replace favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -70,33 +70,14 @@ const socialImageURL = new URL(socialImage || '/images/headshot.jpg', canonicalU
 
     <!-- Named slot for injecting head content -->
     <slot name="head" />
+
+    <!-- Animations -->
+    <ViewTransitions />
   </head>
 
   <body>
-    {Astro.url.pathname !== '/' && <Navigation />}
-    <div class="content-wrapper">
-      <slot />
-    </div>
-    {Astro.url.pathname !== '/' && <Footer />}
+    <Navigation />
+    <slot />
+    <Footer />
   </body>
 </html>
-
-<style>
-  .content-wrapper {
-    opacity: 0;
-    transition: opacity var(--transition-normal);
-  }
-
-  .content-wrapper.active {
-    opacity: 1;
-  }
-</style>
-
-<script>
-  function handleContentFadeIn() {
-    const contentWrapper = document.querySelector('.content-wrapper')
-    contentWrapper?.classList.add('active')
-  }
-
-  window.addEventListener('load', handleContentFadeIn)
-</script>

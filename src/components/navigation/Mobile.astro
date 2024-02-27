@@ -1,3 +1,7 @@
+---
+const currentPath = Astro.url.pathname
+---
+
 <button id="hamburger" class="hamburger" aria-expanded="false">
   <div class="top"></div>
   <div class="middle"></div>
@@ -6,9 +10,27 @@
 
 <div class="mobile-nav-overlay">
   <ul>
-    <li><a href="/discography">Discography</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/contact">Contact</a></li>
+    <li>
+      <a href="/mixing" aria-current={currentPath.includes('/mixing')} aria-label="Mixing">Mixing</a
+      >
+    </li>
+    <li>
+      <a href="/producing" aria-current={currentPath.includes('/producing')} aria-label="Producing"
+        >Producing</a
+      >
+    </li>
+    <li>
+      <a
+        href="/discography"
+        aria-current={currentPath.includes('/discography')}
+        aria-label="Discography">Discography</a
+      >
+    </li>
+    <li>
+      <a href="/contact" aria-current={currentPath.includes('/contact')} aria-label="Contact"
+        >Contact</a
+      >
+    </li>
   </ul>
 </div>
 
@@ -97,7 +119,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
   }
 
   .mobile-nav-overlay ul li {
@@ -133,33 +155,35 @@
 </style>
 
 <script>
-  const body = document.querySelector('body')
-  const hamburger = document.getElementById('hamburger')
-  let overlayDisplayed = false
+  document.addEventListener('astro:page-load', () => {
+    const body = document.querySelector('body')
+    const hamburger = document.getElementById('hamburger')
+    let overlayDisplayed = false
 
-  function handleMobileNavigationOnClick() {
-    overlayDisplayed = !overlayDisplayed
-    body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
-    hamburger?.classList.toggle('active')
-    hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
-  }
-
-  function handleMobileNavigationOnResize() {
-    if (window.innerWidth >= 768) {
-      overlayDisplayed = false
+    function handleMobileNavigationOnClick() {
+      overlayDisplayed = !overlayDisplayed
       body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
-      hamburger?.classList.remove('active')
+      hamburger?.classList.toggle('active')
       hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
     }
-  }
 
-  // Accessibility
-  body?.addEventListener('keyup', (event) => {
-    if (event.code === 'Escape' && overlayDisplayed) {
-      handleMobileNavigationOnClick()
+    function handleMobileNavigationOnResize() {
+      if (window.innerWidth >= 768) {
+        overlayDisplayed = false
+        body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
+        hamburger?.classList.remove('active')
+        hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
+      }
     }
-  })
 
-  hamburger?.addEventListener('click', handleMobileNavigationOnClick)
-  window.addEventListener('resize', handleMobileNavigationOnResize)
+    // Accessibility
+    body?.addEventListener('keyup', (event) => {
+      if (event.code === 'Escape' && overlayDisplayed) {
+        handleMobileNavigationOnClick()
+      }
+    })
+
+    hamburger?.addEventListener('click', handleMobileNavigationOnClick)
+    window.addEventListener('resize', handleMobileNavigationOnResize)
+  })
 </script>

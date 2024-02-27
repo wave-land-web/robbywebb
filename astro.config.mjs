@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.robbywebb.com',
+  scopedStyleStrategy: 'class',
   build: {
     inlineStylesheets: 'always',
   },
