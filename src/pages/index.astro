@@ -1,6 +1,9 @@
 ---
+import { Picture } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
+import PageHeader from '../components/text/PageHeader.astro'
+import backgroundImage from '../assets/images/landing-page-hero.jpg'
 ---
 
 <Layout title="Robby Webb | Producer, Drummer, Engineer">
@@ -9,7 +12,85 @@ import MainContent from '../components/MainContent.astro'
     name="google-site-verification"
     content="lUO4ZVVpFSsy1Y7rwcjkxgw-XVYXc3vWEKvHg9zqjdA"
   />
-  <MainContent>
-    <h1>Robby Webb</h1>
+  <MainContent class="main-custom">
+    <section id="entry" class="entry">
+      <div class="entry-content">
+        <PageHeader text="What are you looking for?" />
+        <p>Click below to learn more:</p>
+        <div class="entry-ctas">
+          <a href="/mixing" class="site-cta">Mixing</a>
+          <a href="/producing" class="site-cta">Producing</a>
+        </div>
+      </div>
+      <Picture
+        src={backgroundImage}
+        formats={['avif', 'webp']}
+        loading="eager"
+        alt="Robby Webb with two other musicians in a mixing room"
+      />
+      <div class="scrim"></div>
+    </section>
   </MainContent>
 </Layout>
+
+<style>
+  .main-custom {
+    max-width: none;
+    padding: 3rem 0 0;
+  }
+
+  .entry {
+    position: relative;
+    height: 75vh;
+    max-height: 550px;
+    margin-bottom: var(--spacing-section);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+
+    & .entry-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      z-index: 1;
+      text-align: center;
+      color: var(--color-white);
+
+      & h1,
+      & p {
+        margin-bottom: 2rem;
+      }
+
+      & .entry-ctas {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+
+        & .site-cta {
+          padding: 1rem 2rem;
+          font-size: clamp(var(--size-sm), 2vw, var(--size-md));
+          border-radius: 4rem;
+        }
+      }
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      border-radius: var(--border-radius);
+    }
+
+    & .scrim {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-scrim);
+      box-shadow: inset 0 0 0.5rem 0.5rem var(--color-black);
+    }
+  }
+</style>

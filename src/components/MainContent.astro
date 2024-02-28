@@ -1,8 +1,10 @@
 ---
 import SocialIcons from './SocialIcons.astro'
+
+const { class: className } = Astro.props
 ---
 
-<main class="main-content">
+<main class:list={[className, 'main-content']}>
   <slot />
   <SocialIcons />
 </main>

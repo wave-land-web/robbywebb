@@ -6,6 +6,7 @@
   --color-yellow: #c3ae69;
   --color-pink: #f49ac2;
   --color-pink-faded: #f49ac3bf;
+  --color-scrim: #000000cc;
 
   /* Fonts */
   --font-nunito-sans: 'Nunito Sans', sans-serif;
@@ -22,10 +23,11 @@
 
   /* Containers */
   --container-max-width: 1800px;
+  --container-medium-width: 1200px;
 
   /* Spacing */
   --spacing-section: clamp(4rem, 10vw, 6rem);
-  --spacing-paragraph: clamp(1rem, 2vw, 1.5rem);
+  --spacing-base: clamp(1rem, 2vw, 1.5rem);
 
   /* Transitions */
   --transition-normal: 0.25s ease-in-out;
@@ -35,6 +37,7 @@
 }
 
 body {
+  min-height: 100vh;
   color: var(--color-white);
   background: var(--color-black);
   font-family: var(--font-nunito-sans);
@@ -111,14 +114,14 @@ img {
 }
 
 p {
-  margin: 0 auto var(--spacing-paragraph);
+  margin: 0 auto var(--spacing-base);
   font-size: clamp(var(--size-sm), 2vw, var(--size-md));
 }
 
 .site-cta {
   display: inline-block;
   padding: 0.25rem 0.5rem;
-  background: var(--color-black);
+  background: transparent;
   border: 1px solid var(--color-white);
   border-radius: 4px;
   font-weight: 400;

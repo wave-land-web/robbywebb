@@ -34,6 +34,7 @@ const { record, image, artist, type, credits, label, musicLinks } = album || {}
         src={image!}
         formats={['avif', 'webp']}
         title={`${artist}: ${record}`}
+        loading="eager"
         alt={`${artist}: ${record}`}
       />
       <div class="album-info">
@@ -60,7 +61,7 @@ const { record, image, artist, type, credits, label, musicLinks } = album || {}
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-section);
-    max-width: 1200px;
+    max-width: var(--container-medium-width);
     margin: 0 auto;
   }
 
