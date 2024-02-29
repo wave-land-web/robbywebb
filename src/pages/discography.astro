@@ -1,10 +1,13 @@
 ---
-import { Picture } from 'astro:assets'
 import PageHeader from '../components/text/PageHeader.astro'
 import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 
-// Images
+/**
+ * Images
+ *
+ * @todo Finish converting .jpg images to .webp
+ */
 import ajIFoundGrace from '../assets/images/aj_i-found-grace.webp'
 import dnTodayImage from '../assets/images/dn_today.webp'
 import jhFrequencyImage from '../assets/images/jh_frequency.webp'
@@ -21,30 +24,30 @@ import deathOfARomanticAlbumImage from '../assets/images/ks_death-of-a-romantic_
 import tellMeImage from '../assets/images/ks_tell-me.jpg'
 import undergroundImage from '../assets/images/ks_underground.jpg'
 import deathOfARomanticSingleImage from '../assets/images/ks_death-of-a-romantic_single.jpg'
-import maybeImage from '../assets/images/tk_maybe.jpg'
-import stayImage from '../assets/images/stm_stay.jpg'
+import maybeImage from '../assets/images/tk_maybe.webp'
+import stayImage from '../assets/images/stm_stay.webp'
 import dreamsDieImage from '../assets/images/gm_dreams-die.jpg'
 import hometownImage from '../assets/images/mm_hometown.jpg'
 import wildImage from '../assets/images/ks_wild.jpg'
-import peaceDrinkImage from '../assets/images/rr_peace-drink.jpg'
+import peaceDrinkImage from '../assets/images/rr_peace-drink.webp'
 import nowhereToGoImage from '../assets/images/rr_nowhere-to-go.jpg'
-import iAmImage from '../assets/images/tk_iam.jpg'
-import theFireImage from '../assets/images/tk_fire.jpg'
+import iAmImage from '../assets/images/tk_iam.webp'
+import theFireImage from '../assets/images/tk_fire.webp'
 import movinAlongImage from '../assets/images/ju_movin-along.jpg'
 import tenPercentImage from '../assets/images/gm_ten.jpg'
 import likeFallingAsleepImage from '../assets/images/gm_like-falling-asleep.jpg'
-import sussingImage from '../assets/images/wa_sussing.jpg'
+import sussingImage from '../assets/images/wa_sussing.webp'
 import loveSpellImage from '../assets/images/mb_love-spell.jpg'
-import upUpAndAwayImage from '../assets/images/tk_up-up.jpg'
-import californiaImage from '../assets/images/tk_california.jpg'
-import tacoNightImage from '../assets/images/tk_taco-night.jpg'
+import upUpAndAwayImage from '../assets/images/tk_up-up.webp'
+import californiaImage from '../assets/images/tk_california.webp'
+import tacoNightImage from '../assets/images/tk_taco-night.webp'
 import enoughImage from '../assets/images/ph_enough.jpg'
-import jwytkImage from '../assets/images/tk_jwytk.jpg'
+import jwytkImage from '../assets/images/tk_jwytk.webp'
 import tensionImage from '../assets/images/na_tension.jpg'
 import titleOneImage from '../assets/images/ks_title-one.jpg'
 import makeItPourImage from '../assets/images/ks_make-it-pour.jpg'
 import happyImage from '../assets/images/ks_happy.jpg'
-import neverWantYouBackImage from '../assets/images/sr_never-want-you-back.jpg'
+import neverWantYouBackImage from '../assets/images/sr_never-want-you-back.webp'
 import heartbeatImage from '../assets/images/ks_heartbeat.jpg'
 import superstitionImage from '../assets/images/mm-oto_superstition.jpg'
 import perceptionImage from '../assets/images/mm-oto_perception.jpg'
@@ -56,7 +59,8 @@ import whatAlreadyIsImage from '../assets/images/jn_what-already-is.jpg'
 import anchorsImage from '../assets/images/oto_anchors.jpg'
 import makeMeLovelyImage from '../assets/images/fm_make-me-lovely.jpg'
 
-interface AlbumProps {
+// Album Data
+export interface AlbumProps {
   id: number
   artist: string
   record: string
@@ -1215,40 +1219,19 @@ export const albumData: AlbumProps[] = [
 <Layout title="Robby Webb | Discography">
   <MainContent>
     <PageHeader text="Discography" />
-    <section id="discography" class="discography">
-      {
-        albumData.map((album) => {
-          const { slug, image, artist, record } = album
-
-          return (
-            <article class="discography-album">
-              <a href={`/discography/${slug}`}>
-                <figure>
-                  <Picture
-                    src={image}
-                    formats={['avif', 'webp']}
-                    title={`${artist}, ${record}`}
-                    alt={`${artist}, ${record}`}
-                  />
-                  <figcaption class="discography-album_scrim">
-                    <h2>{`${artist} "${record}"`}</h2>
-                  </figcaption>
-                </figure>
-              </a>
-            </article>
-          )
-        })
-      }
-    </section>
+    <section id="discography" class="discography"></section>
+    <button class="load-more site-cta button">Load More</button>
   </MainContent>
 </Layout>
 
-<style>
+<style is:inline>
   .discography {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 2rem;
+    gap: 2rem;
     text-align: center;
+    margin-bottom: 2rem;
+    min-height: 100vh;
   }
 
   @media (min-width: 1024px) {
@@ -1266,7 +1249,7 @@ export const albumData: AlbumProps[] = [
     margin: auto;
   }
 
-  .discography-album_scrim {
+  .discography-album-scrim {
     position: absolute;
     display: flex;
     align-items: center;
@@ -1282,12 +1265,106 @@ export const albumData: AlbumProps[] = [
     transition: opacity var(--transition-normal);
   }
 
-  .discography-album a:hover .discography-album_scrim {
+  .discography-album a:hover .discography-album-scrim {
     opacity: 1;
   }
 
-  .discography-album_scrim h2 {
+  .discography-album-scrim h2 {
     font-size: clamp(var(--size-sm), 5vw, var(--size-md));
     padding: 1rem;
   }
+
+  .load-more.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 </style>
+
+<script define:vars={{ albumData }}>
+  document.addEventListener(
+    'astro:page-load',
+    () => {
+      // Grab necessary DOM elements
+      const discography = document.querySelector('.discography')
+      const loadMoreButton = document.querySelector('.load-more')
+      const discographyNavLinks = document.querySelectorAll('a[href^="/discography"]')
+
+      // Set pagination data
+      const albumLimit = albumData.length
+      const albumIncrease = 16
+      const pageCount = Math.ceil(albumLimit / albumIncrease)
+      let currentPage = 1
+
+      /**
+       * Create album with image, artist, record, and slug
+       * @param {Object} album
+       * @returns {String} Album HTML template string
+       *
+       * @todo Can we use Image or Picture components in a template string?
+       */
+      function createAlbum(album) {
+        const { image, artist, record, slug } = album
+
+        return `
+          <article class="discography-album">
+            <a href="/discography/${slug}">
+              <figure>
+                <img
+                  src="${image.src}"
+                  width="${image.width}"
+                  height="${image.height}"
+                  title="${artist}, ${record}"
+                  alt="${artist}, ${record} album cover"
+                />
+                <figcaption class="discography-album-scrim">
+                  <h2>${artist} "${record}"</h2>
+                </figcaption>
+              </figure>
+            </a>
+          </article>
+        `
+      }
+
+      /**
+       * Load and append albums to the DOM based on the current page
+       * @param {Number} page
+       */
+      function loadAlbums(page) {
+        const start = (page - 1) * albumIncrease
+        const end = start + albumIncrease
+        const albums = albumData.slice(start, end)
+
+        albums.forEach((album) => {
+          discography.innerHTML += createAlbum(album)
+        })
+      }
+
+      /**
+       * Increase the number of albums displayed
+       *
+       * Disable the load more button when all albums are displayed
+       */
+      function increaseAlbums() {
+        currentPage++
+
+        loadAlbums(currentPage)
+
+        if (currentPage >= pageCount) {
+          loadMoreButton.classList.add('disabled')
+          return
+        }
+      }
+
+      // Load initial albums
+      loadAlbums(currentPage)
+
+      // Load more albums
+      loadMoreButton.addEventListener('click', increaseAlbums)
+
+      // [Edge Case] If user clicks on a discography link while on the discography page, reload the page
+      discographyNavLinks.forEach((link) => link.addEventListener('click', () => location.reload()))
+    },
+    { once: true }
+  )
+</script>
