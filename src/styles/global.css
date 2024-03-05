@@ -31,6 +31,7 @@
 
   /* Transitions */
   --transition-normal: 0.25s ease-in-out;
+  --transition-long: 0.5s ease-in-out;
 
   /* Borders */
   --border-radius: 4px;

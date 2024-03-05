@@ -28,7 +28,6 @@ import backgroundImage from '../assets/images/landing-page-hero.jpg'
         loading="eager"
         alt="Robby Webb with two other musicians in a mixing room"
       />
-      <div class="scrim"></div>
     </section>
   </MainContent>
 </Layout>
@@ -36,7 +35,7 @@ import backgroundImage from '../assets/images/landing-page-hero.jpg'
 <style>
   .main-custom {
     max-width: none;
-    padding: 3rem 0 0;
+    padding: 0;
   }
 
   .entry {
@@ -68,7 +67,7 @@ import backgroundImage from '../assets/images/landing-page-hero.jpg'
         gap: 1rem;
 
         & .site-cta {
-          padding: 1rem 2rem;
+          padding: clamp(0.75rem, 5vw, 1rem) clamp(1.5rem, 5vw, 2rem);
           font-size: clamp(var(--size-sm), 2vw, var(--size-md));
           border-radius: 4rem;
         }
@@ -81,16 +80,20 @@ import backgroundImage from '../assets/images/landing-page-hero.jpg'
       object-fit: cover;
       object-position: top;
       border-radius: var(--border-radius);
-    }
+      filter: brightness(0.2) blur(0.5rem);
+      transition: all var(--transition-long);
 
-    & .scrim {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--color-scrim);
-      box-shadow: inset 0 0 0.5rem 0.5rem var(--color-black);
+      &.loaded {
+        filter: brightness(0.2) blur(0);
+      }
     }
   }
 </style>
+
+<script>
+  // Fade in background image when the page is loaded
+  document.addEventListener('astro:page-load', () => {
+    const img = document.querySelector('.entry img')
+    img?.classList.add('loaded')
+  })
+</script>
