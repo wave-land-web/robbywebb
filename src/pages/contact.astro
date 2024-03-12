@@ -1,13 +1,4 @@
 ---
-/**
- * TODO:
- *
- * - add/remove links visually
- * - add hidden form field for link collection
- * - add links to hidden form field on add/remove
- * - on submit, send hidden form field data
- *
- */
 import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
@@ -59,40 +50,8 @@ import PageHeader from '../components/text/PageHeader.astro'
           <label for="links">Relevant Links:</label>
           <button class="site-cta button" type="button">Add Link</button>
         </div>
-        <div class="link-container">
-          <div class="link">
-            <span>supervoid.tv</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="h-6 w-6"
-              viewBox="0 0 24 24"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18 18 6M6 6l12 12"></path></svg
-            >
-          </div>
-          <div class="link">
-            <span>wavelandweb.com</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              aria-hidden="true"
-              class="h-6 w-6"
-              viewBox="0 0 24 24"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18 18 6M6 6l12 12"></path></svg
-            >
-          </div>
-        </div>
+        <div class="link-container"></div>
+        <p class="error">Please enter a valid URL (e.g. https://www.example.com)</p>
       </div>
 
       <!-- Message -->
@@ -123,7 +82,7 @@ import PageHeader from '../components/text/PageHeader.astro'
     font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
 
     & label,
-    & p {
+    & p:not(.error) {
       color: var(--color-grey);
     }
 
@@ -289,5 +248,107 @@ import PageHeader from '../components/text/PageHeader.astro'
         }
       }
     }
+
+    .error {
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
   }
 </style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // Get DOM elements
+    const form = document.querySelector('.form') as HTMLFormElement
+    const linkContainer = document.querySelector('.link-container')
+    const linksInput = document.querySelector('.relevant-links input') as HTMLInputElement
+    const addLinkButton = document.querySelector('.relevant-links button')
+    const error = document.querySelector('.error') as HTMLElement
+
+    // Store relevant links
+    let links: string[] = []
+
+    /**
+     * Add a link to the list of relevant links and the DOM
+     */
+    function handleAddLink() {
+      const value = linksInput?.value
+
+      // Check that the input is a valid URL
+      const URL_REGEX =
+        /^(http(s)?:\/\/)?(www.)?([a-zA-Z0-9])+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,5}(:[0-9]{1,5})?(\/[^\s]*)?$/gm
+
+      if (!URL_REGEX.test(value)) {
+        error.classList.add('show')
+        return
+      }
+
+      // Remove error message and add link to list
+      error.classList.remove('show')
+
+      // Link template
+      linkContainer?.insertAdjacentHTML(
+        'beforeend',
+        `
+          <div class="link">
+            <span>${value}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="h-6 w-6"
+              viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18 18 6M6 6l12 12"></path>
+            </svg>
+          </div>
+        `
+      )
+
+      // Add link to list and clear input
+      links.push(value)
+      linksInput.value = ''
+    }
+
+    /**
+     * Remove a link from the list of relevant links and the DOM
+     * @param e - The event object
+     */
+    function handleRemoveLink(e: Event) {
+      const eventTarget = e.target as HTMLElement
+
+      if (eventTarget?.tagName === 'svg') {
+        const linkValue = eventTarget.parentElement?.querySelector('span')?.textContent
+        const linksWithSelectionRemoved = links.filter((link) => link !== linkValue)
+        links = linksWithSelectionRemoved
+
+        // remove link from DOM
+        eventTarget.parentElement?.remove()
+      }
+    }
+
+    /**
+     * Submit the form with with correctly formatted data
+     * @param e - The event object
+     * @todo Format FormData with AJAX request -- see: https://docs.netlify.com/forms/setup/#submit-html-forms-with-ajax
+     */
+    function handleSubmit(e: Event) {
+      e.preventDefault()
+
+      linksInput.value = links.join(', ')
+      form.submit()
+    }
+
+    // Event listeners
+    addLinkButton?.addEventListener('click', handleAddLink)
+    linkContainer?.addEventListener('click', handleRemoveLink)
+    form?.addEventListener('submit', handleSubmit)
+  })
+</script>

@@ -156,3 +156,8 @@ p {
     padding: 0.75rem 1.5rem;
   }
 }
+
+.error {
+  color: var(--color-pink);
+  font-size: var(--size-xs);
+}
