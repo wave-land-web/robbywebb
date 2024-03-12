@@ -1,4 +1,13 @@
 ---
+/**
+ * TODO:
+ *
+ * - add/remove links visually
+ * - add hidden form field for link collection
+ * - add links to hidden form field on add/remove
+ * - on submit, send hidden form field data
+ *
+ */
 import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
@@ -40,6 +49,49 @@ import PageHeader from '../components/text/PageHeader.astro'
         <div class="checkbox">
           <input type="checkbox" id="recording" name="recording" value="Recording" />
           <label for="recording">Recording</label>
+        </div>
+      </div>
+
+      <!-- Relevant Links -->
+      <div class="form-field">
+        <div class="relevant-links">
+          <input id="links" type="text" name="links" placeholder=" " />
+          <label for="links">Relevant Links:</label>
+          <button class="site-cta button" type="button">Add Link</button>
+        </div>
+        <div class="link-container">
+          <div class="link">
+            <span>supervoid.tv</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="h-6 w-6"
+              viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18 18 6M6 6l12 12"></path></svg
+            >
+          </div>
+          <div class="link">
+            <span>wavelandweb.com</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="h-6 w-6"
+              viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18 18 6M6 6l12 12"></path></svg
+            >
+          </div>
         </div>
       </div>
 
@@ -94,9 +146,15 @@ import PageHeader from '../components/text/PageHeader.astro'
       gap: 0.5rem;
 
       input {
-        accent-color: var(--color-pink);
         width: clamp(var(--size-xxs), 2vw, var(--size-xs));
         height: clamp(var(--size-xxs), 2vw, var(--size-xs));
+        appearance: none;
+        border: 1px solid var(--color-white);
+        border-radius: var(--border-radius);
+
+        &:checked {
+          background-color: var(--color-pink);
+        }
 
         &:checked + label {
           color: var(--color-white);
@@ -115,7 +173,7 @@ import PageHeader from '../components/text/PageHeader.astro'
       color: var(--color-white);
       background-color: var(--color-black);
       font-weight: 300;
-      border-bottom: 2px solid var(--color-white);
+      border-bottom: 1px solid var(--color-white);
       border-top: none;
       border-left: none;
       border-right: none;
@@ -126,7 +184,7 @@ import PageHeader from '../components/text/PageHeader.astro'
 
     & input:focus,
     & textarea:focus {
-      border-bottom: 2px solid var(--color-pink);
+      border-bottom: 1px solid var(--color-pink);
     }
 
     & input:not(:placeholder-shown):valid,
@@ -162,7 +220,7 @@ import PageHeader from '../components/text/PageHeader.astro'
       color: var(--color-pink);
     }
 
-    & input:not([type='checkbox']):valid + label,
+    & input:not([type='checkbox']):not([name='links']):valid + label,
     & textarea:valid + label {
       color: var(--color-white);
     }
@@ -173,6 +231,63 @@ import PageHeader from '../components/text/PageHeader.astro'
     & textarea:not(:placeholder-shown) + label {
       top: -1rem;
       left: 0;
+    }
+
+    .relevant-links {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      gap: calc(var(--spacing-base));
+
+      & input {
+        flex: 1;
+
+        &:not(:placeholder-shown) + label {
+          color: var(--color-white);
+        }
+      }
+
+      & label {
+        top: 30%;
+        color: var(--color-grey);
+      }
+    }
+
+    .link-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      font-size: var(--size-xxs);
+
+      & .link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        background-color: var(--color-pink);
+        border-radius: var(--border-radius);
+
+        & span {
+          text-transform: uppercase;
+          letter-spacing: 0.05rem;
+          color: var(--color-black);
+        }
+
+        & svg {
+          width: 1rem;
+          height: 1rem;
+          padding: 0.1rem;
+          color: var(--color-black);
+          border-radius: var(--border-radius);
+          transition: all var(--transition-normal);
+          cursor: pointer;
+
+          &:hover {
+            background-color: var(--color-white-faded);
+          }
+        }
+      }
     }
   }
 </style>

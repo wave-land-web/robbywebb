@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 
 const { class: className } = Astro.props
 ---
@@ -12,9 +12,11 @@ const { class: className } = Astro.props
   a {
     position: relative;
     z-index: 10;
+    width: clamp(200px, 20vw, 260px);
 
-    & [astro-icon='logo'] {
-      width: clamp(200px, 20vw, 260px);
+    & [data-icon='logo'] {
+      width: 100%;
+      height: auto;
     }
   }
 </style>
