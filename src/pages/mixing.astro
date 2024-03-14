@@ -1,12 +1,119 @@
 ---
+import Picture from 'astro/components/Picture.astro'
 import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
+import TextContent from '../components/text/Content.astro'
+import mixingImageOne from '../assets/images/mixing-1.webp'
+import mixingImageTwo from '../assets/images/mixing-2.webp'
+import filepassImage from '../assets/images/filepass.png'
 ---
 
 <Layout title="Robby Webb | Mixing">
   <MainContent>
-    <PageHeader text="Mixing" />
-    <section id="mixing" class="mixing"></section>
+    <PageHeader class="page-header-custom" text="Mixing" />
+
+    <section id="mixing" class="mixing">
+      <article id="what-is-mixing">
+        <Picture src={mixingImageOne} formats={['avif', 'webp']} alt="Robby Webb mixing" />
+        <TextContent>
+          <p>
+            Mixing is the art and science of blending individual tracks within a recording to create
+            a version of the song that sounds as good as possible. This process involves balancing
+            levels, fine-tuning dynamics, applying effects, and sculpting the sonic space of each
+            element. It's where we take your raw recordings and transform them into a polished,
+            cohesive, and captivating piece of music.
+          </p>
+          <p>
+            But mixing is more than just a technical process; it's a creative journey. It's about
+            understanding the vision behind your music and enhancing it, ensuring that every
+            instrument sits perfectly in the mix, and that your track conveys the emotions you want
+            it to.
+          </p>
+        </TextContent>
+      </article>
+
+      <article id="what-to-expect">
+        <Picture src={mixingImageTwo} formats={['avif', 'webp']} alt="Robby Webb mixing" />
+        <TextContent>
+          <p>
+            When you work with me, you're not just getting a service; you're gaining a partner in
+            your musical journey. Here's what you can expect:
+          </p>
+          <ul>
+            <li>
+              <strong>Clarity and Depth:</strong> Ensure each instrument and voice is distinct, with
+              the depth and richness your music deserves.
+            </li>
+            <li>
+              <strong>Dynamic Balance:</strong> Strike the perfect balance between the various elements
+              of your track, ensuring that everything from the softest whisper to the loudest crescendo
+              is heard exactly as intended.
+            </li>
+            <li>
+              <strong>Emotional Impact:</strong> My mixing process enhances the emotional core of your
+              music, ensuring that your listeners feel every note.
+            </li>
+            <li>
+              <strong>Industry Standards:</strong> Your final mix will not only sound great in your headphones
+              but across all platforms and devices, meeting today's industry standards for streaming,
+              radio, and beyond.
+            </li>
+          </ul>
+        </TextContent>
+      </article>
+    </section>
+
+    <section id="listen" class="listen">
+      <Picture src={filepassImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
+      <a href="/contact" class="site-cta large">Let's Get Started</a>
+    </section>
   </MainContent>
 </Layout>
+
+<style>
+  .page-header-custom {
+    margin-bottom: calc(var(--spacing-section) + 4rem);
+  }
+
+  .mixing,
+  .listen {
+    margin-bottom: calc(var(--spacing-section) + 4rem);
+  }
+
+  .mixing article {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: calc(var(--spacing-section) + 4rem);
+    grid-template-areas:
+      'image'
+      'content';
+    margin-bottom: calc(var(--spacing-section) + 4rem);
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'content image';
+      gap: var(--spacing-section);
+
+      &:nth-child(2) {
+        grid-template-areas: 'image content';
+      }
+    }
+
+    & img {
+      grid-area: image;
+      filter: brightness(0.8);
+    }
+  }
+
+  .listen {
+    max-width: var(--container-small-width);
+    margin-left: auto;
+    margin-right: auto;
+
+    & .site-cta {
+      margin: var(--spacing-section) auto 0;
+    }
+  }
+</style>

@@ -1,0 +1,67 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div class="content">
+  <Icon name="corner-dashed" />
+  <slot />
+  <Icon name="corner-dashed" />
+</div>
+
+<style>
+  .content {
+    position: relative;
+    grid-area: content;
+    padding: 2rem;
+
+    & [data-icon='corner-dashed'] {
+      position: absolute;
+      width: 10rem;
+      height: 10rem;
+      z-index: -1;
+      color: var(--color-pink);
+      opacity: 0.8;
+    }
+
+    & [data-icon='corner-dashed']:first-of-type {
+      left: -1rem;
+      bottom: -4rem;
+    }
+
+    & [data-icon='corner-dashed']:last-of-type {
+      right: -1rem;
+      top: -4rem;
+      transform: rotate(180deg);
+    }
+
+    p,
+    ul {
+      font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
+      text-align: center;
+
+      @media (min-width: 1024px) {
+        text-align: left;
+      }
+    }
+
+    ul {
+      padding: var(--spacing-base);
+
+      @media (min-width: 1024px) {
+        & {
+          list-style: '✓';
+        }
+      }
+
+      li {
+        margin-bottom: var(--spacing-base);
+        padding-inline-start: var(--spacing-base);
+      }
+    }
+
+    p:last-of-type,
+    li:last-of-type {
+      margin-bottom: 0rem;
+    }
+  }
+</style>

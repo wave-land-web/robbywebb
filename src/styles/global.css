@@ -25,6 +25,7 @@
   /* Containers */
   --container-max-width: 1800px;
   --container-medium-width: 1200px;
+  --container-small-width: 600px;
 
   /* Spacing */
   --spacing-section: clamp(4rem, 10vw, 6rem);
@@ -120,18 +121,26 @@ p {
   font-size: clamp(var(--size-sm), 2vw, var(--size-md));
 }
 
+strong {
+  font-weight: 900;
+}
+
 .site-cta {
   display: inline-block;
   padding: 0.25rem 0.5rem;
+  color: var(--color-white);
   background: transparent;
   border: 1px solid var(--color-white);
   border-radius: 4px;
+  max-width: fit-content;
+  font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
   font-weight: 400;
   letter-spacing: 0.05rem;
   transition: all var(--transition-normal);
 }
 
-.site-cta:hover {
+.site-cta:hover,
+.site-cta.button:hover {
   color: var(--color-black);
   background: var(--color-pink);
   border: 1px solid var(--color-pink);
@@ -139,22 +148,21 @@ p {
 
 .site-cta.button {
   display: block;
-  margin: 0 auto;
-  max-width: fit-content;
   padding: 0.5rem 1rem;
-  color: var(--color-white);
   cursor: pointer;
-}
-
-.site-cta.button:hover {
-  color: var(--color-black);
 }
 
 @media (min-width: 768px) {
   .site-cta.button {
-    font-size: var(--size-sm);
     padding: 0.75rem 1.5rem;
   }
+}
+
+.site-cta.large {
+  display: block;
+  padding: clamp(0.75rem, 5vw, 1rem) clamp(1.5rem, 5vw, 2rem);
+  font-size: clamp(var(--size-sm), 2vw, var(--size-md));
+  border-radius: 4rem;
 }
 
 .error {
