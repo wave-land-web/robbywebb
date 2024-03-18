@@ -36,6 +36,15 @@ import { Icon } from 'astro-icon/components'
     & [data-icon='instagram'] {
       width: 100%;
       height: auto;
+      stroke: var(--color-white);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
+      transition: stroke var(--transition-normal);
+
+      &:hover {
+        stroke: var(--color-pink);
+      }
     }
   }
 </style>

@@ -94,12 +94,7 @@ a[aria-current='true'] {
 }
 
 svg {
-  fill: var(--color-white);
   transition: fill var(--transition-normal);
-}
-
-svg:hover {
-  fill: var(--color-pink);
 }
 
 ul,
@@ -148,13 +143,14 @@ strong {
 
 .site-cta.button {
   display: block;
-  padding: 0.5rem 1rem;
+  margin: 0 auto;
+  padding: 0.5rem;
   cursor: pointer;
 }
 
 @media (min-width: 768px) {
   .site-cta.button {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem;
   }
 }
 

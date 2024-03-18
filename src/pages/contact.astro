@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components'
 import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
@@ -6,7 +7,7 @@ import PageHeader from '../components/text/PageHeader.astro'
 
 <Layout title="Robby Webb | Contact">
   <MainContent>
-    <PageHeader text="Contact" />
+    <PageHeader text="Let's Get Started" />
     <form method="POST" class="form" name="contactForm" action="/success/" data-netlify="true">
       <!-- Name -->
       <div class="form-field">
@@ -22,7 +23,7 @@ import PageHeader from '../components/text/PageHeader.astro'
 
       <!-- Services -->
       <div class="form-field">
-        <p>What services are you interested in?</p>
+        <p>What Can I Help You With?</p>
 
         <!-- Mixing -->
         <div class="checkbox">
@@ -48,7 +49,7 @@ import PageHeader from '../components/text/PageHeader.astro'
         <div class="relevant-links">
           <input id="links" type="text" name="links" placeholder=" " />
           <label for="links">Relevant Links:</label>
-          <button class="site-cta button" type="button">Add Link</button>
+          <button class="site-cta button" type="button"><Icon name="plus" /> Add Link</button>
         </div>
         <div class="link-container"></div>
         <p class="error">Please enter a valid URL (e.g. https://www.example.com)</p>
@@ -58,9 +59,9 @@ import PageHeader from '../components/text/PageHeader.astro'
       <div class="form-field">
         <textarea id="message" name="message" cols="30" rows="5" placeholder=" " required
         ></textarea>
-        <label for="message">Message: <span>*</span></label>
+        <label for="message">Tell Me About Your Project: <span>*</span></label>
       </div>
-      <button class="site-cta button" type="submit">Send Message</button>
+      <button class="site-cta button large" type="submit">Send Message</button>
     </form>
   </MainContent>
 </Layout>
@@ -210,6 +211,26 @@ import PageHeader from '../components/text/PageHeader.astro'
         top: 30%;
         color: var(--color-grey);
       }
+
+      & .button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover [data-icon='plus'] {
+          stroke: var(--color-black);
+        }
+
+        [data-icon='plus'] {
+          width: 1rem;
+          height: 1rem;
+          stroke: var(--color-white);
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 2;
+          transition: all var(--transition-normal);
+        }
+      }
     }
 
     .link-container {
@@ -240,10 +261,13 @@ import PageHeader from '../components/text/PageHeader.astro'
           color: var(--color-black);
           border-radius: var(--border-radius);
           transition: all var(--transition-normal);
-          cursor: pointer;
 
-          &:hover {
-            background-color: var(--color-white-faded);
+          &[data-icon='close'] {
+            cursor: pointer;
+
+            &:hover {
+              background-color: var(--color-white-faded);
+            }
           }
         }
       }
@@ -294,13 +318,16 @@ import PageHeader from '../components/text/PageHeader.astro'
         'beforeend',
         `
           <div class="link">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 19">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 12.326 6-6m-4-3 .463-.537a5 5 0 0 1 7.071 7.072l-.534.464m-5 5-.397.535a5.068 5.068 0 0 1-7.127 0 4.972 4.972 0 0 1 0-7.071L3 8.326"/>
+            </svg>
             <span>${value}</span>
             <svg
+              data-icon="close"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               stroke="currentColor"
               aria-hidden="true"
-              class="h-6 w-6"
               viewBox="0 0 24 24"
             ><path
               stroke-linecap="round"
@@ -324,7 +351,7 @@ import PageHeader from '../components/text/PageHeader.astro'
     function handleRemoveLink(e: Event) {
       const eventTarget = e.target as HTMLElement
 
-      if (eventTarget?.tagName === 'svg') {
+      if (eventTarget.getAttribute('data-icon') === 'close') {
         const linkValue = eventTarget.parentElement?.querySelector('span')?.textContent
         const linksWithSelectionRemoved = links.filter((link) => link !== linkValue)
         links = linksWithSelectionRemoved
@@ -342,7 +369,12 @@ import PageHeader from '../components/text/PageHeader.astro'
     function handleSubmit(e: Event) {
       e.preventDefault()
 
-      linksInput.value = links.join(', ')
+      if (links.length !== 0) {
+        linksInput.value = links.join(', ')
+      } else {
+        linksInput.value = linksInput.value
+      }
+
       form.submit()
     }
 
