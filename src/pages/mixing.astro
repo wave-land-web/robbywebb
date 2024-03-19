@@ -4,8 +4,8 @@ import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
 import TextContent from '../components/text/Content.astro'
-import mixingImageOne from '../assets/images/mixing-1.webp'
-import mixingImageTwo from '../assets/images/mixing-2.webp'
+import whatIsMixingImage from '../assets/images/mixing_what-is-mixing.webp'
+import whatYouCanExpectImage from '../assets/images/mixing_what-you-can-expect.webp'
 import filepassImage from '../assets/images/filepass.png'
 ---
 
@@ -15,7 +15,7 @@ import filepassImage from '../assets/images/filepass.png'
 
     <section id="mixing" class="mixing">
       <article id="what-is-mixing">
-        <Picture src={mixingImageOne} formats={['avif', 'webp']} alt="Robby Webb mixing" />
+        <Picture src={whatIsMixingImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
         <TextContent>
           <p>
             Mixing is the art and science of blending individual tracks within a recording to create
@@ -33,8 +33,8 @@ import filepassImage from '../assets/images/filepass.png'
         </TextContent>
       </article>
 
-      <article id="what-to-expect">
-        <Picture src={mixingImageTwo} formats={['avif', 'webp']} alt="Robby Webb mixing" />
+      <article id="what-you-can-expect">
+        <Picture src={whatYouCanExpectImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
         <TextContent>
           <p>
             When you work with me, you're not just getting a service; you're gaining a partner in

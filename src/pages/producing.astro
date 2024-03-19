@@ -1,12 +1,120 @@
 ---
+import Picture from 'astro/components/Picture.astro'
 import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
+import TextContent from '../components/text/Content.astro'
+import whatIsProducingImage from '../assets/images/producing_what-is-producing.webp'
+import whatYouCanExpectImage from '../assets/images/producing_what-you-can-expect.webp'
+import filepassImage from '../assets/images/filepass.png'
 ---
 
 <Layout title="Robby Webb | Producing">
   <MainContent>
-    <PageHeader text="Producing" />
-    <section id="producing" class="producing"></section>
+    <PageHeader class="page-header-custom" text="Producing" />
+
+    <section id="producing" class="producing">
+      <article id="what-is-producing">
+        <Picture src={whatIsProducingImage} formats={['avif', 'webp']} alt="Robby Webb producing" />
+        <TextContent>
+          <p>
+            Music production is the canvas of sound, where every stroke, color, and texture come
+            together to form a masterpiece. It encompasses the entire journey of a song from its
+            initial idea to its final master. A producer is your guide, mentor, and collaborator,
+            ensuring that each element of the song serves its purpose and contributes to the overall
+            narrative.
+          </p>
+          <p>
+            It's about shaping the song's architecture, choosing the right sounds, and creating an
+            environment where artists can shine. The role of a producer is multifaceted, blending
+            creativity with technical prowess to enhance the song's emotional depth and sonic
+            quality.
+          </p>
+        </TextContent>
+      </article>
+
+      <article id="what-you-can-expect">
+        <Picture
+          src={whatYouCanExpectImage}
+          formats={['avif', 'webp']}
+          alt="Robby Webb producing"
+        />
+        <TextContent>
+          <p>Here's what your production journey looks like with me:</p>
+          <ul>
+            <li>
+              <strong>Personalized Approach:</strong> Every artist is unique, and so is every song. We
+              tailor our production process to fit your style, your goals, and your vision.
+            </li>
+            <li>
+              <strong>Creative Environment:</strong> We provide a space where creativity flows freely,
+              where you're encouraged to explore, experiment, and express yourself musically.
+            </li>
+            <li>
+              <strong>Technical Mastery:</strong> Leveraging cutting-edge technology and time-honored
+              techniques, we sculpt your music to sound pristine on every platform, from headphones to
+              live stages.
+            </li>
+            <li>
+              <strong>Empowerment:</strong> Our goal is to empower you as an artist. We provide insights,
+              techniques, and perspectives that enhance your musical expression and propel your career
+              forward.
+            </li>
+          </ul>
+        </TextContent>
+      </article>
+    </section>
+
+    <section id="listen" class="listen">
+      <Picture src={filepassImage} formats={['avif', 'webp']} alt="Robby Webb producing" />
+      <a href="/contact" class="site-cta large">Let's Get Started</a>
+    </section>
   </MainContent>
 </Layout>
+
+<style>
+  .page-header-custom {
+    margin-bottom: calc(var(--spacing-section) + 4rem);
+  }
+
+  .producing,
+  .listen {
+    margin-bottom: calc(var(--spacing-section) + 4rem);
+  }
+
+  .producing article {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: calc(var(--spacing-section) + 4rem);
+    grid-template-areas:
+      'image'
+      'content';
+    margin-bottom: calc(var(--spacing-section) + 4rem);
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'content image';
+      gap: var(--spacing-section);
+
+      &:nth-child(2) {
+        grid-template-areas: 'image content';
+      }
+    }
+
+    & img {
+      grid-area: image;
+      filter: brightness(0.8);
+    }
+  }
+
+  .listen {
+    max-width: var(--container-small-width);
+    margin-left: auto;
+    margin-right: auto;
+
+    & .site-cta {
+      margin: var(--spacing-section) auto 0;
+    }
+  }
+</style>
