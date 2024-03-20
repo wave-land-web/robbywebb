@@ -4,6 +4,11 @@ import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
 import backgroundImage from '../assets/images/landing-page-hero.jpg'
+import { sanityClient } from 'sanity:client'
+
+// const posts = await sanityClient.fetch(
+//   `*[_type == "post" && defined(slug)] | order(publishedAt desc)`
+// )
 ---
 
 <Layout title="Robby Webb | Producer, Drummer, Engineer">
