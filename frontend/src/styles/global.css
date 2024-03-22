@@ -48,9 +48,6 @@ body {
   font-weight: 300;
   line-height: normal;
   letter-spacing: 0.04rem;
-
-  /* Experimental, but fallback is default styling */
-  text-wrap: balance;
 }
 
 body[data-overlay-displayed='true'] {
@@ -64,6 +61,7 @@ h4,
 h5 {
   margin: 0;
   font-weight: 900;
+  text-wrap: balance;
 }
 
 h1 {
@@ -116,6 +114,10 @@ p {
   font-size: clamp(var(--size-sm), 2vw, var(--size-md));
 }
 
+article p {
+  text-wrap: balance;
+}
+
 strong {
   font-weight: 900;
 }
@@ -164,4 +166,16 @@ strong {
 .error {
   color: var(--color-pink);
   font-size: var(--size-xs);
+}
+
+/* Animations */
+
+.aos-fade,
+.aol-fade {
+  opacity: 0;
+  transition: opacity var(--transition-long);
+
+  &.active {
+    opacity: 1;
+  }
 }

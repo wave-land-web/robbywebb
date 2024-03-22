@@ -1,8 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components'
+
+export interface Props {
+  alignment?: 'left' | 'right'
+}
+
+const { alignment } = Astro.props
 ---
 
-<div class="content">
+<div class:list={['content', { right: alignment === 'right' }]}>
   <Icon name="corner-dashed" />
   <slot />
   <Icon name="corner-dashed" />
@@ -20,18 +26,29 @@ import { Icon } from 'astro-icon/components'
       height: 10rem;
       z-index: -1;
       color: var(--color-pink);
-      opacity: 0.8;
     }
 
     & [data-icon='corner-dashed']:first-of-type {
       left: -1rem;
-      bottom: -4rem;
+      top: -4rem;
+      transform: scaleY(-1);
     }
 
     & [data-icon='corner-dashed']:last-of-type {
       right: -1rem;
-      top: -4rem;
-      transform: rotate(180deg);
+      bottom: -4rem;
+      transform: scaleX(-1);
+    }
+
+    &.right [data-icon='corner-dashed']:first-of-type {
+      left: initial;
+      right: -1rem;
+      transform: scaleX(-1) scaleY(-1);
+    }
+
+    &.right [data-icon='corner-dashed']:last-of-type {
+      left: -1rem;
+      transform: scaleX(1);
     }
 
     p,

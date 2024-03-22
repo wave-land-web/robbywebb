@@ -33,13 +33,13 @@ import Layout from '../layouts/Layout.astro'
         </TextContent>
       </article>
 
-      <article id="what-you-can-expect">
+      <article id="what-you-can-expect" class="aos-fade">
         <Picture
           src={whatYouCanExpectImage}
           formats={['avif', 'webp']}
           alt="Robby Webb producing"
         />
-        <TextContent>
+        <TextContent alignment="right">
           <p>Here's what your production journey looks like with me:</p>
           <ul>
             <li>
@@ -65,7 +65,7 @@ import Layout from '../layouts/Layout.astro'
       </article>
     </section>
 
-    <section id="listen" class="listen">
+    <section id="listen" class="listen aos-fade">
       <Picture src={filepassImage} formats={['avif', 'webp']} alt="Robby Webb producing" />
       <a href="/contact" class="site-cta large">Let's Get Started</a>
     </section>
