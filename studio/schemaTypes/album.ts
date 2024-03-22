@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'album',
-  title: 'Album',
+  name: 'project',
+  title: 'Project',
   type: 'document',
   fields: [
     defineField({
@@ -10,6 +10,7 @@ export default defineType({
       title: 'Title',
       type: 'string',
       description: 'The title of the album or single.',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'artist',
@@ -17,6 +18,18 @@ export default defineType({
       type: 'reference',
       to: {type: 'artist'},
       description: 'Example: The Beatles, The Rolling Stones, etc.',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'type',
+      title: 'Type',
+      type: 'string',
+      description: 'The type of project (remix, single, etc.).',
+      options: {
+        layout: 'radio',
+        list: ['Single', 'LP', 'EP', 'Remix', 'Cover'],
+      },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -28,6 +41,7 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'mainImage',
@@ -36,18 +50,22 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'releaseDate',
-      title: 'Release Date',
-      type: 'date',
-      description: 'The release date of the album or single.',
+      name: 'releaseYear',
+      title: 'Release Year',
+      type: 'number',
+      placeholder: '2024',
+      description: 'The release year of the album or single.',
+      validation: (Rule) => Rule.required().min(1900).max(2099),
     }),
     defineField({
       name: 'credits',
       title: 'Credits',
       type: 'string',
-      placeholder: 'Produced, Engineered, Mixed by Robby Webb',
+      placeholder: 'Producer, Engineer, Mixer',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'label',
@@ -82,6 +100,20 @@ export default defineType({
           ],
         },
       ],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'publishedAt',
+      title: 'Published At',
+      type: 'datetime',
+      description:
+        'The date and time when this was published or released. This is used to sort projects on your website. The newest projects will be displayed first.',
+      options: {
+        dateFormat: 'MM-DD-YYYY',
+        timeFormat: 'HH:mm',
+      },
+      validation: (Rule) => Rule.required().error('Please add a date'),
+      initialValue: () => new Date().toISOString(), // Example: 2024-03-21T19:16:53.654Z
     }),
   ],
 
