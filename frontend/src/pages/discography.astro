@@ -1,5 +1,5 @@
 ---
-import { sanityClient } from 'sanity:client'
+// import { sanityClient } from 'sanity:client'
 import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
 import Layout from '../layouts/Layout.astro'
@@ -1220,7 +1220,23 @@ export const albumData: AlbumProps[] = [
 //   `*[_type == "project" && defined(slug)] | order(publishedAt asc)`
 // )
 
-// console.log('projects: ', projects)
+// const sanityProject = projects.map((album: any) => {
+//   const { artist, record, type, credits, label, year, slug, musicLinks, mainImage } = album
+
+//   return {
+//     artist,
+//     record,
+//     type,
+//     credits,
+//     label,
+//     year,
+//     slug,
+//     musicLinks,
+//     mainImage,
+//   }
+// })
+
+// console.log('projects: ', sanityProject)
 ---
 
 <Layout title="Robby Webb | Discography">
