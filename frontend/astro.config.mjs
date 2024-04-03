@@ -1,3 +1,4 @@
+import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import sanity from '@sanity/astro'
 import icon from 'astro-icon'
@@ -10,8 +11,10 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always',
   },
+  // output: 'server',
   integrations: [
     icon(),
+    react(),
     sitemap({
       lastmod: new Date(),
     }),

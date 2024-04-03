@@ -10,13 +10,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.9",
-    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/react": "^3.1.1",
+    "@astrojs/sitemap": "^3.1.2",
     "@sanity/astro": "^3.0.0",
     "@sanity/client": "^6.15.7",
-    "astro": "^4.5.4",
+    "@sanity/image-url": "^1.0.2",
+    "@types/react": "^18.2.74",
+    "@types/react-dom": "^18.2.23",
+    "astro": "^4.5.14",
     "astro-icon": "^1.1.0",
     "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sanity": "^3.35.1",
     "typescript": "^5.3.3"
   }

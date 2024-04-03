@@ -1,8 +1,10 @@
 ---
+// import { Picture, getImage } from 'astro:assets'
 // import { sanityClient } from 'sanity:client'
 import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
 import Layout from '../layouts/Layout.astro'
+// import { urlForImage } from '../sanity/urlForImage'
 
 /**
  * Images
@@ -133,7 +135,7 @@ export const albumData: AlbumProps[] = [
     credits: 'Produced, Engineered, Mixed',
     label: 'Independent',
     year: '2024',
-    slug: 'frequency-remix',
+    slug: 'frequency',
     musicLinks: [
       {
         id: 0,
@@ -1216,35 +1218,119 @@ export const albumData: AlbumProps[] = [
   },
 ]
 
-// TODO:
-// const projects = await sanityClient.fetch(
-//   `*[_type == "project" && defined(slug)] | order(publishedAt asc)`
+// export interface Project {
+//   _createdAt: string
+//   _id: string
+//   _rev: string
+//   _type: string
+//   _updatedAt: string
+//   artist: Artist
+//   credits: string
+//   label: string
+//   mainImage: MainImage
+//   musicLinks: MusicLink[]
+//   publishedAt: string
+//   releaseYear: number
+//   slug: Slug
+//   title: string
+//   type: string
+// }
+
+// export interface Artist {
+//   _ref: string
+//   _type: string
+// }
+
+// export interface MainImage {
+//   _type: string
+//   asset: { _ref: string; _type: string }
+// }
+
+// export interface MusicLink {
+//   _key: string
+//   link: string
+//   text: string
+// }
+
+// export interface Slug {
+//   _type: string
+//   current: string
+// }
+
+// Get initial project data
+// const initialProjects: Project[] = await sanityClient.fetch(
+//   `*[_type == "project"] | order(publishedAt desc)[0...16]`
 // )
 
-// const sanityProject = projects.map((album: any) => {
-//   const { artist, record, type, credits, label, year, slug, musicLinks, mainImage } = album
+// Return relevant project data for each project
+// const projectData = initialProjects.map(async (project) => {
+//   const { artist, mainImage, slug, title } = project
+
+//   const artistData = await sanityClient.fetch(`*[_id == "${artist._ref}"]`)
+
+//   const image = await getImage({
+//     src: urlForImage(mainImage.asset).format('webp').url(),
+//     format: 'webp',
+//     inferSize: true,
+//   })
 
 //   return {
-//     artist,
-//     record,
-//     type,
-//     credits,
-//     label,
-//     year,
-//     slug,
-//     musicLinks,
-//     mainImage,
+//     artist: artistData[0],
+//     mainImage: image,
+//     slug: slug.current,
+//     title,
 //   }
 // })
 
-// console.log('projects: ', sanityProject)
+// TODO: Implement pagination -- https://www.sanity.io/docs/paginating-with-groq
+// output: server -- https://docs.astro.build/en/recipes/build-forms/
+// async function getNextProjects() {
+//   return await sanityClient.fetch(
+//     `*[_type == "project" && _id > "${initialProjects[initialProjects.length - 1]._id}"] | order(publishedAt desc)[0...16]`
+//   )
+// }
+
+// if (Astro.request.method === 'POST') {
+//   const nextProjects = getNextProjects()
+
+//   console.log('next projects: ', nextProjects)
+// }
 ---
 
 <Layout title="Robby Webb | Discography">
   <MainContent>
     <PageHeader text="Discography" />
-    <section id="discography" class="discography"></section>
+    <section id="discography" class="discography">
+      <!-- {
+        projectData.map(async (project) => {
+          const { artist, mainImage, slug, title } = await project
+
+          return (
+            <article class="discography-album">
+              <a href={`/discography/${slug}`}>
+                <figure>
+                  <Picture
+                    src={mainImage.src}
+                    width={mainImage.attributes.width}
+                    height={mainImage.attributes.height}
+                    title={`${artist.name}, ${title}`}
+                    alt={`${artist.name}, ${title} album cover`}
+                  />
+                  <figcaption class="discography-album-scrim">
+                    <h2>
+                      {artist.name} "{title}"
+                    </h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </article>
+          )
+        })
+      } -->
+    </section>
+    <!-- <form method="POST"> -->
     <button class="load-more site-cta button">Load More</button>
+    <!-- </form> -->
   </MainContent>
 </Layout>
 
