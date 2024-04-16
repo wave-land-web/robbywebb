@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro'
     <section id="producing" class="producing">
       <article id="what-is-producing">
         <Picture src={whatIsProducingImage} formats={['avif', 'webp']} alt="Robby Webb producing" />
-        <TextContent>
+        <TextContent alignment="right">
           <p>
             Music production is the canvas of sound, where every stroke, color, and texture come
             together to form a masterpiece. It encompasses the entire journey of a song from its
@@ -39,7 +39,7 @@ import Layout from '../layouts/Layout.astro'
           formats={['avif', 'webp']}
           alt="Robby Webb producing"
         />
-        <TextContent alignment="right">
+        <TextContent>
           <p>Here's what your production journey looks like with me:</p>
           <ul>
             <li>
@@ -94,11 +94,11 @@ import Layout from '../layouts/Layout.astro'
 
     @media (min-width: 1024px) {
       grid-template-columns: repeat(2, 1fr);
-      grid-template-areas: 'content image';
+      grid-template-areas: 'image content';
       gap: var(--spacing-section);
 
       &:nth-child(2) {
-        grid-template-areas: 'image content';
+        grid-template-areas: 'content image';
       }
     }
 

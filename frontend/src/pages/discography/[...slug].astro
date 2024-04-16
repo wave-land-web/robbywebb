@@ -3,7 +3,7 @@ import { Picture } from 'astro:assets'
 import MainContent from '../../components/MainContent.astro'
 import PageHeader from '../../components/text/PageHeader.astro'
 import Layout from '../../layouts/Layout.astro'
-import { albumData } from '../discography.astro'
+import { albumData } from '../../util/sanity'
 
 export async function getStaticPaths() {
   const paths = albumData.map((album) => {
@@ -23,30 +23,32 @@ const { slug } = Astro.params
 const album = albumData.find((album) => album.slug === slug)
 
 // Destructure album data
-const { record, image, artist, type, credits, label, musicLinks } = album || {}
+const { title, image, artist, type, credits, label, musicLinks } = album || {}
 ---
 
-<Layout title={`Robby Webb | ${record}`}>
+<Layout title={`Robby Webb | ${title}`}>
   <MainContent>
-    <PageHeader text={`${record}`} />
+    <PageHeader text={`${title}`} />
     <div class="album">
       <Picture
         src={image!}
+        width={500}
+        height={500}
         formats={['avif', 'webp']}
-        title={`${artist}: ${record}`}
+        title={`${artist.name}: ${title}`}
         loading="eager"
-        alt={`${artist}: ${record}`}
+        alt={`${artist.name}: ${title}`}
       />
       <div class="album-info">
-        <h2>{artist}</h2>
-        <p>"{record}" {type}</p>
+        <h2>{artist.name}</h2>
+        <p>"{title}" {type}</p>
         <p>{credits} by Robby Webb</p>
         <p>{`Label: ${label}`}</p>
         <div class="album-info_links">
           {
             musicLinks?.map((link) => (
               <a class="site-cta" href={link.link} target="_blank" rel="noopener noreferrer">
-                {link.type}
+                {link.text}
               </a>
             ))
           }
