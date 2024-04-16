@@ -1,6 +1,6 @@
 import { getImage } from 'astro:assets'
 import { sanityClient } from 'sanity:client'
-import { urlForImage } from '../sanity/urlForImage'
+import { urlForImage } from './urlForImage'
 
 export interface Project {
   _createdAt: string
