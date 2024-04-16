@@ -40,6 +40,12 @@
   --border-radius: 0.25rem;
 }
 
+html {
+  /* Scrollbar */
+  scrollbar-color: var(--color-grey) var(--color-black);
+  scrollbar-width: thin;
+}
+
 body {
   min-height: 100vh;
   color: var(--color-white);
