@@ -1,21 +1,25 @@
 ---
 import Picture from 'astro/components/Picture.astro'
 import filepassImage from '../assets/images/filepass.png'
-import whatIsProducingImage from '../assets/images/producing_what-is-producing.webp'
-import whatYouCanExpectImage from '../assets/images/producing_what-you-can-expect.webp'
+import whatIsProductionImage from '../assets/images/production_what-is-production.webp'
+import whatYouCanExpectImage from '../assets/images/production_what-you-can-expect.webp'
 import MainContent from '../components/MainContent.astro'
 import TextContent from '../components/text/Content.astro'
 import PageHeader from '../components/text/PageHeader.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title="Robby Webb | Producing">
+<Layout title="Robby Webb | Production">
   <MainContent>
-    <PageHeader class="page-header-custom" text="Producing" />
+    <PageHeader class="page-header-custom" text="Production" />
 
-    <section id="producing" class="producing">
-      <article id="what-is-producing">
-        <Picture src={whatIsProducingImage} formats={['avif', 'webp']} alt="Robby Webb producing" />
+    <section id="production" class="production">
+      <article id="what-is-production">
+        <Picture
+          src={whatIsProductionImage}
+          formats={['avif', 'webp']}
+          alt="Robby Webb Production"
+        />
         <TextContent alignment="right">
           <p>
             Music production is the canvas of sound, where every stroke, color, and texture come
@@ -77,12 +81,12 @@ import Layout from '../layouts/Layout.astro'
     margin-bottom: calc(var(--spacing-section) + 4rem);
   }
 
-  .producing,
+  .production,
   .listen {
     margin-bottom: calc(var(--spacing-section) + 4rem);
   }
 
-  .producing article {
+  .production article {
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
