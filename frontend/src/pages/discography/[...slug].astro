@@ -32,22 +32,22 @@ const { title, image, artist, type, credits, label, musicLinks } = album || {}
     <div class="album">
       <Picture
         src={image!}
-        width={500}
-        height={500}
+        width={1000}
+        height={1000}
         formats={['avif', 'webp']}
         title={`${artist.name}: ${title}`}
         loading="eager"
         alt={`${artist.name}: ${title}`}
       />
-      <div class="album-info">
+      <div>
         <h2>{artist.name}</h2>
-        <p>"{title}" {type}</p>
-        <p>{credits} by Robby Webb</p>
-        <p>{`Label: ${label}`}</p>
-        <div class="album-info_links">
+        <p><strong>Project:</strong> "{title}" {type}</p>
+        <p><strong>Credits:</strong> {credits}</p>
+        <p><strong>Label:</strong> {label}</p>
+        <div class="album-links">
           {
             musicLinks?.map((link) => (
-              <a class="site-cta" href={link.link} target="_blank" rel="noopener noreferrer">
+              <a class="site-cta pill" href={link.link} target="_blank" rel="noopener noreferrer">
                 {link.text}
               </a>
             ))
@@ -65,22 +65,18 @@ const { title, image, artist, type, credits, label, musicLinks } = album || {}
     gap: var(--spacing-section);
     max-width: var(--container-medium-width);
     margin: 0 auto;
-  }
 
-  .album-info h2 {
-    margin-bottom: 2rem;
-  }
+    & h2 {
+      margin-bottom: clamp(1rem, 4vw, 1.5rem);
+    }
 
-  .album-info p:last-of-type {
-    margin-bottom: clamp(1.5rem, 4vw, 2rem);
-  }
+    & p:last-of-type {
+      margin-bottom: clamp(1.5rem, 4vw, 2rem);
+    }
 
-  .album-info_links {
-    display: flex;
-    gap: 0.5rem;
-
-    & .site-cta {
-      font-size: var(--size-xs);
+    & .album-links {
+      display: flex;
+      gap: clamp(0.5rem, 2vw, 1rem);
     }
   }
 </style>

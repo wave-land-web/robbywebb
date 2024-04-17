@@ -75,7 +75,7 @@ h1 {
   font-size: clamp(var(--size-lg), 10vw, var(--size-xxl));
 }
 h2 {
-  font-size: clamp(var(--size-lg), 5vw, var(--size-xl));
+  font-size: clamp(var(--size-md), 5vw, var(--size-xl));
 }
 h3 {
   font-size: clamp(var(--size-md), 5vw, var(--size-lg));
@@ -118,7 +118,7 @@ img {
 
 p {
   margin: 0 auto var(--spacing-base);
-  font-size: clamp(var(--size-sm), 2vw, var(--size-md));
+  font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
 }
 
 article p {
@@ -130,44 +130,33 @@ strong {
 }
 
 .site-cta {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
+  display: block;
+  max-width: fit-content;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 5vw, 1rem) clamp(1.5rem, 5vw, 2rem);
   color: var(--color-white);
   background: transparent;
+  font-size: clamp(var(--size-sm), 2vw, var(--size-md));
   border: 1px solid var(--color-white);
-  border-radius: 4px;
-  max-width: fit-content;
-  font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
-  font-weight: 400;
+  border-radius: 4rem;
   letter-spacing: 0.05rem;
+
   transition: all var(--transition-normal);
+  cursor: pointer;
 }
 
-.site-cta:hover,
-.site-cta.button:hover {
+.site-cta:hover {
   color: var(--color-black);
   background: var(--color-pink);
   border: 1px solid var(--color-pink);
 }
 
-.site-cta.button {
-  display: block;
-  margin: 0 auto;
-  padding: 0.5rem;
-  cursor: pointer;
-}
-
-@media (min-width: 768px) {
-  .site-cta.button {
-    padding: 0.75rem;
-  }
-}
-
-.site-cta.large {
-  display: block;
-  padding: clamp(0.75rem, 5vw, 1rem) clamp(1.5rem, 5vw, 2rem);
-  font-size: clamp(var(--size-sm), 2vw, var(--size-md));
-  border-radius: 4rem;
+.site-cta.pill {
+  display: inline-block;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
 }
 
 .error {
