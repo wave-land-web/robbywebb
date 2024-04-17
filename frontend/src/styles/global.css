@@ -72,7 +72,7 @@ h5 {
 }
 
 h1 {
-  font-size: clamp(var(--size-xl), 5vw, var(--size-xxl));
+  font-size: clamp(var(--size-lg), 10vw, var(--size-xxl));
 }
 h2 {
   font-size: clamp(var(--size-lg), 5vw, var(--size-xl));
@@ -171,8 +171,8 @@ strong {
 }
 
 .error {
+  font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
   color: var(--color-pink);
-  font-size: var(--size-xs);
 }
 
 /* Animations */

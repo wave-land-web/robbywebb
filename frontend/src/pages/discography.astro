@@ -16,10 +16,10 @@ import { albumData } from '../sanity/albumData'
 <style is:inline>
   .discography {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: clamp(1.5rem, 2vw, 2rem);
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1.5rem, 2vw, 2rem);
     min-height: 100vh;
   }
 
@@ -38,29 +38,11 @@ import { albumData } from '../sanity/albumData'
     margin: auto;
   }
 
-  .discography-album-scrim {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    color: var(--color-black);
-    background-color: var(--color-pink-faded);
-    border-radius: var(--border-radius);
-    transition: opacity var(--transition-normal);
-  }
-
-  .discography-album a:hover .discography-album-scrim {
-    opacity: 1;
-  }
-
-  .discography-album-scrim h2 {
-    font-size: clamp(var(--size-sm), 5vw, var(--size-md));
-    padding: 1rem;
+  .discography-album h2 {
+    padding: 1rem 0;
+    font-size: var(--size-xs);
+    font-weight: 300;
+    text-align: left;
   }
 
   .load-more {
@@ -103,11 +85,11 @@ import { albumData } from '../sanity/albumData'
               <figure>
                 <img
                   src="${image}"
-                  title="${artist.name}, ${title}"
-                  alt="${artist.name}, ${title} album cover"
+                  title="${artist.name} - ${title}"
+                  alt="${artist.name} - ${title} album cover"
                 />
-                <figcaption class="discography-album-scrim">
-                  <h2>${artist.name} "${title}"</h2>
+                <figcaption>
+                  <h2>${artist.name} - ${title}</h2>
                 </figcaption>
               </figure>
             </a>

@@ -1,8 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components'
-import Layout from '../layouts/Layout.astro'
 import MainContent from '../components/MainContent.astro'
 import PageHeader from '../components/text/PageHeader.astro'
+import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="Robby Webb | Contact">
@@ -22,8 +22,8 @@ import PageHeader from '../components/text/PageHeader.astro'
       </div>
 
       <!-- Services -->
-      <div class="form-field">
-        <p>What Can I Help You With?</p>
+      <div class="form-field required">
+        <p>What can I help you with? <span>*</span></p>
 
         <!-- Mixing -->
         <div class="checkbox">
@@ -46,33 +46,75 @@ import PageHeader from '../components/text/PageHeader.astro'
 
       <!-- Relevant Links -->
       <div class="form-field">
-        <div class="relevant-links">
+        <p>Have you released music before? <span>*</span></p>
+        <div class="radio music-released-prompt">
+          <div>
+            <input type="radio" id="yes" name="music-released" value="Yes" required />
+            <label for="yes">Yes</label>
+          </div>
+          <div>
+            <input type="radio" id="no" name="music-released" value="No" required />
+            <label for="no">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-field relevant-links">
+        <div class="share-links-input">
           <input id="links" type="text" name="links" placeholder=" " />
-          <label for="links">Relevant Links:</label>
-          <button class="site-cta button" type="button"><Icon name="plus" /> Add Link</button>
+          <label for="links">Share any relevant links:</label>
+          <button class="site-cta button" type="button"><Icon name="plus" />Add Link</button>
         </div>
         <div class="link-container"></div>
         <p class="error">Please enter a valid URL (e.g. https://www.example.com)</p>
       </div>
 
-      <!-- Message -->
+      <!-- Project Details -->
       <div class="form-field">
-        <textarea id="message" name="message" cols="30" rows="5" placeholder=" " required
-        ></textarea>
-        <label for="message">Tell Me About Your Project: <span>*</span></label>
+        <textarea
+          id="project-details"
+          name="project-details"
+          cols="30"
+          rows="5"
+          placeholder=" "
+          required></textarea>
+        <label for="project-details">Tell me about your project: <span>*</span></label>
       </div>
+
+      <!-- Favorite Record -->
+      <div class="form-field">
+        <input id="favorite-record" type="text" name="favorite-record" placeholder=" " />
+        <label for="favorite-record">What's your favorite record?</label>
+      </div>
+
+      <!-- Anything Else -->
+      <div class="form-field">
+        <input id="anything-else" type="text" name="anything-else" placeholder=" " />
+        <label for="anything-else">Anything else you'd like to share?</label>
+      </div>
+
+      <!-- Submit -->
       <button class="site-cta button large" type="submit">Send Message</button>
+
+      <!-- Form Errors -->
+      <div class="form-errors"></div>
     </form>
   </MainContent>
 </Layout>
 
 <style>
   .form {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-section);
     display: flex;
     flex-direction: column;
     gap: calc(var(--spacing-base) + 2.5rem);
-    margin: 0 auto var(--spacing-section);
-    max-width: 800px;
+
+    & .form-errors {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
   }
 
   .form-field {
@@ -94,37 +136,6 @@ import PageHeader from '../components/text/PageHeader.astro'
 
     & textarea {
       resize: vertical;
-    }
-
-    &:has(input[type='checkbox']:checked) p {
-      color: var(--color-white);
-    }
-
-    & .checkbox {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-
-      input {
-        width: clamp(var(--size-xxs), 2vw, var(--size-xs));
-        height: clamp(var(--size-xxs), 2vw, var(--size-xs));
-        appearance: none;
-        border: 1px solid var(--color-white);
-        border-radius: var(--border-radius);
-
-        &:checked {
-          background-color: var(--color-pink);
-        }
-
-        &:checked + label {
-          color: var(--color-white);
-        }
-      }
-    }
-
-    & .checkbox input,
-    & .checkbox label {
-      cursor: pointer;
     }
 
     & input,
@@ -157,7 +168,7 @@ import PageHeader from '../components/text/PageHeader.astro'
       border-color: var(--color-pink);
     }
 
-    & input:not(:placeholder-shown):not(:valid) + label,
+    & input:not([type='radio']):not(:placeholder-shown):not(:valid) + label,
     & textarea:not(:placeholder-shown):not(:valid) + label {
       color: var(--color-pink);
     }
@@ -170,19 +181,66 @@ import PageHeader from '../components/text/PageHeader.astro'
       transition: all var(--transition-normal);
     }
 
+    /* Checkbox + Radio */
+
+    &:has(input[type='checkbox']:checked) p,
+    &:has(input[type='radio']:checked) p {
+      transition: all var(--transition-normal);
+    }
+
+    & .checkbox,
+    & .radio div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      input {
+        width: clamp(var(--size-xxs), 2vw, var(--size-xs));
+        height: clamp(var(--size-xxs), 2vw, var(--size-xs));
+        appearance: none;
+        border: 1px solid var(--color-white);
+        border-radius: var(--border-radius);
+
+        &:checked {
+          background-color: var(--color-pink);
+        }
+
+        &:checked + label {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    & .checkbox input,
+    & .checkbox label,
+    & .radio input,
+    & .radio label {
+      cursor: pointer;
+    }
+
+    & .radio {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    & .radio input[type='radio'] + label {
+      position: relative;
+      left: 0;
+      top: 0;
+      transform: none;
+    }
+
+    /* Focus */
+
     & textarea + label {
       top: 1.5rem;
     }
 
-    & input:not([type='checkbox']):focus + label,
+    & input:not([type='checkbox']):not([type='radio']):focus + label,
     & textarea:focus + label,
     & span {
       color: var(--color-pink);
-    }
-
-    & input:not([type='checkbox']):not([name='links']):valid + label,
-    & textarea:valid + label {
-      color: var(--color-white);
     }
 
     & input:focus + label,
@@ -193,7 +251,7 @@ import PageHeader from '../components/text/PageHeader.astro'
       left: 0;
     }
 
-    .relevant-links {
+    .share-links-input {
       position: relative;
       display: flex;
       flex-direction: row;
@@ -273,10 +331,11 @@ import PageHeader from '../components/text/PageHeader.astro'
       }
     }
 
-    .error {
+    .error,
+    &.relevant-links {
       display: none;
 
-      &.show {
+      &.active {
         display: block;
       }
     }
@@ -287,13 +346,33 @@ import PageHeader from '../components/text/PageHeader.astro'
   document.addEventListener('astro:page-load', () => {
     // Get DOM elements
     const form = document.querySelector('.form') as HTMLFormElement
-    const linkContainer = document.querySelector('.link-container')
-    const linksInput = document.querySelector('.relevant-links input') as HTMLInputElement
-    const addLinkButton = document.querySelector('.relevant-links button')
-    const error = document.querySelector('.error') as HTMLElement
+    const musicReleasedPrompt = document.querySelector('.music-released-prompt') as HTMLElement
+    const relevantLinks = document.querySelector('.relevant-links') as HTMLElement
+    const linkContainer = document.querySelector('.link-container') as HTMLElement
+    const linksInput = document.querySelector('.share-links-input input') as HTMLInputElement
+    const addLinkButton = document.querySelector('.share-links-input button') as HTMLButtonElement
+    const linkError = document.querySelector('.relevant-links .error') as HTMLElement
+    const formErrors = document.querySelector('.form-errors') as HTMLElement
 
     // Store relevant links
     let links: string[] = []
+
+    /**
+     * Show or hide the relevant links input based on the user's response
+     */
+    function handleMusicReleasedPrompt() {
+      const yes = document.querySelector('#yes') as HTMLInputElement
+      const no = document.querySelector('#no') as HTMLInputElement
+
+      if (yes.checked) {
+        relevantLinks.classList.add('active')
+      } else if (no.checked) {
+        relevantLinks.classList.remove('active')
+
+        // remove links from list
+        clearAllLinks()
+      }
+    }
 
     /**
      * Add a link to the list of relevant links and the DOM
@@ -306,42 +385,50 @@ import PageHeader from '../components/text/PageHeader.astro'
         /^(http(s)?:\/\/)?(www.)?([a-zA-Z0-9])+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,5}(:[0-9]{1,5})?(\/[^\s]*)?$/gm
 
       if (!URL_REGEX.test(value)) {
-        error.classList.add('show')
+        linkError.classList.add('active')
         return
       }
 
       // Remove error message and add link to list
-      error.classList.remove('show')
+      linkError.classList.remove('active')
 
       // Link template
       linkContainer?.insertAdjacentHTML(
         'beforeend',
         `
-          <div class="link">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 19">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 12.326 6-6m-4-3 .463-.537a5 5 0 0 1 7.071 7.072l-.534.464m-5 5-.397.535a5.068 5.068 0 0 1-7.127 0 4.972 4.972 0 0 1 0-7.071L3 8.326"/>
-            </svg>
-            <span>${value}</span>
-            <svg
-              data-icon="close"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18 18 6M6 6l12 12"></path>
-            </svg>
-          </div>
-        `
+        <div class="link">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 19">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 12.326 6-6m-4-3 .463-.537a5 5 0 0 1 7.071 7.072l-.534.464m-5 5-.397.535a5.068 5.068 0 0 1-7.127 0 4.972 4.972 0 0 1 0-7.071L3 8.326"/>
+          </svg>
+          <span>${value}</span>
+          <svg
+            data-icon="close"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </div>
+      `
       )
 
       // Add link to list and clear input
       links.push(value)
       linksInput.value = ''
+    }
+
+    /**
+     * Clear all links from the list of relevant links and the DOM
+     */
+    function clearAllLinks() {
+      links = []
+      linkContainer.innerHTML = ''
     }
 
     /**
@@ -362,23 +449,37 @@ import PageHeader from '../components/text/PageHeader.astro'
     }
 
     /**
-     * Submit the form with with correctly formatted data
+     * Validate and submit the form with with correctly formatted data
      * @param e - The event object
      * @todo Format FormData with AJAX request -- see: https://docs.netlify.com/forms/setup/#submit-html-forms-with-ajax
      */
     function handleSubmit(e: Event) {
       e.preventDefault()
 
+      const services = document.querySelectorAll('.form-field.required input:checked')
+      const servicesAreSelected = services.length > 0
+
+      // Format links as a comma-separated string
       if (links.length !== 0) {
         linksInput.value = links.join(', ')
       } else {
         linksInput.value = linksInput.value
       }
 
+      // Validation: Check that at least one service is selected
+      if (!servicesAreSelected) {
+        formErrors.innerHTML = `<p class="error">Please select at least one service</p>`
+        return
+      } else {
+        formErrors.innerHTML = ''
+      }
+
+      // Submit the form
       form.submit()
     }
 
     // Event listeners
+    musicReleasedPrompt?.addEventListener('change', handleMusicReleasedPrompt)
     addLinkButton?.addEventListener('click', handleAddLink)
     linkContainer?.addEventListener('click', handleRemoveLink)
     form?.addEventListener('submit', handleSubmit)

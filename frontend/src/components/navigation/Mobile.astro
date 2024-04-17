@@ -125,16 +125,11 @@ const currentPath = Astro.url.pathname
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .mobile-nav-overlay ul li {
-    opacity: 0;
-    font-size: var(--size-lg);
-  }
-
-  .hamburger.active + .mobile-nav-overlay ul li {
-    opacity: 1;
+    font-size: clamp(var(--size-md), 8vw, var(--size-lg));
   }
 
   .icons {
