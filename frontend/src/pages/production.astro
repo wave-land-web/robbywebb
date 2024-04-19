@@ -1,6 +1,5 @@
 ---
 import Picture from 'astro/components/Picture.astro'
-import filepassImage from '../assets/images/filepass.png'
 import whatIsProductionImage from '../assets/images/production_what-is-production.webp'
 import whatYouCanExpectImage from '../assets/images/production_what-you-can-expect.webp'
 import MainContent from '../components/MainContent.astro'
@@ -18,6 +17,7 @@ import Layout from '../layouts/Layout.astro'
         <Picture
           src={whatIsProductionImage}
           formats={['avif', 'webp']}
+          loading="eager"
           alt="Robby Webb Production"
         />
         <TextContent alignment="right">
@@ -70,13 +70,13 @@ import Layout from '../layouts/Layout.astro'
     </section>
 
     <section id="listen" class="listen aos-fade">
-      <Picture src={filepassImage} formats={['avif', 'webp']} alt="Robby Webb producing" />
-      <!-- TODO: This link is broken -->
-      <!-- <iframe
+      <iframe
         src="https://app.filepass.com/player/xM9nrxEzJgZYSCo9"
         style="background: transparent; border: none; outline: none;"
         width="100%"
-        height="405"></iframe> -->
+        height="690"
+        title="Robby Webb - Production Portfolio"
+        loading="lazy"></iframe>
       <a href="/contact" class="site-cta large">Let's Get Started</a>
     </section>
   </MainContent>
