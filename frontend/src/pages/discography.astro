@@ -8,8 +8,8 @@ import { albumData } from '../sanity/albumData'
 <Layout title="Robby Webb | Discography">
   <MainContent>
     <PageHeader text="Discography" />
-    <section id="discography" class="discography"></section>
-    <button class="load-more site-cta">Load More</button>
+    <section id="discography" class="discography aol-fade"></section>
+    <button class="load-more site-cta aol-fade">Load More</button>
   </MainContent>
 </Layout>
 
@@ -18,14 +18,20 @@ import { albumData } from '../sanity/albumData'
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: clamp(1.5rem, 2vw, 2rem);
-    text-align: center;
-    margin-bottom: clamp(1.5rem, 2vw, 2rem);
     min-height: 100vh;
+    margin-bottom: clamp(1.5rem, 2vw, 2rem);
+    text-align: center;
   }
 
   @media (min-width: 1024px) {
     .discography {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+
+  @media (min-width: 1800px) {
+    .discography {
+      min-height: auto;
     }
   }
 
@@ -43,6 +49,10 @@ import { albumData } from '../sanity/albumData'
     font-size: var(--size-xs);
     font-weight: 300;
     text-align: left;
+  }
+
+  .load-more {
+    transition: all var(--transition-normal);
   }
 
   .load-more.disabled {
@@ -81,6 +91,8 @@ import { albumData } from '../sanity/albumData'
               <figure>
                 <img
                   src="${image}"
+                  width="632"
+                  height="632"
                   title="${artist.name} - ${title}"
                   alt="${artist.name} - ${title} album cover"
                 />

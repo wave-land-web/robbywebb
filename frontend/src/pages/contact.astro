@@ -63,7 +63,7 @@ import Layout from '../layouts/Layout.astro'
         <div class="share-links-input">
           <input id="links" type="text" name="links" placeholder=" " />
           <label for="links">Share any relevant links:</label>
-          <button class="site-cta pill"><Icon name="plus" />Add Link</button>
+          <button class="site-cta pill" type="button"><Icon name="plus" />Add Link</button>
         </div>
         <div class="link-container"></div>
         <p class="error">Please enter a valid URL (e.g. https://www.example.com)</p>
@@ -347,6 +347,8 @@ import Layout from '../layouts/Layout.astro'
     // Get DOM elements
     const form = document.querySelector('.form') as HTMLFormElement
     const musicReleasedPrompt = document.querySelector('.music-released-prompt') as HTMLElement
+    const yes = document.querySelector('#yes') as HTMLInputElement
+    const no = document.querySelector('#no') as HTMLInputElement
     const relevantLinks = document.querySelector('.relevant-links') as HTMLElement
     const linkContainer = document.querySelector('.link-container') as HTMLElement
     const linksInput = document.querySelector('.share-links-input input') as HTMLInputElement
@@ -361,9 +363,6 @@ import Layout from '../layouts/Layout.astro'
      * Show or hide the relevant links input based on the user's response
      */
     function handleMusicReleasedPrompt() {
-      const yes = document.querySelector('#yes') as HTMLInputElement
-      const no = document.querySelector('#no') as HTMLInputElement
-
       if (yes.checked) {
         relevantLinks.classList.add('active')
       } else if (no.checked) {
@@ -456,8 +455,10 @@ import Layout from '../layouts/Layout.astro'
     function handleSubmit(e: Event) {
       e.preventDefault()
 
-      const services = document.querySelectorAll('.form-field.required input:checked')
-      const servicesAreSelected = services.length > 0
+      const servicesChecked = document.querySelectorAll('.form-field.required input:checked')
+      const servicesAreSelected = servicesChecked.length > 0
+      const musicIsReleased = yes.checked
+      const linksAreProvided = links.length > 0
 
       // Format links as a comma-separated string
       if (links.length !== 0) {
@@ -467,8 +468,12 @@ import Layout from '../layouts/Layout.astro'
       }
 
       // Validation: Check that at least one service is selected
+      // Validation: Check that links are provided if music has been released
       if (!servicesAreSelected) {
         formErrors.innerHTML = `<p class="error">Please select at least one service</p>`
+        return
+      } else if (musicIsReleased && !linksAreProvided) {
+        formErrors.innerHTML = `<p class="error">Please add at least one relevant link</p>`
         return
       } else {
         formErrors.innerHTML = ''

@@ -6,21 +6,26 @@ import Layout from '../layouts/Layout.astro'
 
 <Layout title="Robby Webb | Success">
   <MainContent>
-    <PageHeader text="Thank you for your message" />
+    <PageHeader class="page-header-custom" text="Success!" />
     <section id="success" class="success">
-      <p>I will get back to you as soon as I can!</p>
-      <a class="site-cta button large" href="/">Back to Home</a>
+      <p>Thanks so much for reaching out, I will get back to you as soon as possible 🎧</p>
+      <a class="site-cta button large" href="/">← Back to home</a>
     </section>
   </MainContent>
 </Layout>
 
 <style>
+  .page-header-custom,
+  p {
+    margin: 0 auto clamp(1rem, 5vw, 2rem);
+  }
+
   .success {
     height: 80vh;
   }
 
   .success p {
-    margin-bottom: clamp(2rem, 4vw, 4rem);
+    max-width: 425px;
     text-align: center;
   }
 </style>
