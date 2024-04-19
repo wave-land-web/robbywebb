@@ -46,7 +46,6 @@ html {
 }
 
 body {
-  min-height: 100vh;
   color: var(--color-white);
   background: var(--color-black);
   font-family: var(--font-nunito-sans);

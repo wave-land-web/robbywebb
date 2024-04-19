@@ -56,9 +56,13 @@ import { albumData } from '../sanity/albumData'
   }
 
   .load-more.disabled {
-    pointer-events: none;
-    opacity: 0.5;
+    color: var(--color-grey);
+    border: 1px solid var(--color-grey);
     cursor: not-allowed;
+
+    &:hover {
+      background-color: var(--color-black);
+    }
   }
 </style>
 
@@ -121,15 +125,16 @@ import { albumData } from '../sanity/albumData'
 
       /**
        * Increase the number of albums displayed
-       *
-       * Disable the load more button when all albums are displayed
        */
       function increaseAlbums() {
-        currentPage++
+        // Load more albums if there are more to display
+        if (currentPage <= pageCount) {
+          loadAlbums(currentPage)
+          currentPage++
+        }
 
-        loadAlbums(currentPage)
-
-        if (currentPage >= pageCount) {
+        // Disable load more button when all albums are displayed
+        if (currentPage > pageCount) {
           loadMoreButton.classList.add('disabled')
           return
         }
