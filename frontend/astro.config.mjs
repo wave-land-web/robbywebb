@@ -4,6 +4,8 @@ import sanity from '@sanity/astro'
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
 
+import netlify from '@astrojs/netlify'
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.robbywebb.com',
@@ -25,4 +27,5 @@ export default defineConfig({
       useCdn: true,
     }),
   ],
+  adapter: netlify(),
 })
