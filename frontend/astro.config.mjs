@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always',
   },
-  // output: 'server',
+  output: 'hybrid',
   integrations: [
     icon(),
     react(),
@@ -22,7 +22,7 @@ export default defineConfig({
       projectId: 'o6m55439',
       dataset: 'production',
       // Set useCdn to false if you're building statically.
-      useCdn: false,
+      useCdn: true,
     }),
   ],
 })
