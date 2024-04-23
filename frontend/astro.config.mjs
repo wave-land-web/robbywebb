@@ -4,8 +4,6 @@ import sanity from '@sanity/astro'
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
 
-import netlify from '@astrojs/netlify'
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.robbywebb.com',
@@ -13,7 +11,6 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always',
   },
-  output: 'hybrid',
   integrations: [
     icon(),
     react(),
@@ -24,8 +21,7 @@ export default defineConfig({
       projectId: 'o6m55439',
       dataset: 'production',
       // Set useCdn to false if you're building statically.
-      useCdn: true,
+      useCdn: false,
     }),
   ],
-  adapter: netlify(),
 })

@@ -1,12 +1,21 @@
 ---
-// TODO: create build hook to generate album pages when new albums are published
-export const prerender = false
-
 import { Picture } from 'astro:assets'
 import MainContent from '../../components/MainContent.astro'
 import PageHeader from '../../components/text/PageHeader.astro'
 import Layout from '../../layouts/Layout.astro'
 import { albumData } from '../../sanity/albumData'
+
+export async function getStaticPaths() {
+  const paths = albumData.map((album) => {
+    return {
+      params: {
+        slug: album.slug,
+      },
+    }
+  })
+
+  return paths
+}
 
 const { slug } = Astro.params
 
