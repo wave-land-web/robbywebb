@@ -8,8 +8,8 @@ import { albumData } from '../sanity/albumData'
 <Layout title="Robby Webb | Discography">
   <MainContent>
     <PageHeader text="Discography" />
-    <section id="discography" class="discography aol-fade"></section>
-    <button class="load-more site-cta aol-fade">Load More</button>
+    <section id="discography" class="discography"></section>
+    <button class="load-more site-cta lsa no-repeat">Load More</button>
   </MainContent>
 </Layout>
 
@@ -67,30 +67,27 @@ import { albumData } from '../sanity/albumData'
 </style>
 
 <script define:vars={{ albumData }}>
-  document.addEventListener(
-    'astro:page-load',
-    () => {
-      // Grab necessary DOM elements
-      const discography = document.querySelector('.discography')
-      const loadMoreButton = document.querySelector('.load-more')
-      const discographyNavLinks = document.querySelectorAll('a[href^="/discography"]')
+  // Grab necessary DOM elements
+  const discography = document.querySelector('.discography')
+  const loadMoreButton = document.querySelector('.load-more')
+  const discographyNavLinks = document.querySelectorAll('a[href^="/discography"]')
 
-      // Set pagination data
-      const albumLimit = albumData.length
-      const albumIncrease = 16
-      const pageCount = Math.ceil(albumLimit / albumIncrease)
-      let currentPage = 1
+  // Set pagination data
+  const albumLimit = albumData.length
+  const albumIncrease = 16
+  const pageCount = Math.ceil(albumLimit / albumIncrease)
+  let currentPage = 1
 
-      /**
-       * Create album with image, artist, record, and slug
-       * @param {Object} album
-       * @returns {String} Album HTML template string
-       */
-      function createAlbum(album) {
-        const { image, artist, title, slug } = album
+  /**
+   * Create album with image, artist, record, and slug
+   * @param {Object} album
+   * @returns {String} Album HTML template string
+   */
+  function createAlbum(album) {
+    const { image, artist, title, slug } = album
 
-        return `
-          <article class="discography-album">
+    return `
+          <article class="discography-album lsa no-repeat">
             <a href="/discography/${slug}">
               <figure>
                 <img
@@ -107,48 +104,45 @@ import { albumData } from '../sanity/albumData'
             </a>
           </article>
         `
-      }
+  }
 
-      /**
-       * Load and append albums to the DOM based on the current page
-       * @param {Number} page
-       */
-      function loadAlbums(page) {
-        const start = (page - 1) * albumIncrease
-        const end = start + albumIncrease
-        const albums = albumData.slice(start, end)
+  /**
+   * Load and append albums to the DOM based on the current page
+   * @param {Number} page
+   */
+  function loadAlbums(page) {
+    const start = (page - 1) * albumIncrease
+    const end = start + albumIncrease
+    const albums = albumData.slice(start, end)
 
-        albums.forEach((album) => {
-          discography.innerHTML += createAlbum(album)
-        })
-      }
+    albums.forEach((album) => {
+      discography.innerHTML += createAlbum(album)
+    })
+  }
 
-      /**
-       * Increase the number of albums displayed
-       */
-      function increaseAlbums() {
-        // Load more albums if there are more to display
-        if (currentPage <= pageCount) {
-          loadAlbums(currentPage)
-          currentPage++
-        }
-
-        // Disable load more button when all albums are displayed
-        if (currentPage > pageCount) {
-          loadMoreButton.classList.add('disabled')
-          return
-        }
-      }
-
-      // Load initial albums
+  /**
+   * Increase the number of albums displayed
+   */
+  function increaseAlbums() {
+    // Load more albums if there are more to display
+    if (currentPage <= pageCount) {
       loadAlbums(currentPage)
+      currentPage++
+    }
 
-      // Load more albums
-      loadMoreButton.addEventListener('click', increaseAlbums)
+    // Disable load more button when all albums are displayed
+    if (currentPage > pageCount) {
+      loadMoreButton.classList.add('disabled')
+      return
+    }
+  }
 
-      // [Edge Case] If user clicks on a discography link while on the discography page, reload the page
-      discographyNavLinks.forEach((link) => link.addEventListener('click', () => location.reload()))
-    },
-    { once: true }
-  )
+  // Load initial albums
+  loadAlbums(currentPage)
+
+  // Load more albums
+  loadMoreButton.addEventListener('click', increaseAlbums)
+
+  // [Edge Case] If user clicks on a discography link while on the discography page, reload the page
+  discographyNavLinks.forEach((link) => link.addEventListener('click', () => location.reload()))
 </script>

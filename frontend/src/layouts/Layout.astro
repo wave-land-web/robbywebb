@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
 import 'normalize.css'
 import Footer from '../components/Footer.astro'
 import Navigation from '../components/navigation/Navigation.astro'
@@ -72,8 +71,7 @@ const socialImageURL = new URL(socialImage || '/images/headshot.jpg', canonicalU
     <slot name="head" />
 
     <!-- Animations -->
-    <ViewTransitions />
-    <script src="../util/section-animations.ts"></script>
+    <script src="../util/lsa.ts"></script>
   </head>
 
   <body>

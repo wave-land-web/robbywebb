@@ -8,7 +8,13 @@ import Layout from '../layouts/Layout.astro'
 <Layout title="Robby Webb | Contact">
   <MainContent>
     <PageHeader text="Let's Get Started" />
-    <form method="POST" class="form" name="contactForm" action="/success/" data-netlify="true">
+    <form
+      method="POST"
+      class="form lsa no-repeat"
+      name="contactForm"
+      action="/success/"
+      data-netlify="true"
+    >
       <!-- Name -->
       <div class="form-field">
         <input id="name" type="text" name="name" placeholder=" " required />
@@ -343,58 +349,57 @@ import Layout from '../layouts/Layout.astro'
 </style>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    // Get DOM elements
-    const form = document.querySelector('.form') as HTMLFormElement
-    const musicReleasedPrompt = document.querySelector('.music-released-prompt') as HTMLElement
-    const yes = document.querySelector('#yes') as HTMLInputElement
-    const no = document.querySelector('#no') as HTMLInputElement
-    const relevantLinks = document.querySelector('.relevant-links') as HTMLElement
-    const linkContainer = document.querySelector('.link-container') as HTMLElement
-    const linksInput = document.querySelector('.share-links-input input') as HTMLInputElement
-    const addLinkButton = document.querySelector('.share-links-input button') as HTMLButtonElement
-    const linkError = document.querySelector('.relevant-links .error') as HTMLElement
-    const formErrors = document.querySelector('.form-errors') as HTMLElement
+  // Get DOM elements
+  const form = document.querySelector('.form') as HTMLFormElement
+  const musicReleasedPrompt = document.querySelector('.music-released-prompt') as HTMLElement
+  const yes = document.querySelector('#yes') as HTMLInputElement
+  const no = document.querySelector('#no') as HTMLInputElement
+  const relevantLinks = document.querySelector('.relevant-links') as HTMLElement
+  const linkContainer = document.querySelector('.link-container') as HTMLElement
+  const linksInput = document.querySelector('.share-links-input input') as HTMLInputElement
+  const addLinkButton = document.querySelector('.share-links-input button') as HTMLButtonElement
+  const linkError = document.querySelector('.relevant-links .error') as HTMLElement
+  const formErrors = document.querySelector('.form-errors') as HTMLElement
 
-    // Store relevant links
-    let links: string[] = []
+  // Store relevant links
+  let links: string[] = []
 
-    /**
-     * Show or hide the relevant links input based on the user's response
-     */
-    function handleMusicReleasedPrompt() {
-      if (yes.checked) {
-        relevantLinks.classList.add('active')
-      } else if (no.checked) {
-        relevantLinks.classList.remove('active')
+  /**
+   * Show or hide the relevant links input based on the user's response
+   */
+  function handleMusicReleasedPrompt() {
+    if (yes.checked) {
+      relevantLinks.classList.add('active')
+    } else if (no.checked) {
+      relevantLinks.classList.remove('active')
 
-        // remove links from list
-        clearAllLinks()
-      }
+      // remove links from list
+      clearAllLinks()
+    }
+  }
+
+  /**
+   * Add a link to the list of relevant links and the DOM
+   */
+  function handleAddLink() {
+    const value = linksInput?.value
+
+    // Check that the input is a valid URL
+    const URL_REGEX =
+      /^(http(s)?:\/\/)?(www.)?([a-zA-Z0-9])+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,5}(:[0-9]{1,5})?(\/[^\s]*)?$/gm
+
+    if (!URL_REGEX.test(value)) {
+      linkError.classList.add('active')
+      return
     }
 
-    /**
-     * Add a link to the list of relevant links and the DOM
-     */
-    function handleAddLink() {
-      const value = linksInput?.value
+    // Remove error message and add link to list
+    linkError.classList.remove('active')
 
-      // Check that the input is a valid URL
-      const URL_REGEX =
-        /^(http(s)?:\/\/)?(www.)?([a-zA-Z0-9])+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,5}(:[0-9]{1,5})?(\/[^\s]*)?$/gm
-
-      if (!URL_REGEX.test(value)) {
-        linkError.classList.add('active')
-        return
-      }
-
-      // Remove error message and add link to list
-      linkError.classList.remove('active')
-
-      // Link template
-      linkContainer?.insertAdjacentHTML(
-        'beforeend',
-        `
+    // Link template
+    linkContainer?.insertAdjacentHTML(
+      'beforeend',
+      `
         <div class="link">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 19">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 12.326 6-6m-4-3 .463-.537a5 5 0 0 1 7.071 7.072l-.534.464m-5 5-.397.535a5.068 5.068 0 0 1-7.127 0 4.972 4.972 0 0 1 0-7.071L3 8.326"/>
@@ -415,78 +420,77 @@ import Layout from '../layouts/Layout.astro'
           </svg>
         </div>
       `
-      )
+    )
 
-      // Add link to list and clear input
-      links.push(value)
-      linksInput.value = ''
+    // Add link to list and clear input
+    links.push(value)
+    linksInput.value = ''
+  }
+
+  /**
+   * Clear all links from the list of relevant links and the DOM
+   */
+  function clearAllLinks() {
+    links = []
+    linkContainer.innerHTML = ''
+  }
+
+  /**
+   * Remove a link from the list of relevant links and the DOM
+   * @param e - The event object
+   */
+  function handleRemoveLink(e: Event) {
+    const eventTarget = e.target as HTMLElement
+
+    if (eventTarget.getAttribute('data-icon') === 'close') {
+      const linkValue = eventTarget.parentElement?.querySelector('span')?.textContent
+      const linksWithSelectionRemoved = links.filter((link) => link !== linkValue)
+      links = linksWithSelectionRemoved
+
+      // remove link from DOM
+      eventTarget.parentElement?.remove()
+    }
+  }
+
+  /**
+   * Validate and submit the form with with correctly formatted data
+   * @param e - The event object
+   * @todo Format FormData with AJAX request -- see: https://docs.netlify.com/forms/setup/#submit-html-forms-with-ajax
+   */
+  function handleSubmit(e: Event) {
+    e.preventDefault()
+
+    const servicesChecked = document.querySelectorAll('.form-field.required input:checked')
+    const servicesAreSelected = servicesChecked.length > 0
+    const musicIsReleased = yes.checked
+    const linksAreProvided = links.length > 0
+
+    // Format links as a comma-separated string
+    if (links.length !== 0) {
+      linksInput.value = links.join(', ')
+    } else {
+      linksInput.value = linksInput.value
     }
 
-    /**
-     * Clear all links from the list of relevant links and the DOM
-     */
-    function clearAllLinks() {
-      links = []
-      linkContainer.innerHTML = ''
+    // Validation: Check that at least one service is selected
+    // Validation: Check that links are provided if music has been released
+    if (!servicesAreSelected) {
+      formErrors.innerHTML = `<p class="error">Please select at least one service</p>`
+      return
+    } else if (musicIsReleased && !linksAreProvided) {
+      formErrors.innerHTML = `<p class="error">Please add at least one relevant link</p>`
+      return
+    } else {
+      formErrors.innerHTML = ''
     }
 
-    /**
-     * Remove a link from the list of relevant links and the DOM
-     * @param e - The event object
-     */
-    function handleRemoveLink(e: Event) {
-      const eventTarget = e.target as HTMLElement
+    // Submit the form
+    form.submit()
+  }
 
-      if (eventTarget.getAttribute('data-icon') === 'close') {
-        const linkValue = eventTarget.parentElement?.querySelector('span')?.textContent
-        const linksWithSelectionRemoved = links.filter((link) => link !== linkValue)
-        links = linksWithSelectionRemoved
-
-        // remove link from DOM
-        eventTarget.parentElement?.remove()
-      }
-    }
-
-    /**
-     * Validate and submit the form with with correctly formatted data
-     * @param e - The event object
-     * @todo Format FormData with AJAX request -- see: https://docs.netlify.com/forms/setup/#submit-html-forms-with-ajax
-     */
-    function handleSubmit(e: Event) {
-      e.preventDefault()
-
-      const servicesChecked = document.querySelectorAll('.form-field.required input:checked')
-      const servicesAreSelected = servicesChecked.length > 0
-      const musicIsReleased = yes.checked
-      const linksAreProvided = links.length > 0
-
-      // Format links as a comma-separated string
-      if (links.length !== 0) {
-        linksInput.value = links.join(', ')
-      } else {
-        linksInput.value = linksInput.value
-      }
-
-      // Validation: Check that at least one service is selected
-      // Validation: Check that links are provided if music has been released
-      if (!servicesAreSelected) {
-        formErrors.innerHTML = `<p class="error">Please select at least one service</p>`
-        return
-      } else if (musicIsReleased && !linksAreProvided) {
-        formErrors.innerHTML = `<p class="error">Please add at least one relevant link</p>`
-        return
-      } else {
-        formErrors.innerHTML = ''
-      }
-
-      // Submit the form
-      form.submit()
-    }
-
-    // Event listeners
-    musicReleasedPrompt?.addEventListener('change', handleMusicReleasedPrompt)
-    addLinkButton?.addEventListener('click', handleAddLink)
-    linkContainer?.addEventListener('click', handleRemoveLink)
-    form?.addEventListener('submit', handleSubmit)
-  })
+  // Event listeners
+  musicReleasedPrompt?.addEventListener('change', handleMusicReleasedPrompt)
+  addLinkButton?.addEventListener('click', handleAddLink)
+  linkContainer?.addEventListener('click', handleRemoveLink)
+  form?.addEventListener('submit', handleSubmit)
 </script>

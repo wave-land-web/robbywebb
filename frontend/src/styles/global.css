@@ -164,12 +164,68 @@ strong {
 
 /* Animations */
 
-.aos-fade,
-.aol-fade {
-  opacity: 0;
-  transition: opacity var(--transition-long);
+@view-transition {
+  navigation: auto;
+}
 
-  &.active {
+/**
+  * Required class: `lsa` (initializes animations and defaults to fade-in)
+  * Note: Add `no-repeat` class to prevent animations from repeating on scroll
+  */
+
+/* Accessibility: disable animations for users that prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  /* Initialize & fade in element on scroll */
+  .lsa {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out, transform 0.7s ease-in-out;
+  }
+
+  /* Slide up */
+  .lsa.lsa-slide-up {
+    transform: translateY(1rem);
+  }
+
+  /* Slide down */
+  .lsa.lsa-slide-down {
+    transform: translateY(-1rem);
+  }
+
+  /* Slide left */
+  .lsa.lsa-slide-left {
+    transform: translateX(1rem);
+  }
+
+  /* Slide right */
+  .lsa.lsa-slide-right {
+    transform: translateX(-1rem);
+  }
+
+  /* Slide down right */
+  .lsa.lsa-slide-down-right {
+    transform: translate(-1rem, -1rem);
+  }
+
+  /* Slide down left */
+  .lsa.lsa-slide-down-left {
+    transform: translate(1rem, -1rem);
+  }
+
+  /* Slide up right */
+  .lsa.lsa-slide-up-right {
+    transform: translate(-1rem, 1rem);
+  }
+
+  /* Slide up left */
+  .lsa.lsa-slide-up-left {
+    transform: translate(1rem, 1rem);
+  }
+
+  /* Handle active state */
+  .lsa.active {
     opacity: 1;
+    visibility: visible;
+    transform: none;
   }
 }
