@@ -1,7 +1,8 @@
 ---
 import Picture from 'astro/components/Picture.astro'
-import whatIsProductionImage from '../assets/images/production_what-is-production.webp'
-import whatYouCanExpectImage from '../assets/images/production_what-you-can-expect.webp'
+import productionOneImage from '../assets/images/production-1.jpg'
+import productionTwoImage from '../assets/images/production-2.jpg'
+import productionBioImage from '../assets/images/production-bio.jpg'
 import MainContent from '../components/MainContent.astro'
 import TextContent from '../components/text/Content.astro'
 import PageHeader from '../components/text/PageHeader.astro'
@@ -15,7 +16,7 @@ import Layout from '../layouts/Layout.astro'
     <section id="production" class="production">
       <article id="what-is-production" class="lsa no-repeat">
         <Picture
-          src={whatIsProductionImage}
+          src={productionOneImage}
           formats={['avif', 'webp']}
           loading="eager"
           alt="Robby Webb Production"
@@ -38,18 +39,10 @@ import Layout from '../layouts/Layout.astro'
       </article>
 
       <article id="what-you-can-expect" class="lsa no-repeat">
-        <Picture
-          src={whatYouCanExpectImage}
-          formats={['avif', 'webp']}
-          alt="Robby Webb producing"
-        />
+        <Picture src={productionTwoImage} formats={['avif', 'webp']} alt="Robby Webb producing" />
         <TextContent>
           <p>Here's what your production journey looks like with me:</p>
           <ul>
-            <li>
-              <strong>Personalized Approach:</strong> Every artist is unique, and so is every song. We
-              tailor our production process to fit your style, your goals, and your vision.
-            </li>
             <li>
               <strong>Creative Environment:</strong> We provide a space where creativity flows freely,
               where you're encouraged to explore, experiment, and express yourself musically.
@@ -67,6 +60,24 @@ import Layout from '../layouts/Layout.astro'
           </ul>
         </TextContent>
       </article>
+
+      <article id="bio" class="lsa no-repeat">
+        <TextContent>
+          <p>
+            I'm Robby Webb, a mixing engineer with a passion for helping artists bring their music
+            to life. I've worked with artists across a wide range of genres, from pop to rock to
+            hip-hop, and I bring that experience to every project I work on. I understand that every
+            song is unique, and I approach each mix with fresh ears and an open mind, ensuring that
+            your music gets the attention it deserves.
+          </p>
+          <p>
+            Whether you're a seasoned pro or just starting out, I'm here to help you take your music
+            to the next level. Let's work together to create a mix that captures the essence of your
+            music and connects with your audience in a meaningful way.
+          </p>
+        </TextContent>
+        <Picture src={productionBioImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
+      </article>
     </section>
 
     <section id="listen" class="listen lsa no-repeat">
@@ -74,7 +85,7 @@ import Layout from '../layouts/Layout.astro'
         src="https://app.filepass.com/player/mi6sGiBPcsdUIeFn"
         style="background: transparent; border: none; outline: none;"
         width="100%"
-        height="690"
+        height="576"
         title="Robby Webb - Production Portfolio"
         loading="lazy"></iframe>
       <a href="/contact" class="site-cta large">Let's Get Started</a>
@@ -110,7 +121,9 @@ import Layout from '../layouts/Layout.astro'
 
     & img {
       grid-area: image;
-      filter: brightness(0.8);
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
     }
   }
 

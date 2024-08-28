@@ -1,7 +1,8 @@
 ---
 import Picture from 'astro/components/Picture.astro'
-import whatIsMixingImage from '../assets/images/mixing_what-is-mixing.webp'
-import whatYouCanExpectImage from '../assets/images/mixing_what-you-can-expect.webp'
+import mixingOneImage from '../assets/images/mixing-1.jpg'
+import mixingTwoImage from '../assets/images/mixing-2.jpg'
+import mixingBioImage from '../assets/images/mixing-bio.jpg'
 import MainContent from '../components/MainContent.astro'
 import TextContent from '../components/text/Content.astro'
 import PageHeader from '../components/text/PageHeader.astro'
@@ -15,7 +16,7 @@ import Layout from '../layouts/Layout.astro'
     <section id="mixing" class="mixing">
       <article id="what-is-mixing" class="lsa no-repeat">
         <Picture
-          src={whatIsMixingImage}
+          src={mixingOneImage}
           formats={['avif', 'webp']}
           loading="eager"
           alt="Robby Webb mixing"
@@ -38,7 +39,7 @@ import Layout from '../layouts/Layout.astro'
       </article>
 
       <article id="what-you-can-expect" class="lsa no-repeat">
-        <Picture src={whatYouCanExpectImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
+        <Picture src={mixingTwoImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
         <TextContent alignment="right">
           <p>
             When you work with me, you're not just getting a service; you're gaining a partner in
@@ -48,11 +49,6 @@ import Layout from '../layouts/Layout.astro'
             <li>
               <strong>Clarity and Depth:</strong> Ensure each instrument and voice is distinct, with
               the depth and richness your music deserves.
-            </li>
-            <li>
-              <strong>Dynamic Balance:</strong> Strike the perfect balance between the various elements
-              of your track, ensuring that everything from the softest whisper to the loudest crescendo
-              is heard exactly as intended.
             </li>
             <li>
               <strong>Emotional Impact:</strong> My mixing process enhances the emotional core of your
@@ -65,6 +61,24 @@ import Layout from '../layouts/Layout.astro'
             </li>
           </ul>
         </TextContent>
+      </article>
+
+      <article id="bio" class="lsa no-repeat">
+        <TextContent>
+          <p>
+            I'm Robby Webb, a mixing engineer with a passion for helping artists bring their music
+            to life. I've worked with artists across a wide range of genres, from pop to rock to
+            hip-hop, and I bring that experience to every project I work on. I understand that every
+            song is unique, and I approach each mix with fresh ears and an open mind, ensuring that
+            your music gets the attention it deserves.
+          </p>
+          <p>
+            Whether you're a seasoned pro or just starting out, I'm here to help you take your music
+            to the next level. Let's work together to create a mix that captures the essence of your
+            music and connects with your audience in a meaningful way.
+          </p>
+        </TextContent>
+        <Picture src={mixingBioImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
       </article>
     </section>
 
@@ -109,7 +123,9 @@ import Layout from '../layouts/Layout.astro'
 
     & img {
       grid-area: image;
-      filter: brightness(0.8);
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
     }
   }
 
