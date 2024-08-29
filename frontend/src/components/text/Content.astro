@@ -11,74 +11,59 @@ const { alignment } = Astro.props
 <div class:list={['content', { right: alignment === 'right' }]}>
   <Icon name="corner-dashed" />
   <slot />
-  <Icon name="corner-dashed" />
 </div>
 
 <style>
   .content {
     position: relative;
     grid-area: content;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-base);
+    padding: 1rem;
+    text-align: center;
+
+    @media (min-width: 1024px) {
+      & {
+        padding: 1rem 2rem;
+        text-align: left;
+      }
+    }
 
     & [data-icon='corner-dashed'] {
       position: absolute;
+      top: -4rem;
+      left: -1rem;
+      transform: scaleY(-1);
       width: 10rem;
       height: 10rem;
       z-index: -1;
       color: var(--color-pink);
     }
 
-    & [data-icon='corner-dashed']:first-of-type {
-      left: -1rem;
-      top: -4rem;
-      transform: scaleY(-1);
-    }
-
-    & [data-icon='corner-dashed']:last-of-type {
-      right: -1rem;
-      bottom: -4rem;
-      transform: scaleX(-1);
-    }
-
-    &.right [data-icon='corner-dashed']:first-of-type {
+    &.right [data-icon='corner-dashed'] {
       left: initial;
       right: -1rem;
       transform: scaleX(-1) scaleY(-1);
     }
 
-    &.right [data-icon='corner-dashed']:last-of-type {
-      left: -1rem;
-      transform: scaleX(1);
-    }
-
-    p,
-    ul {
-      font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
-      text-align: center;
-
-      @media (min-width: 1024px) {
-        text-align: left;
-      }
-    }
-
-    ul {
-      padding: var(--spacing-base);
-
-      @media (min-width: 1024px) {
-        & {
-          list-style: '✓';
-        }
+    @media (min-width: 1024px) {
+      ul {
+        padding: 0 var(--spacing-base);
+        list-style: '✔';
       }
 
       li {
-        margin-bottom: var(--spacing-base);
         padding-inline-start: var(--spacing-base);
       }
     }
 
-    p:last-of-type,
-    li:last-of-type {
+    p {
       margin-bottom: 0rem;
+    }
+
+    li {
+      margin-bottom: var(--spacing-base);
     }
   }
 </style>

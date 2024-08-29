@@ -40,14 +40,20 @@ const { title, image, artist, type, credits, label, musicLinks } = album || {}
         alt={`${artist.name}: ${title}`}
       />
       <div>
-        <h2>{artist.name}</h2>
+        <h2 aria-label={artist.name}>{artist.name}</h2>
         <p><strong>Project:</strong> "{title}" {type}</p>
         <p><strong>Credits:</strong> {credits}</p>
         <p><strong>Label:</strong> {label}</p>
         <div class="album-links">
           {
             musicLinks?.map((link) => (
-              <a class="site-cta pill" href={link.link} target="_blank" rel="noopener noreferrer">
+              <a
+                class="site-cta pill"
+                href={link.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.text}
+              >
                 {link.text}
               </a>
             ))

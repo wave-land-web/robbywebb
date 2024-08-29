@@ -73,15 +73,12 @@ h1 {
   font-size: clamp(var(--size-lg), 10vw, var(--size-xxl));
 }
 h2 {
-  font-size: clamp(var(--size-md), 5vw, var(--size-xl));
+  font-size: clamp(var(--size-md), 8vw, var(--size-lg));
 }
 h3 {
-  font-size: clamp(var(--size-md), 5vw, var(--size-lg));
-}
-h4 {
   font-size: clamp(var(--size-sm), 5vw, var(--size-md));
 }
-h5 {
+h4 {
   font-size: clamp(var(--size-xs), 5vw, var(--size-sm));
 }
 
@@ -116,6 +113,10 @@ img {
 
 p {
   margin: 0 auto var(--spacing-base);
+}
+
+p,
+li {
   font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
 }
 

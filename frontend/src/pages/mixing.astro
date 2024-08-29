@@ -1,6 +1,6 @@
 ---
 import Picture from 'astro/components/Picture.astro'
-import mixingOneImage from '../assets/images/mixing-1.jpg'
+import mixingOneImage from '../assets/images/mixing-1-alt.jpg'
 import mixingTwoImage from '../assets/images/mixing-2.jpg'
 import mixingBioImage from '../assets/images/mixing-bio.jpg'
 import TextContent from '../components/text/Content.astro'
@@ -22,6 +22,9 @@ import Layout from '../layouts/Layout.astro'
           alt="Robby Webb mixing"
         />
         <TextContent>
+          <h2 aria-label="What is Mixing?">
+            What is <span style="color:var(--color-pink);">Mixing?</span>
+          </h2>
           <p>
             Mixing is the art and science of blending individual tracks within a recording to create
             a version of the song that sounds as good as possible. This process involves balancing
@@ -41,10 +44,9 @@ import Layout from '../layouts/Layout.astro'
       <article id="what-you-can-expect" class="lsa no-repeat">
         <Picture src={mixingTwoImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
         <TextContent alignment="right">
-          <p>
-            When you work with me, you're not just getting a service; you're gaining a partner in
-            your musical journey. Here's what you can expect:
-          </p>
+          <h2 aria-label="What You Can Expect">
+            What <span style="color:var(--color-pink);">You Can Expect</span>
+          </h2>
           <ul>
             <li>
               <strong>Clarity and Depth:</strong> Ensure each instrument and voice is distinct, with
@@ -65,6 +67,7 @@ import Layout from '../layouts/Layout.astro'
 
       <article id="bio" class="lsa no-repeat">
         <TextContent>
+          <h2 aria-label="About Me">About <span style="color:var(--color-pink);">Me</span></h2>
           <p>
             I'm Robby Webb, a mixing engineer with a passion for helping artists bring their music
             to life. I've worked with artists across a wide range of genres, from pop to rock to
@@ -83,6 +86,7 @@ import Layout from '../layouts/Layout.astro'
     </section>
 
     <section id="listen" class="listen lsa no-repeat">
+      <h2 aria-label="Listen Here">Listen Here</h2>
       <iframe
         src="https://app.filepass.com/player/xM9nrxEzJgZYSCo9"
         style="background: transparent; border: none; outline: none;"
@@ -90,13 +94,12 @@ import Layout from '../layouts/Layout.astro'
         height="690"
         title="Robby Webb - Mixing Portfolio"
         loading="lazy"></iframe>
-      <a href="/contact" class="site-cta large">Let's Get Started</a>
+      <a href="/contact" class="site-cta large" aria-label="Let's Get Started">Let's Get Started</a>
     </section>
   </MainContent>
 </Layout>
 
 <style>
-  .mixing,
   .listen {
     margin-bottom: calc(var(--spacing-section) + 4rem);
   }
@@ -133,6 +136,11 @@ import Layout from '../layouts/Layout.astro'
     max-width: var(--container-small-width);
     margin-left: auto;
     margin-right: auto;
+
+    & h2 {
+      text-align: center;
+      margin: var(--spacing-base);
+    }
 
     & .site-cta {
       margin: var(--spacing-section) auto 0;

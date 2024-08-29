@@ -22,6 +22,9 @@ import Layout from '../layouts/Layout.astro'
           alt="Robby Webb Production"
         />
         <TextContent alignment="right">
+          <h2 aria-label="What is Music Production">
+            What is <span style="color:var(--color-pink);">Music Production?</span>
+          </h2>
           <p>
             Music production is the canvas of sound, where every stroke, color, and texture come
             together to form a masterpiece. It encompasses the entire journey of a song from its
@@ -41,7 +44,9 @@ import Layout from '../layouts/Layout.astro'
       <article id="what-you-can-expect" class="lsa no-repeat">
         <Picture src={productionTwoImage} formats={['avif', 'webp']} alt="Robby Webb producing" />
         <TextContent>
-          <p>Here's what your production journey looks like with me:</p>
+          <h2 aria-label="What You Can Expect">
+            What <span style="color:var(--color-pink);">You Can Expect</span>
+          </h2>
           <ul>
             <li>
               <strong>Creative Environment:</strong> We provide a space where creativity flows freely,
@@ -62,7 +67,8 @@ import Layout from '../layouts/Layout.astro'
       </article>
 
       <article id="bio" class="lsa no-repeat">
-        <TextContent>
+        <TextContent alignment="right">
+          <h2 aria-label="About Me">About <span style="color:var(--color-pink);">Me</span></h2>
           <p>
             I'm Robby Webb, a mixing engineer with a passion for helping artists bring their music
             to life. I've worked with artists across a wide range of genres, from pop to rock to
@@ -81,6 +87,7 @@ import Layout from '../layouts/Layout.astro'
     </section>
 
     <section id="listen" class="listen lsa no-repeat">
+      <h2 aria-label="Listen Here">Listen Here</h2>
       <iframe
         src="https://app.filepass.com/player/mi6sGiBPcsdUIeFn"
         style="background: transparent; border: none; outline: none;"
@@ -88,13 +95,12 @@ import Layout from '../layouts/Layout.astro'
         height="576"
         title="Robby Webb - Production Portfolio"
         loading="lazy"></iframe>
-      <a href="/contact" class="site-cta large">Let's Get Started</a>
+      <a href="/contact" class="site-cta large" aria-label="Let's Get Started">Let's Get Started</a>
     </section>
   </MainContent>
 </Layout>
 
 <style>
-  .production,
   .listen {
     margin-bottom: calc(var(--spacing-section) + 4rem);
   }
@@ -131,6 +137,11 @@ import Layout from '../layouts/Layout.astro'
     max-width: var(--container-small-width);
     margin-left: auto;
     margin-right: auto;
+
+    & h2 {
+      text-align: center;
+      margin: var(--spacing-base);
+    }
 
     & .site-cta {
       margin: var(--spacing-section) auto 0;
