@@ -1,6 +1,6 @@
 ---
 import Picture from 'astro/components/Picture.astro'
-import mixingOneImage from '../assets/images/mixing-1-alt.jpg'
+import mixingOneImage from '../assets/images/mixing-1.jpg'
 import mixingTwoImage from '../assets/images/mixing-2.jpg'
 import mixingBioImage from '../assets/images/mixing-bio.jpg'
 import TextContent from '../components/text/Content.astro'
@@ -9,59 +9,51 @@ import MainContent from '../components/ui/MainContent.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title="Robby Webb | Mixing">
+<Layout title="Robby Webb | Mixing" socialImage="/images/mixing-1.jpg">
   <MainContent>
     <PageHeader class="page-header-custom" text="Mixing" />
 
     <section id="mixing" class="mixing">
-      <article id="what-is-mixing" class="lsa no-repeat">
+      <article class="lsa no-repeat">
         <Picture
           src={mixingOneImage}
           formats={['avif', 'webp']}
           loading="eager"
-          alt="Robby Webb mixing"
+          alt="Synthesizers and guitars hanging on a wall with Robby working in the background"
         />
         <TextContent>
-          <h2 aria-label="What is Mixing?">
-            What is <span style="color:var(--color-pink);">Mixing?</span>
+          <h2 aria-label="How Mixing Elevates Your Sound">
+            How Mixing <span style="color:var(--color-pink);">Elevates Your Sound</span>
           </h2>
           <p>
-            Mixing is the art and science of blending individual tracks within a recording to create
-            a version of the song that sounds as good as possible. This process involves balancing
-            levels, fine-tuning dynamics, applying effects, and sculpting the sonic space of each
-            element. It's where we take your raw recordings and transform them into a polished,
-            cohesive, and captivating piece of music.
-          </p>
-          <p>
-            But mixing is more than just a technical process; it's a creative journey. It's about
-            understanding the vision behind your music and enhancing it, ensuring that every
-            instrument sits perfectly in the mix, and that your track conveys the emotions you want
-            it to.
+            A record should feel like your favorite movie, with each song representing a different
+            scene and capturing all the emotional highs and lows. A great mix brings this vision to
+            life. Mixing is often shrouded in mystery, and perceived as an ancient art, but at its
+            core, it's about transforming your production into its final, polished form. Handing off
+            your track can be daunting, but it's essential to remember that mixing starts with a
+            well-crafted song, solid production, and a clear vision.
           </p>
         </TextContent>
       </article>
 
-      <article id="what-you-can-expect" class="lsa no-repeat">
-        <Picture src={mixingTwoImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
+      <article class="lsa no-repeat">
+        <Picture
+          src={mixingTwoImage}
+          formats={['avif', 'webp']}
+          alt="Guitar pedals illuminated by a fluorescent flamingo light"
+        />
         <TextContent alignment="right">
-          <h2 aria-label="What You Can Expect">
-            What <span style="color:var(--color-pink);">You Can Expect</span>
+          <h2 aria-label="Capturing Your Vision">
+            Capturing <span style="color:var(--color-pink);">Your Vision</span>
           </h2>
-          <ul>
-            <li>
-              <strong>Clarity and Depth:</strong> Ensure each instrument and voice is distinct, with
-              the depth and richness your music deserves.
-            </li>
-            <li>
-              <strong>Emotional Impact:</strong> My mixing process enhances the emotional core of your
-              music, ensuring that your listeners feel every note.
-            </li>
-            <li>
-              <strong>Industry Standards:</strong> Your final mix will not only sound great in your headphones
-              but across all platforms and devices, meeting today's industry standards for streaming,
-              radio, and beyond.
-            </li>
-          </ul>
+          <p>
+            Maintaining your vision throughout the mixing process is crucial. A mix should enhance
+            and amplify the emotion and meaning you've embedded in your song. As a musician and
+            producer first, my approach to mixing prioritizes the emotional impact over mere
+            technical details. Capturing the essence of your music is more important than any EQ or
+            compressor. I dedicate myself to ensuring your track resonates deeply and fulfills its
+            true potential.
+          </p>
         </TextContent>
       </article>
 
@@ -81,7 +73,11 @@ import Layout from '../layouts/Layout.astro'
             music and connects with your audience in a meaningful way.
           </p>
         </TextContent>
-        <Picture src={mixingBioImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
+        <Picture
+          src={mixingBioImage}
+          formats={['avif', 'webp']}
+          alt="A desk name plate that says 'Wobby Webb'"
+        />
       </article>
     </section>
 

@@ -16,7 +16,6 @@ import heroImage from '../assets/images/landing-hero.jpg'
     <section id="entry" class="entry">
       <div class="entry-content">
         <PageHeader text="What can I help you with?" />
-        <p>Choose below to learn more:</p>
         <div class="entry-ctas">
           <a href="/mixing" class="site-cta">Mixing</a>
           <a href="/production" class="site-cta">Production</a>
@@ -65,14 +64,9 @@ import heroImage from '../assets/images/landing-hero.jpg'
       text-align: center;
       color: var(--color-white);
 
-      & h1,
-      & p {
+      & h1 {
         margin-bottom: 2rem;
         text-shadow: 0 0 0.25rem var(--color-black-faded);
-      }
-
-      & p {
-        font-size: clamp(var(--size-sm), 2vw, var(--size-md));
       }
 
       & .entry-ctas {

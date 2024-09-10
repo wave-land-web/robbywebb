@@ -9,60 +9,49 @@ import MainContent from '../components/ui/MainContent.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title="Robby Webb | Production">
+<Layout title="Robby Webb | Production" socialImage="/images/production-1.jpg">
   <MainContent>
     <PageHeader class="page-header-custom" text="Production" />
 
     <section id="production" class="production">
-      <article id="what-is-production" class="lsa no-repeat">
+      <article class="lsa no-repeat">
         <Picture
           src={productionOneImage}
           formats={['avif', 'webp']}
           loading="eager"
-          alt="Robby Webb Production"
+          alt="Synthesizers and guitars hanging on a wall with other tools to produce music"
         />
         <TextContent alignment="right">
-          <h2 aria-label="What is Music Production">
-            What is <span style="color:var(--color-pink);">Music Production?</span>
+          <h2 aria-label="Your Music, Your Voice">
+            Your Music, <span style="color:var(--color-pink);">Your Voice</span>
           </h2>
           <p>
-            Music production is the canvas of sound, where every stroke, color, and texture come
-            together to form a masterpiece. It encompasses the entire journey of a song from its
-            initial idea to its final master. A producer is your guide, mentor, and collaborator,
-            ensuring that each element of the song serves its purpose and contributes to the overall
-            narrative.
-          </p>
-          <p>
-            It's about shaping the song's architecture, choosing the right sounds, and creating an
-            environment where artists can shine. The role of a producer is multifaceted, blending
-            creativity with technical prowess to enhance the song's emotional depth and sonic
-            quality.
+            Producing music independently is more accessible than ever, but it's easy to become
+            insular and miss crucial aspects of your work. An unbiased, honest perspective is
+            essential—one that is solely dedicated to enhancing your art.
           </p>
         </TextContent>
       </article>
 
-      <article id="what-you-can-expect" class="lsa no-repeat">
-        <Picture src={productionTwoImage} formats={['avif', 'webp']} alt="Robby Webb producing" />
+      <article class="lsa no-repeat">
+        <Picture
+          src={productionTwoImage}
+          formats={['avif', 'webp']}
+          alt="Synthesizers and guitars hanging on a wall with Robby working in the background"
+        />
         <TextContent>
-          <h2 aria-label="What You Can Expect">
-            What <span style="color:var(--color-pink);">You Can Expect</span>
+          <h2 aria-label="Creative Collaboration">
+            Creative <span style="color:var(--color-pink);">Collaboration</span>
           </h2>
-          <ul>
-            <li>
-              <strong>Creative Environment:</strong> We provide a space where creativity flows freely,
-              where you're encouraged to explore, experiment, and express yourself musically.
-            </li>
-            <li>
-              <strong>Technical Mastery:</strong> Leveraging cutting-edge technology and time-honored
-              techniques, we sculpt your music to sound pristine on every platform, from headphones to
-              live stages.
-            </li>
-            <li>
-              <strong>Empowerment:</strong> Our goal is to empower you as an artist. We provide insights,
-              techniques, and perspectives that enhance your musical expression and propel your career
-              forward.
-            </li>
-          </ul>
+          <p>
+            My production style is characterized by a focus on big vocals and theatrical
+            arrangements that bring your music to life in an extraordinary way. I'm committed to
+            honing in on what really makes your song tick, steering clear of fleeting trends.
+            Collaboration is at the heart of my process; I challenge you to explore and push your
+            creative boundaries, whether that means refining your existing strengths or revealing
+            new facets of your artistry. Together, we'll unlock and elevate the true potential of
+            your music.
+          </p>
         </TextContent>
       </article>
 
@@ -82,7 +71,11 @@ import Layout from '../layouts/Layout.astro'
             music and connects with your audience in a meaningful way.
           </p>
         </TextContent>
-        <Picture src={productionBioImage} formats={['avif', 'webp']} alt="Robby Webb mixing" />
+        <Picture
+          src={productionBioImage}
+          formats={['avif', 'webp']}
+          alt="Robby Webb working in his studio"
+        />
       </article>
     </section>
 

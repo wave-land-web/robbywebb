@@ -16,7 +16,7 @@ const {
   socialImage,
 } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-const socialImageURL = new URL(socialImage || '/images/headshot.jpg', canonicalURL)
+const socialImageURL = new URL(socialImage || '/images/og-image.jpg', canonicalURL)
 ---
 
 <html lang="en">
@@ -29,10 +29,6 @@ const socialImageURL = new URL(socialImage || '/images/headshot.jpg', canonicalU
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta
-      name="keywords"
-      content="Music, Musician, Drums, Drummer, Recording, Recording Engineer, Producer, Audio, Mixing, Mastering, Philadelphia, Philly"
-    />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
 

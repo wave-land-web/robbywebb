@@ -468,8 +468,6 @@ import Layout from '../layouts/Layout.astro'
 
     const servicesChecked = document.querySelectorAll('.form-field.required input:checked')
     const servicesAreSelected = servicesChecked.length > 0
-    const musicIsReleased = yes.checked
-    const linksAreProvided = links.length > 0
 
     // Format links as a comma-separated string
     if (links.length !== 0) {
@@ -479,12 +477,8 @@ import Layout from '../layouts/Layout.astro'
     }
 
     // Validation: Check that at least one service is selected
-    // Validation: Check that links are provided if music has been released
     if (!servicesAreSelected) {
       formErrors.innerHTML = `<p class="error">Please select at least one service</p>`
-      return
-    } else if (musicIsReleased && !linksAreProvided) {
-      formErrors.innerHTML = `<p class="error">Please add at least one relevant link</p>`
       return
     } else {
       formErrors.innerHTML = ''
