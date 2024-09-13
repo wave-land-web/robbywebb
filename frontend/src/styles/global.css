@@ -113,15 +113,12 @@ img {
 
 p {
   margin: 0 auto var(--spacing-base);
+  text-wrap: pretty;
 }
 
 p,
 li {
   font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
-}
-
-article p {
-  text-wrap: balance;
 }
 
 strong {
