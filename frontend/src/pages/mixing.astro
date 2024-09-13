@@ -9,7 +9,11 @@ import MainContent from '../components/ui/MainContent.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title="Robby Webb | Mixing" socialImage="/images/mixing-1.jpg">
+<Layout
+  title="Robby Webb | Mixing"
+  description="All about mixing with Robby Webb, a Philadelphia based producer, mixing engineer, and drummer."
+  socialImage="/images/mixing-1.jpg"
+>
   <MainContent>
     <PageHeader class="page-header-custom" text="Mixing" />
 
@@ -19,6 +23,7 @@ import Layout from '../layouts/Layout.astro'
           src={mixingOneImage}
           formats={['avif', 'webp']}
           loading="eager"
+          quality="low"
           alt="Synthesizers and guitars hanging on a wall with Robby working in the background"
         />
         <TextContent>
@@ -40,6 +45,7 @@ import Layout from '../layouts/Layout.astro'
         <Picture
           src={mixingTwoImage}
           formats={['avif', 'webp']}
+          quality="low"
           alt="Guitar pedals illuminated by a fluorescent flamingo light"
         />
         <TextContent alignment="right">
@@ -78,6 +84,7 @@ import Layout from '../layouts/Layout.astro'
         <Picture
           src={mixingBioImage}
           formats={['avif', 'webp']}
+          quality="low"
           alt="A desk name plate that says 'Wobby Webb'"
         />
       </article>

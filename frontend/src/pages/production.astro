@@ -9,7 +9,11 @@ import MainContent from '../components/ui/MainContent.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title="Robby Webb | Production" socialImage="/images/production-1.jpg">
+<Layout
+  title="Robby Webb | Production"
+  description="All about production with Robby Webb, a Philadelphia based producer, mixing engineer, and drummer."
+  socialImage="/images/production-1.jpg"
+>
   <MainContent>
     <PageHeader class="page-header-custom" text="Production" />
 
@@ -19,6 +23,7 @@ import Layout from '../layouts/Layout.astro'
           src={productionOneImage}
           formats={['avif', 'webp']}
           loading="eager"
+          quality="low"
           alt="Synthesizers and guitars hanging on a wall with other tools to produce music"
         />
         <TextContent alignment="right">
@@ -37,6 +42,7 @@ import Layout from '../layouts/Layout.astro'
         <Picture
           src={productionTwoImage}
           formats={['avif', 'webp']}
+          quality="low"
           alt="Synthesizers and guitars hanging on a wall with Robby working in the background"
         />
         <TextContent>
@@ -76,6 +82,7 @@ import Layout from '../layouts/Layout.astro'
         <Picture
           src={productionBioImage}
           formats={['avif', 'webp']}
+          quality="low"
           alt="Robby Webb working in his studio"
         />
       </article>

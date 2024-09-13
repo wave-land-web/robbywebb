@@ -26,7 +26,10 @@ const album = albumData.find((album) => album.slug === slug)
 const { title, image, artist, type, credits, label, musicLinks } = album || {}
 ---
 
-<Layout title={`Robby Webb | ${title}`}>
+<Layout
+  title={`Robby Webb | ${title}`}
+  description={`${title} by ${artist.name}. Robby Webb Credits: ${credits}.`}
+>
   <MainContent>
     <PageHeader text={`${title}`} />
     <div class="album lsa no-repeat">
