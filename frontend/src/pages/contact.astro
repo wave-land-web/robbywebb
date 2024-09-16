@@ -362,8 +362,6 @@ import Layout from '../layouts/Layout.astro'
 </style>
 
 <script>
-  import { navigate } from 'astro:transitions/client'
-
   // Get DOM elements
   const form = document.querySelector('.form') as HTMLFormElement
   const musicReleasedPrompt = document.querySelector('.music-released-prompt') as HTMLElement
@@ -493,16 +491,8 @@ import Layout from '../layouts/Layout.astro'
       formErrors.innerHTML = ''
     }
 
-    const formData = new FormData(form as HTMLFormElement)
-
-    // Submit the form with a fetch POST request
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as any).toString(),
-    })
-      .then(() => navigate('/success/'))
-      .catch((error) => console.error('Error:', error))
+    // Submit the form
+    form.submit()
   }
 
   // Event listeners
