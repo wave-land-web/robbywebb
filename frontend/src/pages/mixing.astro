@@ -1,0 +1,154 @@
+---
+import Picture from 'astro/components/Picture.astro'
+import mixingOneImage from '../assets/images/mixing-1.jpg'
+import mixingTwoImage from '../assets/images/mixing-2.jpg'
+import mixingBioImage from '../assets/images/mixing-bio.jpg'
+import TextContent from '../components/text/Content.astro'
+import PageHeader from '../components/text/PageHeader.astro'
+import MainContent from '../components/ui/MainContent.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title="Robby Webb | Mixing"
+  description="All about mixing with Robby Webb, a Philadelphia based producer, mixing engineer, and drummer."
+  socialImage="/images/mixing-1.jpg"
+>
+  <MainContent>
+    <PageHeader class="page-header-custom" text="Mixing" />
+
+    <section id="mixing" class="mixing">
+      <article class="lsa no-repeat">
+        <Picture
+          src={mixingOneImage}
+          formats={['avif', 'webp']}
+          loading="eager"
+          quality="low"
+          alt="Synthesizers and guitars hanging on a wall with Robby working in the background"
+        />
+        <TextContent>
+          <h2 aria-label="A Movie Between Your Ears">
+            A Movie <span style="color:var(--color-pink);">Between Your Ears</span>
+          </h2>
+          <p>
+            A record should feel like your favorite movie, with each song representing a different
+            scene and capturing all the emotional highs and lows. A great mix brings this vision to
+            life. Mixing is often shrouded in mystery, and perceived as an ancient art, but at its
+            core, it's about transforming your production into its final, polished form. Handing off
+            your track can be daunting, but it's essential to remember that mixing starts with a
+            well-crafted song, solid production, and a clear vision.
+          </p>
+        </TextContent>
+      </article>
+
+      <article class="lsa no-repeat">
+        <Picture
+          src={mixingTwoImage}
+          formats={['avif', 'webp']}
+          quality="low"
+          alt="Guitar pedals illuminated by a fluorescent flamingo light"
+        />
+        <TextContent alignment="right">
+          <h2 aria-label="Your Vision Elevated">
+            <span style="color:var(--color-pink);">Your Vision</span> Elevated
+          </h2>
+          <p>
+            Maintaining your vision throughout the mixing process is crucial. A mix should enhance
+            and amplify the emotion and meaning you've embedded in your song. As a musician and
+            producer first, my approach to mixing prioritizes the emotional impact over mere
+            technical details. Capturing the essence of your music is more important than any EQ or
+            compressor. I dedicate myself to ensuring your track resonates deeply and fulfills its
+            true potential.
+          </p>
+        </TextContent>
+      </article>
+
+      <article id="bio" class="lsa no-repeat">
+        <TextContent>
+          <h2 aria-label="About Me">About <span style="color:var(--color-pink);">Me</span></h2>
+          <p>
+            I'm Robby Webb, a mixing engineer and producer with a passion for helping artists bring
+            their music to life. I've worked with artists across a wide range of genres, from pop to
+            rock to neo-soul, and I bring that multi-genre experience to every project I work on. I
+            understand that every song is unique, and I approach each one with fresh ears and an
+            open mind, ensuring that your music shines the way it was meant to.
+          </p>
+          <p>
+            I started my journey with music at a young age growing up in a family of musicians. I
+            spent my teens and twenties touring and playing drums for various acts across the
+            country. Opening up for acts like Stone Temple Pilots and playing at festivals like
+            Firefly. I got involved in production and mixing while studying music at The University
+            of Arts in Philadelphia and haven't stopped since.
+          </p>
+        </TextContent>
+        <Picture
+          src={mixingBioImage}
+          formats={['avif', 'webp']}
+          quality="low"
+          alt="A desk name plate that says 'Wobby Webb'"
+        />
+      </article>
+    </section>
+
+    <section id="listen" class="listen lsa no-repeat">
+      <h2 aria-label="Listen Here">Listen Here</h2>
+      <iframe
+        src="https://app.filepass.com/player/xM9nrxEzJgZYSCo9"
+        style="background: transparent; border: none; outline: none;"
+        width="100%"
+        height="690"
+        title="Robby Webb - Mixing Portfolio"
+        loading="lazy"></iframe>
+      <a href="/contact" class="site-cta large" aria-label="Let's Get Started">Let's Get Started</a>
+    </section>
+  </MainContent>
+</Layout>
+
+<style>
+  .listen {
+    margin-bottom: calc(var(--spacing-section) + 4rem);
+  }
+
+  .mixing article {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: calc(var(--spacing-section) + 4rem);
+    grid-template-areas:
+      'image'
+      'content';
+    margin-bottom: calc(var(--spacing-section) + 4rem);
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'content image';
+      gap: var(--spacing-section);
+
+      &:nth-child(2) {
+        grid-template-areas: 'image content';
+      }
+    }
+
+    & img {
+      grid-area: image;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .listen {
+    max-width: var(--container-small-width);
+    margin-left: auto;
+    margin-right: auto;
+
+    & h2 {
+      text-align: center;
+      margin: var(--spacing-base);
+    }
+
+    & .site-cta {
+      margin: var(--spacing-section) auto 0;
+    }
+  }
+</style>

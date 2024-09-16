@@ -1,0 +1,26 @@
+---
+import SocialIcons from './SocialIcons.astro'
+
+const { class: className } = Astro.props
+---
+
+<main class:list={[className, 'main-content']}>
+  <slot />
+  <SocialIcons />
+</main>
+
+<style>
+  .main-content {
+    position: relative;
+    max-width: var(--container-max-width);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: var(--spacing-section) 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .main-content {
+      padding: var(--spacing-section);
+    }
+  }
+</style>

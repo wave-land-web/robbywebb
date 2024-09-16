@@ -1,0 +1,50 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div class="social-icons">
+  <a
+    href="https://www.instagram.com/rwebbdrums/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+  >
+    <Icon name="instagram" />
+  </a>
+</div>
+
+<style>
+  .social-icons {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 2rem;
+    z-index: 100;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .social-icons {
+      right: 2rem;
+    }
+  }
+
+  .social-icons a {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+
+    & [data-icon='instagram'] {
+      width: 100%;
+      height: auto;
+      stroke: var(--color-grey);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
+      transition: stroke var(--transition-normal);
+
+      &:hover {
+        stroke: var(--color-pink);
+      }
+    }
+  }
+</style>

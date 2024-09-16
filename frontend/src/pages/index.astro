@@ -1,0 +1,105 @@
+---
+import { Picture } from 'astro:assets'
+import Layout from '../layouts/Layout.astro'
+import MainContent from '../components/ui/MainContent.astro'
+import PageHeader from '../components/text/PageHeader.astro'
+import heroImage from '../assets/images/landing-hero.jpg'
+---
+
+<Layout title="Robby Webb | Producer, Drummer, Engineer">
+  <meta
+    slot="head"
+    name="google-site-verification"
+    content="lUO4ZVVpFSsy1Y7rwcjkxgw-XVYXc3vWEKvHg9zqjdA"
+  />
+  <MainContent class="main-custom">
+    <section id="entry" class="entry">
+      <div class="entry-content">
+        <PageHeader text="What can I help you with?" />
+        <div class="entry-ctas">
+          <a href="/mixing" class="site-cta">Mixing</a>
+          <a href="/production" class="site-cta">Production</a>
+        </div>
+      </div>
+      <Picture
+        src={heroImage}
+        formats={['avif', 'webp']}
+        loading="eager"
+        alt="Robby Webb behind the mixing console"
+      />
+    </section>
+  </MainContent>
+</Layout>
+
+<style>
+  .main-custom {
+    max-width: none;
+    padding: 0;
+  }
+
+  .entry {
+    position: relative;
+    height: 75vh;
+    max-height: 850px;
+    margin-bottom: var(--spacing-section);
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--color-black));
+    }
+
+    & .entry-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      z-index: 1;
+      text-align: center;
+      color: var(--color-white);
+
+      & h1 {
+        margin-bottom: 2rem;
+        text-shadow: 0 0 0.25rem var(--color-black-faded);
+      }
+
+      & .entry-ctas {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+
+        & .site-cta {
+          margin: 0;
+          box-shadow: 0 0 0.25rem var(--color-black-faded);
+        }
+      }
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 0;
+      filter: brightness(0.4) blur(1rem);
+      transition: all var(--transition-long);
+
+      &.loaded {
+        filter: brightness(0.4) blur(0);
+      }
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const img = document.querySelector('.entry img')
+    img?.classList.add('loaded')
+  })
+</script>

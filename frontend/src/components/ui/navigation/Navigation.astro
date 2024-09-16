@@ -1,0 +1,43 @@
+---
+import MobileLogo from '../Logo.astro'
+import Desktop from './Desktop.astro'
+import Mobile from './Mobile.astro'
+---
+
+<nav class="navigation">
+  <div class="container">
+    <MobileLogo class="logo-custom" />
+    <Mobile />
+    <Desktop />
+  </div>
+</nav>
+
+<style>
+  .navigation {
+    background-color: var(--color-black-faded);
+    box-shadow: inset 0 -1px 0 0 var(--color-black-border);
+
+    & .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 1rem;
+
+      @media (min-width: 768px) {
+        & {
+          flex-direction: column;
+          padding: 2rem var(--spacing-section);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        & .logo-custom {
+          display: none;
+        }
+      }
+    }
+  }
+</style>

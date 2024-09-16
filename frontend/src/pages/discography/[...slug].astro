@@ -1,0 +1,91 @@
+---
+import { Picture } from 'astro:assets'
+import PageHeader from '../../components/text/PageHeader.astro'
+import MainContent from '../../components/ui/MainContent.astro'
+import Layout from '../../layouts/Layout.astro'
+import { albumData } from '../../sanity/albumData'
+
+export async function getStaticPaths() {
+  const paths = albumData.map((album) => {
+    return {
+      params: {
+        slug: album.slug,
+      },
+    }
+  })
+
+  return paths
+}
+
+const { slug } = Astro.params
+
+// Find album by slug
+const album = albumData.find((album) => album.slug === slug)
+
+// Destructure album data
+const { title, image, artist, type, credits, label, musicLinks } = album || {}
+---
+
+<Layout
+  title={`Robby Webb | ${title}`}
+  description={`${title} by ${artist.name}. Robby Webb Credits: ${credits}.`}
+>
+  <MainContent>
+    <PageHeader text={`${title}`} />
+    <div class="album lsa no-repeat">
+      <Picture
+        src={image!}
+        width={1000}
+        height={1000}
+        formats={['avif', 'webp']}
+        title={`${artist.name}: ${title}`}
+        loading="eager"
+        alt={`${artist.name}: ${title}`}
+      />
+      <div>
+        <h2 aria-label={artist.name}>{artist.name}</h2>
+        <p><strong>Project:</strong> "{title}" {type}</p>
+        <p><strong>Credits:</strong> {credits}</p>
+        <p><strong>Label:</strong> {label}</p>
+        <div class="album-links">
+          {
+            musicLinks?.map((link) => (
+              <a
+                class="site-cta pill"
+                href={link.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.text}
+              >
+                {link.text}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </MainContent>
+</Layout>
+
+<style>
+  .album {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-section);
+    max-width: var(--container-medium-width);
+    margin: 0 auto;
+
+    & h2 {
+      margin-bottom: clamp(1rem, 4vw, 1.5rem);
+    }
+
+    & p:last-of-type {
+      margin-bottom: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    & .album-links {
+      display: flex;
+      gap: clamp(0.5rem, 2vw, 1rem);
+    }
+  }
+</style>

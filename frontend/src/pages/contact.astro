@@ -1,0 +1,499 @@
+---
+import { Icon } from 'astro-icon/components'
+import MainContent from '../components/ui/MainContent.astro'
+import PageHeader from '../components/text/PageHeader.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title="Robby Webb | Contact"
+  description="Get in touch with Robby Webb, a Philadelphia based producer, mixing engineer, and drummer."
+>
+  <MainContent>
+    <PageHeader text="Let's Get Started" />
+    <form
+      method="POST"
+      class="form lsa no-repeat"
+      name="contactForm"
+      action="/success/"
+      data-netlify="true"
+    >
+      <!-- Name -->
+      <div class="form-field">
+        <input id="name" type="text" name="name" placeholder=" " required />
+        <label for="name">Name: <span>*</span></label>
+      </div>
+
+      <!-- Email -->
+      <div class="form-field">
+        <input id="email" type="email" name="email" placeholder=" " required />
+        <label for="email">Email: <span>*</span></label>
+      </div>
+
+      <!-- Services -->
+      <div class="form-field required">
+        <p>What can I help you with? <span>*</span></p>
+
+        <!-- Mixing -->
+        <div class="checkbox">
+          <input type="checkbox" id="mixing" name="mixing" value="Mixing" />
+          <label for="mixing">Mixing</label>
+        </div>
+
+        <!-- Production -->
+        <div class="checkbox">
+          <input type="checkbox" id="production" name="production" value="Production" />
+          <label for="production">Production</label>
+        </div>
+
+        <!-- Recording -->
+        <div class="checkbox">
+          <input type="checkbox" id="recording" name="recording" value="Recording" />
+          <label for="recording">Recording</label>
+        </div>
+
+        <!-- Unsure -->
+        <div class="checkbox">
+          <input type="checkbox" id="unsure" name="unsure" value="Unsure" />
+          <label for="unsure">I'm not sure</label>
+        </div>
+      </div>
+
+      <!-- Relevant Links -->
+      <div class="form-field">
+        <p>Have you released music before? <span>*</span></p>
+        <div class="radio music-released-prompt">
+          <div>
+            <input type="radio" id="yes" name="music-released" value="Yes" required />
+            <label for="yes">Yes</label>
+          </div>
+          <div>
+            <input type="radio" id="no" name="music-released" value="No" required />
+            <label for="no">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-field relevant-links">
+        <div class="share-links-input">
+          <input id="links" type="text" name="links" placeholder=" " />
+          <label for="links">Share any relevant links:</label>
+          <button class="site-cta pill" type="button"><Icon name="plus" />Add Link</button>
+        </div>
+        <div class="link-container"></div>
+        <p class="error">Please enter a valid URL (e.g. https://www.example.com)</p>
+      </div>
+
+      <!-- Project Details -->
+      <div class="form-field">
+        <textarea
+          id="project-details"
+          name="project-details"
+          cols="30"
+          rows="5"
+          placeholder=" "
+          required></textarea>
+        <label for="project-details">Tell me about your project: <span>*</span></label>
+      </div>
+
+      <!-- Favorite Record -->
+      <div class="form-field">
+        <input id="favorite-record" type="text" name="favorite-record" placeholder=" " />
+        <label for="favorite-record">What's your favorite record?</label>
+      </div>
+
+      <!-- Anything Else -->
+      <div class="form-field">
+        <input id="anything-else" type="text" name="anything-else" placeholder=" " />
+        <label for="anything-else">Anything else you'd like to share?</label>
+      </div>
+
+      <!-- Submit -->
+      <button class="site-cta" type="submit">Send Message</button>
+
+      <!-- Form Errors -->
+      <div class="form-errors"></div>
+    </form>
+  </MainContent>
+</Layout>
+
+<style>
+  .form {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-section);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-base) + 2.5rem);
+
+    & .form-errors {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+  }
+
+  .form-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
+
+    & label,
+    & p:not(.error) {
+      color: var(--color-grey);
+    }
+
+    & p {
+      margin: 0 0 0.5rem;
+      font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
+    }
+
+    & textarea {
+      resize: vertical;
+    }
+
+    & input,
+    & textarea {
+      padding: 0.5rem;
+      color: var(--color-white);
+      background-color: var(--color-black);
+      font-weight: 300;
+      border-bottom: 1px solid var(--color-white);
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      outline: none;
+      transition: all var(--transition-normal);
+    }
+
+    & input:focus,
+    & textarea:focus {
+      border-bottom: 1px solid var(--color-pink);
+    }
+
+    & input:not(:placeholder-shown):valid,
+    & textarea:not(:placeholder-shown):valid {
+      border-color: var(--color-white);
+    }
+
+    & input:not(:placeholder-shown):not(:valid),
+    & textarea:not(:placeholder-shown):not(:valid) {
+      border-color: var(--color-pink);
+    }
+
+    & input:not([type='radio']):not(:placeholder-shown):not(:valid) + label,
+    & textarea:not(:placeholder-shown):not(:valid) + label {
+      color: var(--color-pink);
+    }
+
+    &:not(:has(input[type='checkbox'])) label {
+      position: absolute;
+      top: 48%;
+      left: 0.4rem;
+      transform: translateY(-50%);
+      transition: all var(--transition-normal);
+    }
+
+    /* Checkbox + Radio */
+
+    &:has(input[type='checkbox']:checked) p,
+    &:has(input[type='radio']:checked) p {
+      transition: all var(--transition-normal);
+    }
+
+    & .checkbox,
+    & .radio div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      input {
+        width: clamp(var(--size-xxs), 2vw, var(--size-xs));
+        height: clamp(var(--size-xxs), 2vw, var(--size-xs));
+        appearance: none;
+        border: 1px solid var(--color-white);
+        border-radius: var(--border-radius);
+
+        &:checked {
+          background-color: var(--color-pink);
+        }
+
+        &:checked + label {
+          color: var(--color-white);
+        }
+      }
+    }
+
+    & .checkbox input,
+    & .checkbox label,
+    & .radio input,
+    & .radio label {
+      cursor: pointer;
+    }
+
+    & .radio {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    & .radio input[type='radio'] + label {
+      position: relative;
+      left: 0;
+      top: 0;
+      transform: none;
+    }
+
+    /* Focus */
+
+    & textarea + label {
+      top: 1.5rem;
+    }
+
+    & input:not([type='checkbox']):not([type='radio']):focus + label,
+    & textarea:focus + label,
+    & span {
+      color: var(--color-pink);
+    }
+
+    & input:focus + label,
+    & textarea:focus + label,
+    & input:not(:placeholder-shown) + label,
+    & textarea:not(:placeholder-shown) + label {
+      top: -1rem;
+      left: 0;
+    }
+
+    .share-links-input {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      gap: calc(var(--spacing-base));
+
+      & input {
+        flex: 1;
+
+        &:not(:placeholder-shown) + label {
+          color: var(--color-white);
+        }
+      }
+
+      & label {
+        top: 30%;
+        color: var(--color-grey);
+      }
+
+      & .site-cta {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover [data-icon='plus'] {
+          stroke: var(--color-black);
+        }
+
+        [data-icon='plus'] {
+          width: 1rem;
+          height: 1rem;
+          stroke: var(--color-white);
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 2;
+          transition: all var(--transition-normal);
+        }
+      }
+    }
+
+    .link-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      font-size: var(--size-xxs);
+
+      & .link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        background-color: var(--color-pink);
+        border-radius: var(--border-radius);
+
+        & span {
+          text-transform: uppercase;
+          letter-spacing: 0.05rem;
+          color: var(--color-black);
+        }
+
+        & svg {
+          width: 1rem;
+          height: 1rem;
+          padding: 0.1rem;
+          color: var(--color-black);
+          border-radius: var(--border-radius);
+          transition: all var(--transition-normal);
+
+          &[data-icon='close'] {
+            cursor: pointer;
+
+            &:hover {
+              background-color: var(--color-white-faded);
+            }
+          }
+        }
+      }
+    }
+
+    .error,
+    &.relevant-links {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+</style>
+
+<script>
+  // Get DOM elements
+  const form = document.querySelector('.form') as HTMLFormElement
+  const musicReleasedPrompt = document.querySelector('.music-released-prompt') as HTMLElement
+  const yes = document.querySelector('#yes') as HTMLInputElement
+  const no = document.querySelector('#no') as HTMLInputElement
+  const relevantLinks = document.querySelector('.relevant-links') as HTMLElement
+  const linkContainer = document.querySelector('.link-container') as HTMLElement
+  const linksInput = document.querySelector('.share-links-input input') as HTMLInputElement
+  const addLinkButton = document.querySelector('.share-links-input button') as HTMLButtonElement
+  const linkError = document.querySelector('.relevant-links .error') as HTMLElement
+  const formErrors = document.querySelector('.form-errors') as HTMLElement
+
+  // Store relevant links
+  let links: string[] = []
+
+  /**
+   * Show or hide the relevant links input based on the user's response
+   */
+  function handleMusicReleasedPrompt() {
+    if (yes.checked) {
+      relevantLinks.classList.add('active')
+    } else if (no.checked) {
+      relevantLinks.classList.remove('active')
+
+      // remove links from list
+      clearAllLinks()
+    }
+  }
+
+  /**
+   * Add a link to the list of relevant links and the DOM
+   */
+  function handleAddLink() {
+    const value = linksInput?.value
+
+    // Check that the input is a valid URL
+    const URL_REGEX =
+      /^(http(s)?:\/\/)?(www.)?([a-zA-Z0-9])+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,5}(:[0-9]{1,5})?(\/[^\s]*)?$/gm
+
+    if (!URL_REGEX.test(value)) {
+      linkError.classList.add('active')
+      return
+    }
+
+    // Remove error message and add link to list
+    linkError.classList.remove('active')
+
+    // Link template
+    linkContainer?.insertAdjacentHTML(
+      'beforeend',
+      `
+        <div class="link">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 19">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 12.326 6-6m-4-3 .463-.537a5 5 0 0 1 7.071 7.072l-.534.464m-5 5-.397.535a5.068 5.068 0 0 1-7.127 0 4.972 4.972 0 0 1 0-7.071L3 8.326"/>
+          </svg>
+          <span>${value}</span>
+          <svg
+            data-icon="close"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </div>
+      `
+    )
+
+    // Add link to list and clear input
+    links.push(value)
+    linksInput.value = ''
+  }
+
+  /**
+   * Clear all links from the list of relevant links and the DOM
+   */
+  function clearAllLinks() {
+    links = []
+    linkContainer.innerHTML = ''
+  }
+
+  /**
+   * Remove a link from the list of relevant links and the DOM
+   * @param e - The event object
+   */
+  function handleRemoveLink(e: Event) {
+    const eventTarget = e.target as HTMLElement
+
+    if (eventTarget.getAttribute('data-icon') === 'close') {
+      const linkValue = eventTarget.parentElement?.querySelector('span')?.textContent
+      const linksWithSelectionRemoved = links.filter((link) => link !== linkValue)
+      links = linksWithSelectionRemoved
+
+      // remove link from DOM
+      eventTarget.parentElement?.remove()
+    }
+  }
+
+  /**
+   * Validate and submit the form with with correctly formatted data
+   * @param e - The event object
+   * @todo Format FormData with AJAX request -- see: https://docs.netlify.com/forms/setup/#submit-html-forms-with-ajax
+   */
+  function handleSubmit(e: Event) {
+    e.preventDefault()
+
+    const servicesChecked = document.querySelectorAll('.form-field.required input:checked')
+    const servicesAreSelected = servicesChecked.length > 0
+
+    // Format links as a comma-separated string
+    if (links.length !== 0) {
+      linksInput.value = links.join(', ')
+    } else {
+      linksInput.value = linksInput.value
+    }
+
+    // Validation: Check that at least one service is selected
+    if (!servicesAreSelected) {
+      formErrors.innerHTML = `<p class="error">Please select at least one service</p>`
+      return
+    } else {
+      formErrors.innerHTML = ''
+    }
+
+    // Submit the form
+    form.submit()
+  }
+
+  // Event listeners
+  musicReleasedPrompt?.addEventListener('change', handleMusicReleasedPrompt)
+  addLinkButton?.addEventListener('click', handleAddLink)
+  linkContainer?.addEventListener('click', handleRemoveLink)
+  form?.addEventListener('submit', handleSubmit)
+</script>

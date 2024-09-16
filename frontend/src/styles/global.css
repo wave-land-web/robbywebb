@@ -1,0 +1,229 @@
+:root {
+  /* Colors */
+  --color-black: #000000;
+  --color-black-faded: #0a0a0a;
+  --color-black-border: #2d2d2d;
+  --color-white: #ededed;
+  --color-white-faded: #f5f5f550;
+  --color-grey: #a1a1a1;
+  --color-yellow: #c3ae69;
+  --color-pink: #f49ac2;
+
+  /* Fonts */
+  --font-nunito-sans: 'Nunito Sans', sans-serif;
+
+  /* Font sizes */
+  --size-xxs: 0.75rem;
+  --size-xs: 1rem;
+  --size-sm: 1.25rem;
+  --size-md: 1.563rem;
+  --size-lg: 2.441rem;
+  --size-xl: 3.052rem;
+  --size-xxl: 3.815rem;
+  --size-xxxl: 4.5rem;
+
+  /* Containers */
+  --container-max-width: 1800px;
+  --container-medium-width: 1200px;
+  --container-small-width: 600px;
+
+  /* Spacing */
+  --spacing-section: clamp(4rem, 10vw, 6rem);
+  --spacing-base: clamp(1rem, 2vw, 1.5rem);
+
+  /* Transitions */
+  --transition-normal: 0.25s ease-in-out;
+  --transition-long: 0.5s ease-in-out;
+
+  /* Borders */
+  --border-radius: 0.25rem;
+}
+
+html {
+  /* Scrollbar */
+  scrollbar-color: var(--color-grey) var(--color-black);
+  scrollbar-width: thin;
+}
+
+body {
+  color: var(--color-white);
+  background: var(--color-black);
+  font-family: var(--font-nunito-sans);
+  font-size: var(--size-xs);
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.04rem;
+}
+
+body[data-overlay-displayed='true'] {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-weight: 900;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(var(--size-lg), 10vw, var(--size-xxl));
+}
+h2 {
+  font-size: clamp(var(--size-md), 8vw, var(--size-lg));
+}
+h3 {
+  font-size: clamp(var(--size-sm), 5vw, var(--size-md));
+}
+h4 {
+  font-size: clamp(var(--size-xs), 5vw, var(--size-sm));
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+  transition: all var(--transition-normal);
+}
+
+a:hover,
+a[aria-current='true'] {
+  color: var(--color-pink);
+}
+
+svg {
+  transition: fill var(--transition-normal);
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+p {
+  margin: 0 auto var(--spacing-base);
+  text-wrap: pretty;
+}
+
+p,
+li {
+  font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
+}
+
+strong {
+  font-weight: 900;
+}
+
+.site-cta {
+  display: block;
+  max-width: fit-content;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 5vw, 1rem) clamp(1.5rem, 5vw, 2rem);
+  color: var(--color-white);
+  background: transparent;
+  font-size: clamp(var(--size-sm), 2vw, var(--size-md));
+  border: 1px solid var(--color-white);
+  border-radius: 4rem;
+  letter-spacing: 0.05rem;
+
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.site-cta:hover {
+  color: var(--color-black);
+  background: var(--color-pink);
+  border: 1px solid var(--color-pink);
+}
+
+.site-cta.pill {
+  display: inline-block;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
+}
+
+.error {
+  font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
+  color: var(--color-pink);
+}
+
+/* Animations */
+
+@view-transition {
+  navigation: auto;
+}
+
+/**
+  * Required class: `lsa` (initializes animations and defaults to fade-in)
+  * Note: Add `no-repeat` class to prevent animations from repeating on scroll
+  */
+
+/* Accessibility: disable animations for users that prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  /* Initialize & fade in element on scroll */
+  .lsa {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out, transform 0.7s ease-in-out;
+  }
+
+  /* Slide up */
+  .lsa.lsa-slide-up {
+    transform: translateY(1rem);
+  }
+
+  /* Slide down */
+  .lsa.lsa-slide-down {
+    transform: translateY(-1rem);
+  }
+
+  /* Slide left */
+  .lsa.lsa-slide-left {
+    transform: translateX(1rem);
+  }
+
+  /* Slide right */
+  .lsa.lsa-slide-right {
+    transform: translateX(-1rem);
+  }
+
+  /* Slide down right */
+  .lsa.lsa-slide-down-right {
+    transform: translate(-1rem, -1rem);
+  }
+
+  /* Slide down left */
+  .lsa.lsa-slide-down-left {
+    transform: translate(1rem, -1rem);
+  }
+
+  /* Slide up right */
+  .lsa.lsa-slide-up-right {
+    transform: translate(-1rem, 1rem);
+  }
+
+  /* Slide up left */
+  .lsa.lsa-slide-up-left {
+    transform: translate(1rem, 1rem);
+  }
+
+  /* Handle active state */
+  .lsa.active {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}

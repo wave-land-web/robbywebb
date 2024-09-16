@@ -1,0 +1,184 @@
+---
+const currentPath = Astro.url.pathname
+---
+
+<button id="hamburger" class="hamburger" aria-expanded="false">
+  <span class="top"></span>
+  <span class="middle"></span>
+  <span class="bottom"></span>
+</button>
+
+<div class="mobile-nav-overlay">
+  <ul>
+    <li>
+      <a href="/mixing" aria-current={currentPath.includes('/mixing')} aria-label="Mixing">Mixing</a
+      >
+    </li>
+    <li>
+      <a
+        href="/production"
+        aria-current={currentPath.includes('/production')}
+        aria-label="Production">Production</a
+      >
+    </li>
+    <li>
+      <a
+        href="/discography"
+        aria-current={currentPath.includes('/discography')}
+        aria-label="Discography">Discography</a
+      >
+    </li>
+    <li>
+      <a href="/contact" aria-current={currentPath.includes('/contact')} aria-label="Contact"
+        >Contact</a
+      >
+    </li>
+  </ul>
+</div>
+
+<style>
+  a {
+    color: var(--color-grey);
+  }
+
+  .hamburger {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    z-index: 4;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    .hamburger {
+      display: none;
+    }
+  }
+
+  .hamburger .top,
+  .hamburger .middle,
+  .hamburger .bottom {
+    height: 2px;
+    border-radius: 5px;
+    background-color: var(--color-white);
+    transition: all var(--transition-normal);
+  }
+
+  .hamburger .top,
+  .hamburger .middle,
+  .hamburger .bottom {
+    width: 22px;
+  }
+
+  .hamburger .top {
+    transform: translateY(-4px);
+  }
+
+  .hamburger .bottom {
+    transform: translateY(4px);
+  }
+
+  .hamburger.active .top {
+    transform: translateY(2px) rotate(45deg);
+  }
+
+  .hamburger.active .middle {
+    opacity: 0;
+  }
+
+  .hamburger.active .bottom {
+    transform: translateY(-2px) rotate(-45deg);
+  }
+
+  .mobile-nav-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    background-color: var(--color-black);
+    transition:
+      opacity var(--transition-normal),
+      visibility 0s var(--transition-normal),
+      z-index 0s var(--transition-normal);
+  }
+
+  .hamburger.active + .mobile-nav-overlay {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--transition-normal);
+    z-index: 3;
+  }
+
+  .mobile-nav-overlay ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .mobile-nav-overlay ul li {
+    font-size: clamp(var(--size-md), 8vw, var(--size-lg));
+  }
+
+  .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .icons svg {
+    width: var(--size-lg);
+    height: var(--size-lg);
+    transition: all var(--transition-normal);
+  }
+
+  .icons svg:hover {
+    color: var(--color-primary);
+  }
+</style>
+
+<script>
+  const body = document.querySelector('body')
+  const hamburger = document.getElementById('hamburger')
+  let overlayDisplayed = false
+
+  function handleMobileNavigationOnClick() {
+    overlayDisplayed = !overlayDisplayed
+    body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
+    hamburger?.classList.toggle('active')
+    hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
+  }
+
+  function handleMobileNavigationOnResize() {
+    if (window.innerWidth >= 768) {
+      overlayDisplayed = false
+      body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
+      hamburger?.classList.remove('active')
+      hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
+    }
+  }
+
+  // Accessibility
+  body?.addEventListener('keyup', (event) => {
+    if (event.code === 'Escape' && overlayDisplayed) {
+      handleMobileNavigationOnClick()
+    }
+  })
+
+  hamburger?.addEventListener('click', handleMobileNavigationOnClick)
+  window.addEventListener('resize', handleMobileNavigationOnResize)
+</script>

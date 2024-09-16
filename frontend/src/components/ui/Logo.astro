@@ -1,0 +1,22 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const { class: className } = Astro.props
+---
+
+<a href="/" class={className} title="Home" aria-label="Home">
+  <Icon name="logo" />
+</a>
+
+<style>
+  a {
+    position: relative;
+    z-index: 10;
+    width: clamp(200px, 20vw, 260px);
+
+    & [data-icon] {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>

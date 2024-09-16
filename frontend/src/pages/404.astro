@@ -1,0 +1,16 @@
+---
+import SimpleMessage from '../components/text/SimpleMessage.astro'
+import MainContent from '../components/ui/MainContent.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Robby Webb | 404">
+  <MainContent>
+    <SimpleMessage
+      title="404"
+      description="Oops! Looks like you've stumbled upon a page that doesn't exist."
+      ctaText="← Back to home"
+      ctaLink="/"
+    />
+  </MainContent>
+</Layout>

@@ -1,0 +1,83 @@
+---
+import Logo from '../Logo.astro'
+
+const currentPath = Astro.url.pathname
+---
+
+<ul class="nav-items">
+  <div class="nav-group">
+    <li>
+      <a href="/mixing" aria-current={currentPath.includes('/mixing')} aria-label="Mixing">Mixing</a
+      >
+    </li>
+    <li>
+      <a
+        href="/production"
+        aria-current={currentPath.includes('/production')}
+        aria-label="Production">Production</a
+      >
+    </li>
+  </div>
+  <Logo class="logo-custom" />
+  <div class="nav-group">
+    <li>
+      <a
+        href="/discography"
+        aria-current={currentPath.includes('/discography')}
+        aria-label="Discography">Discography</a
+      >
+    </li>
+    <li>
+      <a href="/contact" aria-current={currentPath.includes('/contact')} aria-label="Contact"
+        >Contact</a
+      >
+    </li>
+  </div>
+</ul>
+
+<style>
+  a {
+    color: var(--color-grey);
+  }
+
+  .nav-items,
+  .logo-custom {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .logo-custom {
+      display: block;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .nav-items,
+    .nav-group {
+      display: flex;
+      gap: clamp(2rem, 5vw, 4rem);
+    }
+
+    .nav-items {
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      font-size: var(--size-sm);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .nav-items {
+      justify-content: space-between;
+    }
+
+    .nav-group {
+      width: 100%;
+      max-width: 300px;
+
+      &:nth-of-type(2) {
+        justify-content: flex-end;
+      }
+    }
+  }
+</style>

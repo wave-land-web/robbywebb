@@ -1,0 +1,157 @@
+---
+import MainContent from '../components/ui/MainContent.astro'
+import PageHeader from '../components/text/PageHeader.astro'
+import Layout from '../layouts/Layout.astro'
+import { albumData } from '../sanity/albumData'
+---
+
+<Layout
+  title="Robby Webb | Discography"
+  description="Explore Robby Webb's discography, a Philadelphia based producer, mixing engineer, and drummer."
+>
+  <MainContent>
+    <PageHeader text="Discography" />
+    <section id="discography" class="discography"></section>
+    <button class="load-more site-cta lsa no-repeat">Load More</button>
+  </MainContent>
+</Layout>
+
+<style is:inline>
+  .discography {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 2vw, 2rem);
+    justify-items: center;
+    min-height: 100vh;
+    margin-bottom: clamp(1.5rem, 2vw, 2rem);
+    text-align: center;
+  }
+
+  @media (min-width: 480px) {
+    .discography {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .discography {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 1800px) {
+    .discography {
+      min-height: auto;
+    }
+  }
+
+  .discography-album {
+    position: relative;
+  }
+
+  .discography-album figure {
+    width: 100%;
+    margin: auto;
+  }
+
+  .discography-album h2 {
+    padding: 1rem 0;
+    font-size: var(--size-xs);
+    font-weight: 300;
+    text-align: left;
+  }
+
+  .load-more {
+    transition: all var(--transition-normal);
+  }
+
+  .load-more.disabled {
+    color: var(--color-grey);
+    border: 1px solid var(--color-grey);
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: var(--color-black);
+    }
+  }
+</style>
+
+<script define:vars={{ albumData }}>
+  // Grab necessary DOM elements
+  const discography = document.querySelector('.discography')
+  const loadMoreButton = document.querySelector('.load-more')
+  const discographyNavLinks = document.querySelectorAll('a[href^="/discography"]')
+
+  // Set pagination data
+  const albumLimit = albumData.length
+  const albumIncrease = 16
+  const pageCount = Math.ceil(albumLimit / albumIncrease)
+  let currentPage = 1
+
+  /**
+   * Create album with image, artist, record, and slug
+   * @param {Object} album
+   * @returns {String} Album HTML template string
+   */
+  function createAlbum(album) {
+    const { image, artist, title, slug } = album
+
+    return /* HTML */ `
+      <article class="discography-album lsa no-repeat">
+        <a href="/discography/${slug}">
+          <figure>
+            <img
+              src="${image}"
+              width="632"
+              height="632"
+              title="${artist.name} - ${title}"
+              alt="${artist.name} - ${title} album cover"
+            />
+            <figcaption>
+              <h2 aria-label="${artist.name} - ${title}">${artist.name} - ${title}</h2>
+            </figcaption>
+          </figure>
+        </a>
+      </article>
+    `
+  }
+
+  /**
+   * Load and append albums to the DOM based on the current page
+   * @param {Number} page
+   */
+  function loadAlbums(page) {
+    const start = (page - 1) * albumIncrease
+    const end = start + albumIncrease
+    const albums = albumData.slice(start, end)
+
+    albums.forEach((album) => (discography.innerHTML += createAlbum(album)))
+  }
+
+  /**
+   * Increase the number of albums displayed
+   */
+  function increaseAlbums() {
+    // Load more albums if there are more to display
+    if (currentPage < pageCount) {
+      currentPage++
+      loadAlbums(currentPage)
+    }
+
+    // Disable load more button when all albums are displayed
+    if (currentPage >= pageCount) {
+      loadMoreButton.disabled = true
+      loadMoreButton.classList.add('disabled')
+      return
+    }
+  }
+
+  // Load initial albums
+  loadAlbums(currentPage)
+
+  // Load more albums
+  loadMoreButton.addEventListener('click', increaseAlbums)
+
+  // [Edge Case] If user clicks on a discography link while on the discography page, reload the page
+  discographyNavLinks.forEach((link) => link.addEventListener('click', () => location.reload()))
+</script>

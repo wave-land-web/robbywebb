@@ -1,0 +1,34 @@
+---
+/**
+ * Use this component for error pages, success messages,
+ * or simple blocks of text with a call to action.
+ */
+import PageHeader from './PageHeader.astro'
+
+export interface Props {
+  title: string
+  description: string
+  ctaText: string
+  ctaLink: string
+}
+
+const { title, description, ctaText, ctaLink } = Astro.props
+---
+
+<PageHeader class="page-header-custom" text={title} />
+<section id="message">
+  <p>{description}</p>
+  <a class="site-cta button large" href={ctaLink}>{ctaText}</a>
+</section>
+
+<style>
+  .page-header-custom,
+  p {
+    margin: 0 auto clamp(1rem, 5vw, 2rem);
+  }
+
+  p {
+    max-width: 425px;
+    text-align: center;
+  }
+</style>

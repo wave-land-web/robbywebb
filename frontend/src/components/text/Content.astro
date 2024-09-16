@@ -1,0 +1,69 @@
+---
+import { Icon } from 'astro-icon/components'
+
+export interface Props {
+  alignment?: 'left' | 'right'
+}
+
+const { alignment } = Astro.props
+---
+
+<div class:list={['content', { right: alignment === 'right' }]}>
+  <Icon name="corner-dashed" />
+  <slot />
+</div>
+
+<style>
+  .content {
+    position: relative;
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-base);
+    padding: 1rem;
+    text-align: center;
+
+    @media (min-width: 1024px) {
+      & {
+        padding: 1rem 2rem;
+        text-align: left;
+      }
+    }
+
+    & [data-icon='corner-dashed'] {
+      position: absolute;
+      top: -4rem;
+      left: -1rem;
+      transform: scaleY(-1);
+      width: 10rem;
+      height: 10rem;
+      z-index: -1;
+      color: var(--color-pink);
+    }
+
+    &.right [data-icon='corner-dashed'] {
+      left: initial;
+      right: -1rem;
+      transform: scaleX(-1) scaleY(-1);
+    }
+
+    @media (min-width: 1024px) {
+      ul {
+        padding: 0 var(--spacing-base);
+        list-style: '✔';
+      }
+
+      li {
+        padding-inline-start: var(--spacing-base);
+      }
+    }
+
+    p {
+      margin-bottom: 0rem;
+    }
+
+    li {
+      margin-bottom: var(--spacing-base);
+    }
+  }
+</style>

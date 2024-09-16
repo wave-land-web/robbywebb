@@ -1,0 +1,152 @@
+---
+import Picture from 'astro/components/Picture.astro'
+import productionOneImage from '../assets/images/production-1.jpg'
+import productionTwoImage from '../assets/images/production-2.jpg'
+import productionBioImage from '../assets/images/production-bio.jpg'
+import TextContent from '../components/text/Content.astro'
+import PageHeader from '../components/text/PageHeader.astro'
+import MainContent from '../components/ui/MainContent.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title="Robby Webb | Production"
+  description="All about production with Robby Webb, a Philadelphia based producer, mixing engineer, and drummer."
+  socialImage="/images/production-1.jpg"
+>
+  <MainContent>
+    <PageHeader class="page-header-custom" text="Production" />
+
+    <section id="production" class="production">
+      <article class="lsa no-repeat">
+        <Picture
+          src={productionOneImage}
+          formats={['avif', 'webp']}
+          loading="eager"
+          quality="low"
+          alt="Synthesizers and guitars hanging on a wall with other tools to produce music"
+        />
+        <TextContent alignment="right">
+          <h2 aria-label="Find Your Village, Find Your Voice">
+            Find Your Village, Find <span style="color:var(--color-pink);">Your Voice</span>
+          </h2>
+          <p>
+            Producing music independently is more accessible than ever, but it's easy to become
+            insular and miss crucial aspects of your work. An unbiased, honest perspective is
+            essential—one that is solely dedicated to enhancing your art.
+          </p>
+        </TextContent>
+      </article>
+
+      <article class="lsa no-repeat">
+        <Picture
+          src={productionTwoImage}
+          formats={['avif', 'webp']}
+          quality="low"
+          alt="Synthesizers and guitars hanging on a wall with Robby working in the background"
+        />
+        <TextContent>
+          <h2 aria-label="Better Together">
+            Better <span style="color:var(--color-pink);">Together</span>
+          </h2>
+          <p>
+            My production style is characterized by a focus on big vocals and theatrical
+            arrangements that bring your music to life in an extraordinary way. I'm committed to
+            honing in on what really makes your song tick, steering clear of fleeting trends.
+            Collaboration is at the heart of my process; I challenge you to explore and push your
+            creative boundaries, whether that means refining your existing strengths or revealing
+            new facets of your artistry. Together, we'll unlock and elevate the true potential of
+            your music.
+          </p>
+        </TextContent>
+      </article>
+
+      <article id="bio" class="lsa no-repeat">
+        <TextContent alignment="right">
+          <h2 aria-label="About Me">About <span style="color:var(--color-pink);">Me</span></h2>
+          <p>
+            I'm Robby Webb, a mixing engineer and producer with a passion for helping artists bring
+            their music to life. I've worked with artists across a wide range of genres, from pop to
+            rock to neo-soul, and I bring that multi-genre experience to every project I work on. I
+            understand that every song is unique, and I approach each one with fresh ears and an
+            open mind, ensuring that your music shines the way it was meant to.
+          </p>
+          <p>
+            I started my journey with music at a young age growing up in a family of musicians. I
+            spent my teens and twenties touring and playing drums for various acts across the
+            country. Opening up for acts like Stone Temple Pilots and playing at festivals like
+            Firefly. I got involved in production and mixing while studying music at The University
+            of Arts in Philadelphia and haven't stopped since.
+          </p>
+        </TextContent>
+        <Picture
+          src={productionBioImage}
+          formats={['avif', 'webp']}
+          quality="low"
+          alt="Robby Webb working in his studio"
+        />
+      </article>
+    </section>
+
+    <section id="listen" class="listen lsa no-repeat">
+      <h2 aria-label="Listen Here">Listen Here</h2>
+      <iframe
+        src="https://app.filepass.com/player/mi6sGiBPcsdUIeFn"
+        style="background: transparent; border: none; outline: none;"
+        width="100%"
+        height="576"
+        title="Robby Webb - Production Portfolio"
+        loading="lazy"></iframe>
+      <a href="/contact" class="site-cta large" aria-label="Let's Get Started">Let's Get Started</a>
+    </section>
+  </MainContent>
+</Layout>
+
+<style>
+  .listen {
+    margin-bottom: calc(var(--spacing-section) + 4rem);
+  }
+
+  .production article {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: calc(var(--spacing-section) + 4rem);
+    grid-template-areas:
+      'image'
+      'content';
+    margin-bottom: calc(var(--spacing-section) + 4rem);
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'image content';
+      gap: var(--spacing-section);
+
+      &:nth-child(2) {
+        grid-template-areas: 'content image';
+      }
+    }
+
+    & img {
+      grid-area: image;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .listen {
+    max-width: var(--container-small-width);
+    margin-left: auto;
+    margin-right: auto;
+
+    & h2 {
+      text-align: center;
+      margin: var(--spacing-base);
+    }
+
+    & .site-cta {
+      margin: var(--spacing-section) auto 0;
+    }
+  }
+</style>
