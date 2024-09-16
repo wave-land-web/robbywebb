@@ -36,25 +36,25 @@ import Layout from '../layouts/Layout.astro'
 
         <!-- Mixing -->
         <div class="checkbox">
-          <input type="checkbox" id="mixing" name="mixing" value="True" />
+          <input type="checkbox" id="mixing" name="mixing" value="Mixing" />
           <label for="mixing">Mixing</label>
         </div>
 
         <!-- Production -->
         <div class="checkbox">
-          <input type="checkbox" id="production" name="production" value="True" />
+          <input type="checkbox" id="production" name="production" value="Production" />
           <label for="production">Production</label>
         </div>
 
         <!-- Recording -->
         <div class="checkbox">
-          <input type="checkbox" id="recording" name="recording" value="True" />
+          <input type="checkbox" id="recording" name="recording" value="Recording" />
           <label for="recording">Recording</label>
         </div>
 
         <!-- Unsure -->
         <div class="checkbox">
-          <input type="checkbox" id="unsure" name="unsure" value="True" />
+          <input type="checkbox" id="unsure" name="unsure" value="Unsure" />
           <label for="unsure">I'm not sure</label>
         </div>
       </fieldset>
@@ -64,23 +64,11 @@ import Layout from '../layouts/Layout.astro'
         <legend>Have you released music before? <span>*</span></legend>
         <div class="radio music-released-prompt">
           <div>
-            <input
-              type="radio"
-              id="yes"
-              name="music-released"
-              value="Have you released music before: Yes"
-              required
-            />
+            <input type="radio" id="yes" name="music-released" value="Yes" required />
             <label for="yes">Yes</label>
           </div>
           <div>
-            <input
-              type="radio"
-              id="no"
-              name="music-released"
-              value="Have you released music before: No"
-              required
-            />
+            <input type="radio" id="no" name="music-released" value="No" required />
             <label for="no">No</label>
           </div>
         </div>
@@ -374,6 +362,8 @@ import Layout from '../layouts/Layout.astro'
 </style>
 
 <script>
+  import { navigate } from 'astro:transitions/client'
+
   // Get DOM elements
   const form = document.querySelector('.form') as HTMLFormElement
   const musicReleasedPrompt = document.querySelector('.music-released-prompt') as HTMLElement
@@ -503,8 +493,16 @@ import Layout from '../layouts/Layout.astro'
       formErrors.innerHTML = ''
     }
 
-    // Submit the form
-    form.submit()
+    const formData = new FormData(form as HTMLFormElement)
+
+    // Submit the form with a fetch POST request
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData as any).toString(),
+    })
+      .then(() => navigate('/success/'))
+      .catch((error) => console.error('Error:', error))
   }
 
   // Event listeners
