@@ -19,62 +19,74 @@ import Layout from '../layouts/Layout.astro'
       data-netlify="true"
     >
       <!-- Name -->
-      <div class="form-field">
+      <fieldset class="form-field">
         <input id="name" type="text" name="name" placeholder=" " required />
         <label for="name">Name: <span>*</span></label>
-      </div>
+      </fieldset>
 
       <!-- Email -->
-      <div class="form-field">
+      <fieldset class="form-field">
         <input id="email" type="email" name="email" placeholder=" " required />
         <label for="email">Email: <span>*</span></label>
-      </div>
+      </fieldset>
 
       <!-- Services -->
-      <div class="form-field required">
-        <p>What can I help you with? <span>*</span></p>
+      <fieldset class="form-field required">
+        <legend>What can I help you with? <span>*</span></legend>
 
         <!-- Mixing -->
         <div class="checkbox">
-          <input type="checkbox" id="mixing" name="mixing" value="Mixing" />
+          <input type="checkbox" id="mixing" name="mixing" value="True" />
           <label for="mixing">Mixing</label>
         </div>
 
         <!-- Production -->
         <div class="checkbox">
-          <input type="checkbox" id="production" name="production" value="Production" />
+          <input type="checkbox" id="production" name="production" value="True" />
           <label for="production">Production</label>
         </div>
 
         <!-- Recording -->
         <div class="checkbox">
-          <input type="checkbox" id="recording" name="recording" value="Recording" />
+          <input type="checkbox" id="recording" name="recording" value="True" />
           <label for="recording">Recording</label>
         </div>
 
         <!-- Unsure -->
         <div class="checkbox">
-          <input type="checkbox" id="unsure" name="unsure" value="Unsure" />
+          <input type="checkbox" id="unsure" name="unsure" value="True" />
           <label for="unsure">I'm not sure</label>
         </div>
-      </div>
+      </fieldset>
 
       <!-- Relevant Links -->
-      <div class="form-field">
-        <p>Have you released music before? <span>*</span></p>
+      <fieldset class="form-field">
+        <legend>Have you released music before? <span>*</span></legend>
         <div class="radio music-released-prompt">
           <div>
-            <input type="radio" id="yes" name="music-released" value="Yes" required />
+            <input
+              type="radio"
+              id="yes"
+              name="music-released"
+              value="Have you released music before: Yes"
+              required
+            />
             <label for="yes">Yes</label>
           </div>
           <div>
-            <input type="radio" id="no" name="music-released" value="No" required />
+            <input
+              type="radio"
+              id="no"
+              name="music-released"
+              value="Have you released music before: No"
+              required
+            />
             <label for="no">No</label>
           </div>
         </div>
-      </div>
+      </fieldset>
 
-      <div class="form-field relevant-links">
+      <fieldset class="form-field relevant-links">
         <div class="share-links-input">
           <input id="links" type="text" name="links" placeholder=" " />
           <label for="links">Share any relevant links:</label>
@@ -82,10 +94,10 @@ import Layout from '../layouts/Layout.astro'
         </div>
         <div class="link-container"></div>
         <p class="error">Please enter a valid URL (e.g. https://www.example.com)</p>
-      </div>
+      </fieldset>
 
       <!-- Project Details -->
-      <div class="form-field">
+      <fieldset class="form-field">
         <textarea
           id="project-details"
           name="project-details"
@@ -94,19 +106,19 @@ import Layout from '../layouts/Layout.astro'
           placeholder=" "
           required></textarea>
         <label for="project-details">Tell me about your project: <span>*</span></label>
-      </div>
+      </fieldset>
 
       <!-- Favorite Record -->
-      <div class="form-field">
+      <fieldset class="form-field">
         <input id="favorite-record" type="text" name="favorite-record" placeholder=" " />
         <label for="favorite-record">What's your favorite record?</label>
-      </div>
+      </fieldset>
 
       <!-- Anything Else -->
-      <div class="form-field">
+      <fieldset class="form-field">
         <input id="anything-else" type="text" name="anything-else" placeholder=" " />
         <label for="anything-else">Anything else you'd like to share?</label>
-      </div>
+      </fieldset>
 
       <!-- Submit -->
       <button class="site-cta" type="submit">Send Message</button>
@@ -137,14 +149,18 @@ import Layout from '../layouts/Layout.astro'
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    padding: 0;
+    border: none;
     font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
 
     & label,
-    & p:not(.error) {
+    & p:not(.error),
+    & legend {
       color: var(--color-grey);
     }
 
-    & p {
+    & p,
+    & legend {
       margin: 0 0 0.5rem;
       font-size: clamp(var(--size-xs), 2vw, var(--size-sm));
     }
