@@ -8,6 +8,9 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
   site: 'https://www.robbywebb.com',
   scopedStyleStrategy: 'class',
+  prefetch: {
+    prefetchAll: true,
+  },
   build: {
     inlineStylesheets: 'always',
   },
