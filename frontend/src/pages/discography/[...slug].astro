@@ -75,6 +75,11 @@ const { title, image, artist, type, credits, label, musicLinks } = album || {}
     max-width: var(--container-medium-width);
     margin: 0 auto;
 
+    & img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
     & h2 {
       margin-bottom: clamp(1rem, 4vw, 1.5rem);
     }
